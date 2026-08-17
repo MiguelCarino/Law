@@ -1,0 +1,469 @@
+{
+  "code": "mx",
+  "iso": "MX",
+  "name": "Mexico",
+  "nativeName": "Estados Unidos Mexicanos",
+  "flag": "🇲🇽",
+  "region": "Latin America",
+  "tradition": "civil",
+  "traditionNote": "Codified civil-law system: the binding rule is the enacted text published in an official gazette, and court decisions matter mainly through the formalised jurisprudencia and precedent system of the federal judiciary rather than as free-standing case law.",
+  "languages": [
+    "Spanish"
+  ],
+  "summary": "Federal law is made by the Congreso de la Union (Camara de Diputados and Senado), promulgated by the President, and published in the Diario Oficial de la Federacion (DOF), which is run by the Secretaria de Gobernacion and is the only official federal publication of record. The electronic DOF edition is the authentic one: the Ley del Diario Oficial de la Federacion y Gacetas Gubernamentales requires the publisher to guarantee its authenticity and integrity by advanced electronic signature, and access to it is free. Unless a decree fixes its own start date, Article 3 of the Codigo Civil Federal makes generally-applicable rules binding three days after publication in the gazette. Each of the 32 federal entities legislates for itself and publishes in its own Periodico Oficial or Gaceta Oficial. The consolidated, up-to-date statute texts that everyone actually reads are compiled by the Camara de Diputados and by the Supreme Court, but those compilations are explicitly informational; the DOF text governs.",
+  "hierarchy": [
+    "Constitucion Politica de los Estados Unidos Mexicanos",
+    "International human rights treaties (read at constitutional rank under Article 1)",
+    "Other international treaties and federal statutes (Article 133 'Ley Suprema de toda la Union')",
+    "Federal reglamentos, decretos and acuerdos of the Executive",
+    "Normas Oficiales Mexicanas (NOM) and other general administrative rules",
+    "State constitutions",
+    "State statutes and state regulations",
+    "Municipal bandos and reglamentos"
+  ],
+  "gazette": {
+    "id": "dof",
+    "name": "Diario Oficial de la Federacion",
+    "native": "Diario Oficial de la Federación",
+    "en": "Official Gazette of the Federation",
+    "url": "https://dof.gob.mx/",
+    "kind": "gazette",
+    "official": true,
+    "authority": "Direccion General del Diario Oficial de la Federacion, Secretaria de Gobernacion (SEGOB)",
+    "langs": [
+      "es"
+    ],
+    "access": "free",
+    "coverage": "1917-present, browsable by date; every business day, morning (matutina) and where issued evening (vespertina) editions",
+    "desc": "The only official federal publication of record. Statutes, decrees, reglamentos, treaties promulgations, NOMs, resolutions in constitutional controversies and every other federal act take legal effect from their text as it appears here. The digitised archive reaches the 5 February 1917 edition that carried the Constitution itself; dates before 1917 return no data.",
+    "howto": "Use CONSULTA POR FECHA to open a given day's index and pick the note, or Busqueda Avanzada for keyword and date-range searching. Each note has a stable nota_detalle.php link plus PDF and Word downloads of the day's edition.",
+    "formats": [
+      "HTML",
+      "PDF",
+      "DOC",
+      "Scanned image"
+    ],
+    "api": "https://sidof.segob.gob.mx/datos_abiertos",
+    "note": "The printed copy is produced with identical content, but the electronic edition signed by the publisher is what the law treats as authentic. Compiled versions elsewhere are convenience texts, not the gazette."
+  },
+  "constitution": {
+    "id": "cpeum",
+    "name": "Constitucion Politica de los Estados Unidos Mexicanos",
+    "native": "Constitución Política de los Estados Unidos Mexicanos",
+    "en": "Political Constitution of the United Mexican States",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/cpeum.htm",
+    "kind": "constitution",
+    "official": true,
+    "authority": "Camara de Diputados, Secretaria de Servicios Parlamentarios",
+    "langs": [
+      "es"
+    ],
+    "access": "free",
+    "coverage": "Text of 5 February 1917 as amended; reform tracking complete from 1917 to the present (current consolidation carries 'Ultimas reformas publicadas DOF 02-06-2026')",
+    "desc": "The Chamber of Deputies' constitutional page is the practical home of the Constitution: the current consolidated text plus the full amendment apparatus. Every paragraph in the consolidated PDF is footnoted with the DOF date of the reform that produced it, so you can see when any given clause entered the text.",
+    "howto": "The current text is the PDF at https://www.diputados.gob.mx/LeyesBiblio/pdf/CPEUM.pdf (also DOC and a mobile PDF). From this page, follow the reform indexes to browse amendments in chronological order, by article, or by presidential period, and to reach the original 1917 publication and the Constituent Congress debates.",
+    "formats": [
+      "HTML",
+      "PDF",
+      "DOC"
+    ],
+    "api": null,
+    "note": "This is a compilation with informational character. The legally operative text of any amendment is the reform decree as published in the DOF."
+  },
+  "sources": [
+    {
+      "id": "sidof",
+      "name": "SIDOF - Sistema de Consulta del Diario Oficial de la Federacion",
+      "native": "SIDOF — Sistema de Consulta del Diario Oficial de la Federación",
+      "en": "DOF Consultation System (advanced search and open data)",
+      "url": "https://sidof.segob.gob.mx/busquedaAvanzada/busqueda",
+      "kind": "gazette",
+      "official": true,
+      "authority": "Direccion General del Diario Oficial de la Federacion, SEGOB",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "DOF notes and editions; economic indicators (exchange rate, UDIS, TIIE) with date-range history",
+      "desc": "The search front end and machine-readable side of the DOF. This is where full-text search over gazette notes actually works: all-words, exact-phrase, some-of-the-words and synonym expansion, narrowed by date range and by issuing dependencia.",
+      "howto": "Enter the phrase, set a date range (or a preset like last month), and optionally filter by the ministry that issued the act; results link to the individual nota with its docFuente permalink. For programmatic use, the datos abiertos page documents web services returning JSON or PDF for Consultar Diario, Documentos, Indicadores and Notas.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "JSON"
+      ],
+      "api": "https://sidof.segob.gob.mx/datos_abiertos",
+      "note": "The open-data services are documented on the datos_abiertos page rather than in a formal published specification; endpoint behaviour has changed over time."
+    },
+    {
+      "id": "diputados-leyes",
+      "name": "Leyes Federales Vigentes - Camara de Diputados",
+      "native": "Leyes Federales Vigentes — Cámara de Diputados",
+      "en": "Current Federal Laws - Chamber of Deputies",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/index.htm",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Camara de Diputados del H. Congreso de la Union",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "300+ federal statutes and codes in force, 80+ federal reglamentos, plus repealed (abrogadas) laws; consolidations kept current to the latest DOF reform",
+      "desc": "The default place Mexicans go for the current text of a federal statute. Every law is offered as a single consolidated file stamped with its original DOF publication date and its last reform date, with per-article footnotes recording which DOF decree changed what.",
+      "howto": "Pick 'Leyes Federales vigentes' (alphabetical) or 'Codigos' or 'Reglamentos' from the index, then take the PDF, DOC or mobile-PDF icon next to the title. The 'Reformas' link beside each law lists every amending decree with its DOF date, and 'Abrogadas' holds laws no longer in force.",
+      "formats": [
+        "PDF",
+        "DOC"
+      ],
+      "api": null,
+      "note": "The site states plainly that the compilation is informational and that the official publication organ is the DOF."
+    },
+    {
+      "id": "legislacion-scjn",
+      "name": "Sistema de Consulta de Ordenamientos - La clave de la Corte",
+      "native": "Sistema de Consulta de Ordenamientos — «La clave de la Corte»",
+      "en": "SCJN Legislation Consultation System",
+      "url": "https://legislacion.scjn.gob.mx/consulta/home",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Centro de Documentacion y Analisis, Archivos y Compilacion de Leyes, Suprema Corte de Justicia de la Nacion",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Text and legislative chronology of more than 11,000 federal, Mexico City, state and international instruments; a register of more than 105,000 ordenamientos with their legislative histories",
+      "desc": "The Supreme Court's own compilation, and the strongest single tool for state-level statutes and for historical versions. Unlike a plain current-text collection it stores the legislative chronology of each instrument, so you can retrieve the text as it stood at a past date, and it separately flags provisions the Court has invalidated.",
+      "howto": "Use the buscador with the publication-type filter: tPub=1 federal and Mexico City legislation, tPub=2 state normativa, tPub=3 federal reglamentos and other instruments, tPub=4 international instruments. Open an ordenamiento and use its chronology to move between versions. Provisions struck down by the Court are listed separately under NormativaInvalida.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "DOC"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "ordenjuridico",
+      "name": "Orden Juridico Nacional",
+      "native": "Orden Jurídico Nacional",
+      "en": "National Legal Order",
+      "url": "https://www.ordenjuridico.gob.mx/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Unidad General de Asuntos Juridicos, Secretaria de Gobernacion (SEGOB)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Federal, state, Mexico City and municipal instruments, plus international treaties",
+      "desc": "The federal government's cross-level compilation, and the only free national tool that reaches down to municipal bandos and reglamentos. Its most reliable single page is the collection of all 32 state constitutions in one list.",
+      "howto": "Use the three ambit buttons: federal, estatal y de la Ciudad de Mexico, and local y municipal. For municipal rules, the local search takes a keyword, an instrument type and a specific municipality. The 32 state constitutions are collected at https://www.ordenjuridico.gob.mx/constitucionEdo.php.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "DOC"
+      ],
+      "api": null,
+      "note": "Coverage is uneven, especially at municipal level, and some entries are years behind. The site itself directs users to the relevant state Periodico Oficial for the authoritative version."
+    },
+    {
+      "id": "sjf",
+      "name": "Semanario Judicial de la Federacion",
+      "native": "Semanario Judicial de la Federación",
+      "en": "Federal Judicial Weekly",
+      "url": "https://sjf2.scjn.gob.mx/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Suprema Corte de Justicia de la Nacion (SCJN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Tesis and executive judgments systematised from 1917 to the present, across the successive Epocas of the Semanario, plus the precedent system for constitutional controversies",
+      "desc": "The official reporter of Mexican federal case law and the place where binding criteria are actually published. Decisions are distilled into numbered tesis - jurisprudenciales (binding), aisladas (isolated) and sobresalientes - each with a registro number that is the standard citation handle.",
+      "howto": "Search by keyword, by registro number, or by the instrument and article a tesis interprets, and filter by Epoca, by issuing body (Pleno, Salas, Plenos Regionales, Tribunales Colegiados) and by tesis type. A tesis opens at sjf2.scjn.gob.mx/detalle/tesis/<registro>. The current week's publication sits at https://sjfsemanal.scjn.gob.mx/ and general agreements at https://sjf2.scjn.gob.mx/busqueda-principal-acuerdos.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "A tesis is an abstract of a ruling, not the ruling. For the reasoning you need the sentencia itself, which lives in the Buscador Juridico."
+    },
+    {
+      "id": "bj-scjn",
+      "name": "Buscador Juridico de la Suprema Corte",
+      "native": "Buscador Jurídico de la Suprema Corte de Justicia de la Nación",
+      "en": "Supreme Court Legal Search Engine",
+      "url": "https://bj.scjn.gob.mx/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Suprema Corte de Justicia de la Nacion (SCJN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Public sentencias, precedents in acciones de inconstitucionalidad and controversias constitucionales, ministers' votes, tesis, acuerdos generales, normativa, stenographic versions and library holdings",
+      "desc": "The Court's unified search across everything it produces, and the way to read a full judgment rather than its abstract. It runs one query over separate indices and suggests related documents by subject and jurisprudential theme.",
+      "howto": "Search from the home box, then switch index in the results pane - for judgments use https://bj.scjn.gob.mx/busqueda?q=*&indice=sentencias_pub. Individual rulings resolve to bj.scjn.gob.mx/documento/sentencias_pub/<id>. The advanced form at /busqueda-avanzada adds field-level filters.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "It is a single-page application; deep links can fail if opened without the app shell loading first."
+    },
+    {
+      "id": "cjf-sentencias",
+      "name": "Buscador de Sentencias del Consejo de la Judicatura Federal",
+      "native": "Buscador de Sentencias (SISE) — Consejo de la Judicatura Federal",
+      "en": "Federal Judiciary Council Judgment Search",
+      "url": "https://ejusticia.cjf.gob.mx/BuscadorSISE/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Consejo de la Judicatura Federal (CJF)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Public versions of judgments from federal circuit and district courts (juzgados de distrito, tribunales colegiados y unitarios)",
+      "desc": "Where the lower federal judiciary's rulings live. The SCJN's systems cover the Supreme Court; this covers the amparo judgments and circuit decisions that make up the overwhelming bulk of federal litigation, drawn from the courts' own case-management system.",
+      "howto": "Query by circuit and court, by case type and number, or by date, and open the public version (version publica) of the judgment. Sensitive personal data is redacted in these versions.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Publication is by public version, so names and identifying details are commonly suppressed."
+    },
+    {
+      "id": "tepjf",
+      "name": "Tribunal Electoral del Poder Judicial de la Federacion",
+      "native": "Tribunal Electoral del Poder Judicial de la Federación (TEPJF)",
+      "en": "Electoral Tribunal of the Federal Judiciary",
+      "url": "https://www.te.gob.mx/buscador/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Tribunal Electoral del Poder Judicial de la Federacion",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Sentencias of the Sala Superior and regional chambers; electoral jurisprudencia and tesis",
+      "desc": "Electoral matters sit outside the ordinary federal courts and are resolved finally by this tribunal, so its rulings will not be found through the CJF search. It is the authority on election disputes, party and candidacy questions, and political-electoral rights.",
+      "howto": "Use the sentence search at /buscador/ by case key, chamber, year or subject. Binding electoral criteria are compiled separately in IUS Electoral at https://www.te.gob.mx/ius2021/#/, with thematic lines of precedent at https://www.te.gob.mx/lineasjuris/.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The site sits behind bot protection and can block automated fetching."
+    },
+    {
+      "id": "tratados-sre",
+      "name": "Biblioteca Virtual de Tratados Internacionales",
+      "native": "Biblioteca Virtual de Tratados Internacionales de México",
+      "en": "Virtual Library of Mexico's International Treaties",
+      "url": "https://cja.sre.gob.mx/tratadosmexico/buscador",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Consultoria Juridica, Secretaria de Relaciones Exteriores (SRE)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Roughly 1,500 bilateral and multilateral treaties to which Mexico is party",
+      "desc": "The Foreign Ministry's treaty register, and the authoritative record of which treaties bind Mexico and on what terms. Article 133 places treaties made by the President and approved by the Senate among the supreme law of the union, so this matters as a primary source and not just as diplomacy.",
+      "howto": "Browse or filter by bilateral versus multilateral, by counterpart country and by subject theme; each entry gives the treaty text and its status, signature and entry-into-force data. Senate approvals are listed separately at https://www.senado.gob.mx/65/tratados_internacionales_aprobados.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Physical originals are held in the Genaro Estrada historical archive; the promulgation decree in the DOF is what gives a treaty domestic effect."
+    },
+    {
+      "id": "cnartys",
+      "name": "Catalogo Nacional de Regulaciones, Tramites y Servicios (CNARTyS)",
+      "native": "Catálogo Nacional de Regulaciones, Trámites y Servicios (CNARTyS)",
+      "en": "National Catalogue of Regulations, Procedures and Services",
+      "url": "https://catalogonacional.gob.mx/Home",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Comision Nacional de Mejora Regulatoria (CONAMER)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Regulations, procedures, services, inspections and inspectors registered by federal, state and municipal authorities",
+      "desc": "The register that tells you which administrative requirements an authority may actually enforce. Registration is compulsory for public authorities across all three levels and the registered information is binding on them, which makes this unusually useful: an obligation not in the catalogue is one the authority is not supposed to be imposing.",
+      "howto": "Search by authority, by subject or by the name of the tramite; each record shows the regulation it rests on, the requirements, deadlines and fees, and the responsible unit.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "It catalogues regulatory requirements rather than reproducing full legal texts; the underlying norm still has to be read in the DOF or the relevant state gazette."
+    },
+    {
+      "id": "sinec",
+      "name": "SINEC - Catalogo Mexicano de Normas",
+      "native": "SINEC — Sistema Integral de Normas y Evaluación de la Conformidad / Catálogo Mexicano de Normas",
+      "en": "Mexican Catalogue of Standards",
+      "url": "https://www.sinec.gob.mx/SINEC/Vista/Normalizacion/BusquedaNormas.xhtml",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Direccion General de Normas, Secretaria de Economia",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Normas Oficiales Mexicanas (NOM) and Normas Mexicanas (NMX) in force and cancelled, plus drafts (proyectos)",
+      "desc": "NOMs are mandatory technical regulations published in the DOF and are a large slice of everyday Mexican regulatory law. This catalogue is the only place that keeps the whole NOM/NMX universe together with its current status, so you can tell whether a standard is in force, superseded or cancelled.",
+      "howto": "Use the norm search to filter by NOM/NMX key, issuing dependencia, subject or status; entries link to the full text and to the DOF publication that created or cancelled the standard.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "NMX standards are voluntary; NOMs are mandatory. The catalogue is updated from DOF publications, so there can be a lag after a new NOM appears."
+    },
+    {
+      "id": "gaceta-diputados",
+      "name": "Gaceta Parlamentaria de la Camara de Diputados",
+      "native": "Gaceta Parlamentaria — Cámara de Diputados",
+      "en": "Parliamentary Gazette of the Chamber of Deputies",
+      "url": "https://gaceta.diputados.gob.mx/",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Direccion General de Cronica y Gaceta Parlamentaria, Camara de Diputados",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Daily since November 1997 (LVII Legislatura) to the present; some series begin at later legislaturas",
+      "desc": "The daily record of what the lower chamber is doing: iniciativas, dictamenes, proposiciones, agendas, committee minutes and roll-call votes. This is where the legislative history behind a reform decree - the bill text, the committee report, the vote - can be reconstructed.",
+      "howto": "Browse by date from the daily index, or use the section indexes for iniciativas, dictamenes and votaciones; there is a full-text search over the archive and a searchable PDF back-run to 1997.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "sil",
+      "name": "Sistema de Informacion Legislativa (SIL)",
+      "native": "Sistema de Información Legislativa (SIL)",
+      "en": "Legislative Information System",
+      "url": "https://sil.gobernacion.gob.mx/portal/AsuntosLegislativos/",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Direccion General de Informacion Legislativa, Secretaria de Gobernacion (SEGOB)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Legislative matters, sessions, legislator profiles and Congress composition across recent legislaturas",
+      "desc": "The executive branch's tracker of both chambers in one place, which is what makes it different from either chamber's own gazette. Use it to follow a bill's status through Diputados and Senado, or to see whether an announced reform has actually been approved.",
+      "howto": "Use busquedaAvanzada to search asuntos legislativos by keyword, initiator, subject, chamber and legislatura; each record shows the procedural trail and links to the supporting documents.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The certificate chain on this host is frequently misconfigured, which trips some clients."
+    },
+    {
+      "id": "gaceta-cdmx",
+      "name": "Gaceta Oficial de la Ciudad de Mexico",
+      "native": "Gaceta Oficial de la Ciudad de México",
+      "en": "Official Gazette of Mexico City",
+      "url": "https://data.consejeria.cdmx.gob.mx/index.php/gaceta",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Consejeria Juridica y de Servicios Legales, Gobierno de la Ciudad de Mexico",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Back issues browsable by year, roughly 2013 onward, published on most business days",
+      "desc": "The gazette of record for the largest federal entity, and the model for how the other 31 work. It carries Mexico City laws, decrees, reglamentos, acuerdos and resolutions in constitutional actions affecting the city, plus notarial and private notices required by law.",
+      "howto": "Pick the year, then the issue number and tomo, and download the PDF; the front matter of each issue is an index of the acts it contains. The Consejeria portal at https://consejeria.cdmx.gob.mx/gaceta-oficial is the front door.",
+      "formats": [
+        "PDF"
+      ],
+      "api": null,
+      "note": "Issues are PDF volumes rather than individually addressable acts, so full-text searching across years is awkward."
+    },
+    {
+      "id": "iij-unam",
+      "name": "Instituto de Investigaciones Juridicas, UNAM",
+      "native": "Instituto de Investigaciones Jurídicas, UNAM — Biblioteca Jurídica Virtual",
+      "en": "Institute of Legal Research, UNAM - Virtual Law Library",
+      "url": "https://www.juridicas.unam.mx/",
+      "kind": "research",
+      "official": false,
+      "authority": "Universidad Nacional Autonoma de Mexico (academic, not a government publisher)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Open-access legal monographs, journals and constitutional documentation, including historical Mexican constitutions",
+      "desc": "The largest free Spanish-language legal library in the region and the standard secondary source for Mexican law. When you need commentary, doctrinal analysis, or the historical constitutions of 1824, 1836, 1857 and the 1917 original, this is where it is, free and without registration.",
+      "howto": "Search the Biblioteca Juridica Virtual for books and journal articles by subject or author; texts open in HTML and PDF at archivos.juridicas.unam.mx. Constitutional materials sit under the Constitucion section.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Academic, not official. Nothing here is a source of law; it is commentary and reproduced documentation."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current text of a federal statute",
+      "steps": "Open the Camara de Diputados legal library, choose 'Leyes Federales vigentes' or 'Codigos', and locate the law alphabetically. Download the PDF or DOC; the cover states the original DOF publication date and 'Ultima reforma publicada DOF', and footnotes mark which decree amended each article.",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/index.htm",
+      "source": "Leyes Federales Vigentes - Camara de Diputados"
+    },
+    {
+      "task": "See what changed, and read the amendment as officially published",
+      "steps": "Note the DOF date from the consolidated text's footnote or from the law's 'Reformas' index, then retrieve that day's gazette by date on the DOF site. For keyword or date-range hunting across decrees, use the SIDOF advanced search and open the nota's docFuente permalink.",
+      "url": "https://sidof.segob.gob.mx/busquedaAvanzada/busqueda",
+      "source": "Diario Oficial de la Federacion / SIDOF"
+    },
+    {
+      "task": "Read the text of a law as it stood on a past date",
+      "steps": "Search the ordenamiento in the SCJN's Sistema de Consulta de Ordenamientos and open its legislative chronology, which lists every version with its DOF date so you can retrieve the text in force at the moment you care about. Provisions annulled by the Court are flagged in the NormativaInvalida section.",
+      "url": "https://legislacion.scjn.gob.mx/consulta/home",
+      "source": "Sistema de Consulta de Ordenamientos - SCJN"
+    },
+    {
+      "task": "Find case law or a binding criterion",
+      "steps": "Search the Semanario Judicial de la Federacion by keyword, registro number, or by the article the criterion interprets, filtering by Epoca and issuing body to see whether the tesis is jurisprudencia (binding) or aislada. To read the full judgment behind it, search the same case in the SCJN Buscador Juridico; for circuit and district court rulings use the CJF judgment search instead.",
+      "url": "https://sjf2.scjn.gob.mx/",
+      "source": "Semanario Judicial de la Federacion"
+    },
+    {
+      "task": "Find a reglamento, decree or Norma Oficial Mexicana",
+      "steps": "For reglamentos to federal laws, use the 'Reglamentos' section of the Camara de Diputados library or the SCJN buscador with tPub=3. For NOMs and NMX, search SINEC by key or subject to confirm whether the standard is in force, superseded or cancelled, then read the DOF publication itself. To check what an authority may require of you administratively, look the tramite up in CNARTyS.",
+      "url": "https://www.sinec.gob.mx/SINEC/Vista/Normalizacion/BusquedaNormas.xhtml",
+      "source": "SINEC - Catalogo Mexicano de Normas"
+    },
+    {
+      "task": "Find a state law or a state constitution",
+      "steps": "Start with the SCJN buscador filtered to state normativa (tPub=2), which holds consolidated state texts with their chronologies; the 32 state constitutions are collected in one list on Orden Juridico Nacional. Then confirm against the Periodico Oficial or Gaceta Oficial of that state, which is the authoritative publication for its own law - for the capital, the Gaceta Oficial de la Ciudad de Mexico.",
+      "url": "https://legislacion.scjn.gob.mx/consulta/buscador?tPub=2",
+      "source": "Sistema de Consulta de Ordenamientos - SCJN / Orden Juridico Nacional"
+    },
+    {
+      "task": "Trace the legislative history of a reform",
+      "steps": "Look the matter up in the Sistema de Informacion Legislativa to get its procedural trail through both chambers, then pull the iniciativa, the dictamen and the vote from the Gaceta Parlamentaria of the Chamber of Deputies (searchable back to November 1997) or from the Gaceta del Senado.",
+      "url": "https://sil.gobernacion.gob.mx/portal/AsuntosLegislativos/",
+      "source": "Sistema de Informacion Legislativa (SIL)"
+    }
+  ],
+  "subnational": "Mexico is a federation of 32 federal entities, each with its own constitution, congress, courts and body of statutes, plus municipalities that issue bandos and reglamentos. There is no single national gazette for them: each state publishes in its own Periodico Oficial or Gaceta Oficial (Mexico City's is the Gaceta Oficial de la Ciudad de Mexico), and that state publication - not any federal compilation - is the authoritative text for state law. The two practical starting points that span all 32 are the SCJN's Sistema de Consulta de Ordenamientos filtered to state normativa, which holds consolidated texts with version chronologies, and Orden Juridico Nacional, whose one genuinely complete page is its list of all 32 state constitutions. Quality varies sharply by state: some periodicos oficiales offer searchable archives going back decades, others post only recent PDFs.",
+  "caveats": "Only the Diario Oficial de la Federacion is the official federal text, and only the relevant state gazette is official for state law; the Camara de Diputados library, the SCJN compilation and Orden Juridico Nacional all carry explicit disclaimers that they are informational compilations. Consolidated 'texto vigente' files are convenience versions - the legally operative instrument is always the as-enacted decree in the gazette, so verify the DOF date before relying on wording. Mexican law is authentic only in Spanish; the SCJN has published an English translation of the Constitution, but its fourth edition dates from August 2010 and is many amendments out of date, and no unofficial English version of any statute is citable. The DOF's browsable archive begins in 1917 and earlier predecessor gazettes are not in it, while municipal coverage on Orden Juridico Nacional is patchy and often stale. Commercial services such as vLex, Justia Mexico, Leyco and IUS-style resellers reproduce Mexican law competently and are widely used, but they are private, sometimes paywalled, and are not official publishers.",
+  "updated": "2026-08"
+}

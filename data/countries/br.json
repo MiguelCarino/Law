@@ -1,0 +1,482 @@
+{
+  "code": "br",
+  "iso": "BR",
+  "name": "Brazil",
+  "nativeName": "República Federativa do Brasil",
+  "flag": "🇧🇷",
+  "region": "Latin America",
+  "tradition": "civil",
+  "traditionNote": "A codified civil-law federation: the starting point is always the enacted text of a constitution, code, law or decree, with court decisions read alongside it rather than as the primary source, though binding súmulas vinculantes and qualified precedents of the STF and STJ carry general effect.",
+  "languages": [
+    "Portuguese"
+  ],
+  "summary": "Federal law is made by the National Congress (Câmara dos Deputados and Senado Federal), with the President issuing regulatory decrees and provisional measures (medidas provisórias) that Congress must convert into law. Every federal act becomes effective through publication in the Diário Oficial da União (DOU), produced by the Imprensa Nacional; that published text is the act of record. Unless the act says otherwise, a law enters into force forty-five days after official publication, under Article 1 of the Lei de Introdução às Normas do Direito Brasileiro (Decreto-Lei 4.657/1942). The consolidated, amendment-updated versions that most people actually read are maintained separately by the Casa Civil at planalto.gov.br/ccivil_03 and by the Senate at normas.leg.br — these are official government compilations of the DOU text, not a second act of publication. Brazil is a federation, so each of the 26 states, the Federal District and every municipality also legislates and publishes in its own diário oficial.",
+  "hierarchy": [
+    "Constituição Federal de 1988 and constitutional amendments (emendas constitucionais)",
+    "Human rights treaties approved under Art. 5 §3 by the two-round, three-fifths rite (constitutional rank)",
+    "Other international human rights treaties (supra-legal status under STF case law)",
+    "Leis complementares (complementary laws)",
+    "Leis ordinárias, leis delegadas, medidas provisórias, decretos legislativos, resoluções, and other treaties (ordinary-law rank)",
+    "Decretos regulamentares issued by the President",
+    "Portarias, instruções normativas, resoluções and other administrative acts of ministries and regulatory agencies",
+    "State constitutions, state laws and state decrees",
+    "Municipal organic laws (leis orgânicas) and municipal legislation"
+  ],
+  "gazette": {
+    "id": "dou",
+    "name": "Diario Oficial da Uniao",
+    "native": "Diário Oficial da União",
+    "en": "Official Gazette of the Union",
+    "url": "https://www.in.gov.br/leiturajornal",
+    "kind": "gazette",
+    "official": true,
+    "authority": "Imprensa Nacional",
+    "langs": [
+      "pt"
+    ],
+    "access": "free",
+    "coverage": "Published since 1862; digital editions available on the Imprensa Nacional site since 1990, every business day plus extra editions",
+    "desc": "The gazette of record for the federal government: laws, constitutional amendments, provisional measures, decrees, ministerial and agency acts, appointments and procurement notices. Publication here is what makes a federal act effective, so this is the text an act legally is, before any compiler tidies it.",
+    "howto": "Use the Leitura do Jornal browser to pick an edition date and open Seção 1 (normative acts), Seção 2 (personnel) or Seção 3 (contracts, tenders); extra editions are listed separately. From in.gov.br you can also search the full text of the gazette by keyword, organ and date range.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": null,
+    "note": "The DOU carries the act as enacted on the day it was published — it is never retroactively updated, so a law found here will not reflect later amendments. in.gov.br refuses non-browser clients at the connection level, so it must be opened in a real browser; gov.br's own Imprensa Nacional service page redirects here, confirming it as the current official host."
+  },
+  "constitution": {
+    "id": "cf88",
+    "name": "Constituicao da Republica Federativa do Brasil de 1988",
+    "native": "Constituição da República Federativa do Brasil de 1988",
+    "en": "Constitution of the Federative Republic of Brazil of 1988",
+    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "kind": "constitution",
+    "official": true,
+    "authority": "Presidência da República — Casa Civil, Subchefia para Assuntos Jurídicos",
+    "langs": [
+      "pt"
+    ],
+    "access": "free",
+    "coverage": "Promulgated 5 October 1988, kept updated with all constitutional amendments and revision amendments",
+    "desc": "The Casa Civil's consolidated text of the 1988 Constitution, including the Ato das Disposições Constitucionais Transitórias (ADCT). Amended passages are shown inline with a bracketed reference to the emenda constitucional that changed them, and superseded wording is struck through or footnoted, so you can see the drafting history on the page.",
+    "howto": "Open the single-page text and use in-page search (Ctrl+F) for an article number such as 'Art. 5' or a phrase; the links marked '(Redação dada pela Emenda Constitucional nº …)' jump to the amendment that produced the current wording. Earlier Brazilian constitutions (1824, 1891, 1934, 1937, 1946, 1967) sit under the same /ccivil_03/constituicao/ directory.",
+    "formats": [
+      "HTML"
+    ],
+    "api": null,
+    "note": "Only the Portuguese text is authentic; the Senate's English and French versions are courtesy translations."
+  },
+  "sources": [
+    {
+      "id": "planalto-ccivil",
+      "name": "Portal da Legislacao — Ccivil_03",
+      "native": "Portal da Legislação — Casa Civil (ccivil_03)",
+      "en": "Legislation Portal of the Chief of Staff Office",
+      "url": "https://www.planalto.gov.br/ccivil_03/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Presidência da República — Casa Civil, Subchefia para Assuntos Jurídicos",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Imperial-era instruments (cartas régias, cartas de lei, alvarás) through acts issued this week",
+      "desc": "The index page of Brazil's most-used government compilation, organised by instrument type: constitutions, codes, laws, decrees, provisional measures, veto messages, revoked acts and the daily resenha. Almost every citation of a Brazilian federal statute on the open web points into this directory.",
+      "howto": "The index is a plain column of links, one per instrument type — LEIS, decreto, Decreto-Lei, MPV, Codigos, Constituicao, Portaria, Resenha, VETO_TOTAL, Atos-Revogados, Alvara, Carta Regia, Carta de Lei. Follow one to its year index (for example /ccivil_03/LEIS/_Lei-principal.htm or /ccivil_03/decreto/_Dec_ano.htm), then pick the year and the act. A filename ending in 'compilado'/'compilada' is the amendment-updated version, while the plain filename is the text as originally published.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "A hand-built static site, not a database: file naming is inconsistent (case varies, and the compiled suffix is 'compilado' or 'compilada' depending on the instrument), and a compiled version does not exist for every act."
+    },
+    {
+      "id": "planalto-busca",
+      "name": "Base da Legislacao Federal do Brasil",
+      "native": "Base da Legislação Federal do Brasil",
+      "en": "Federal Legislation Database of Brazil",
+      "url": "https://legislacao.planalto.gov.br/legisla/legislacao.nsf/FrmConsultaWeb1?OpenForm",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Presidência da República — Casa Civil, Subchefia para Assuntos Jurídicos",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Federal normative acts indexed by type, number, date, subject and issuing authority",
+      "desc": "The searchable front end to the Planalto compilation, as opposed to the browse-by-year index. Use it when you know roughly what you want but not the act number, or when you want everything a given ministry issued in a period.",
+      "howto": "Fill in tipo de norma (Lei, Decreto, Medida Provisória…), número and ano, or search by termo/assunto; results link straight to the ccivil_03 text. A 'Sistema Push' subscription on the same portal e-mails newly published acts.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "The form is JavaScript-dependent and sits behind a bot check, so it may not load in stripped-down browsers or scrapers."
+    },
+    {
+      "id": "planalto-codigos",
+      "name": "Codigos",
+      "native": "Códigos",
+      "en": "Codes",
+      "url": "https://www.planalto.gov.br/ccivil_03/codigos/quadro_cod.htm",
+      "kind": "codes",
+      "official": true,
+      "authority": "Presidência da República — Casa Civil, Subchefia para Assuntos Jurídicos",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "All federal codes in force, with links to the consolidated text of each",
+      "desc": "A single table of Brazil's codes — Civil, Penal, Processo Civil, Processo Penal, Tributário Nacional, Defesa do Consumidor, Trânsito, CLT and the rest — pointing at the compiled version of each. Faster than hunting for a code by its law number.",
+      "howto": "Find the code by name in the table and follow the link; codes enacted as decreto-lei (Penal, CLT, Processo Penal) live under /ccivil_03/decreto-lei/, those enacted as leis under /ccivil_03/leis/.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "planalto-decretos",
+      "name": "Decretos",
+      "native": null,
+      "en": "Executive Decrees",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto/_dec_principal.htm",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Presidência da República — Casa Civil, Subchefia para Assuntos Jurídicos",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Presidential decrees by year, from the nineteenth century to the current year",
+      "desc": "Where the subordinate legislation that actually operationalises a statute lives: presidential decrees, including the regulamentos that give effect to laws and the decrees promulgating international treaties into domestic law.",
+      "howto": "Choose the year, then the decree number in the yearly list. Sub-statutory acts below decree level — portarias, instruções normativas, resoluções of ANVISA, ANEEL, CVM and other agencies — are not here; those are published in DOU Seção 1 and republished on each agency's gov.br page.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Decrees numbered without a number ('decreto sem número') and reserved decrees are indexed separately from the main series."
+    },
+    {
+      "id": "camara-legislacao",
+      "name": "Pesquisa de Legislacao — Camara dos Deputados",
+      "native": "Pesquisa de Legislação — Câmara dos Deputados",
+      "en": "Legislation Search — Chamber of Deputies",
+      "url": "https://www.camara.leg.br/legislacao",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Câmara dos Deputados",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Federal legislation and Chamber internal norms, with a very long historical tail of instrument types (cartas régias, atos institucionais, leis imperiais)",
+      "desc": "The Chamber's legislation database (long known as LEGIN) covers a far wider range of instrument types than Planalto, including colonial and imperial acts and the institutional acts of the military period. It also links each norm to its legislative history.",
+      "howto": "Choose the scope (legislação federal / interna da Câmara / toda a legislação), pick the tipo de norma from the long dropdown, and add número, ano or free text. From a result you can follow through to the bill (proposição) that produced it via the Chamber's proposition search.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://dadosabertos.camara.leg.br/",
+      "note": "The Chamber portal offers an English section at www2.camara.leg.br/english, but it is institutional material only — the legislation database, its search form and every norm in it are Portuguese-only."
+    },
+    {
+      "id": "camara-colecao",
+      "name": "Colecao de Leis Anuais do Brasil",
+      "native": "Coleção de Leis Anuais do Brasil",
+      "en": "Annual Collection of Laws of Brazil",
+      "url": "https://www2.camara.leg.br/atividade-legislativa/legislacao/colecao-anual-de-leis",
+      "kind": "research",
+      "official": true,
+      "authority": "Câmara dos Deputados",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Digitised annual volumes from 1808 to 2000 — the Empire series (1808-1889) and the Republic series (1889-2000)",
+      "desc": "Scans of the annual Coleção de Leis volumes — the as-enacted, pre-digital record. This is where to go when you need to see what a law looked like when it was passed rather than what a compiler says it says now, or when an act predates the digital DOU archive.",
+      "howto": "The landing page lists the collection as period groupings (Empire 1808-1889, then Republic decades such as 1890-1899 and 1951-1960); open a period, then the year, then the part/volume. The PDFs themselves are served from the Chamber's digital library at bd.camara.leg.br and individual volumes can run to tens of megabytes.",
+      "formats": [
+        "PDF"
+      ],
+      "api": null,
+      "note": "Scanned page images — text search inside older volumes is limited by OCR quality."
+    },
+    {
+      "id": "senado-legis",
+      "name": "Legislacao Federal — Senado Federal",
+      "native": "Legislação Federal — Senado Federal",
+      "en": "Federal Legislation — Federal Senate",
+      "url": "https://legis.senado.leg.br/norma/",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Senado Federal — Secretaria de Informação Legislativa",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Brazilian federal norms, maintained continuously by the Senate's legislative information service",
+      "desc": "The Senate's own legislation database — an independently maintained parallel to Planalto's compilation, with structured metadata on each norm (publication reference, amendments made and received, revocation status).",
+      "howto": "Search by tipo, número and ano, or by keyword; each norm record shows its DOU publication data and the chain of acts that altered it, with links to the amending norms.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://legis.senado.leg.br/dadosabertos/",
+      "note": null
+    },
+    {
+      "id": "normas-leg",
+      "name": "Normas.leg.br",
+      "native": null,
+      "en": "Normas.leg.br — Federal Legislation Portal",
+      "url": "https://normas.leg.br/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Senado Federal — Secretaria de Informação Legislativa",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Federal norms in structured form, addressable by LexML URN",
+      "desc": "The modern presentation layer over the Senate's norms base, and the site the Senate itself points to for the official text of the Constitution and the ADCT. Its strength is stable citation: every norm has a permanent LexML URN address.",
+      "howto": "Search by type and number, or construct a URN address directly — for example https://normas.leg.br/?urn=urn:lex:br:federal:constituicao:1988-10-05;1988 for the Constitution. Texts are offered as promulgated and as updated.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://legis.senado.leg.br/dadosabertos/",
+      "note": "The interface requires JavaScript."
+    },
+    {
+      "id": "senado-cf",
+      "name": "Constituicao Federal — Senado Federal (traducoes)",
+      "native": "Constituição Federal — Senado Federal",
+      "en": "Federal Constitution — Senate page, including translations",
+      "url": "https://www25.senado.leg.br/web/atividade/legislacao/constituicao-federal",
+      "kind": "translation",
+      "official": true,
+      "authority": "Senado Federal",
+      "langs": [
+        "pt",
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Constitution and ADCT: promulgated and updated Portuguese texts; English updated through Constitutional Amendment 132/2023; French through Amendment 131/2023; audio narration through Amendment 99/2017",
+      "desc": "The one place where an official body publishes the Constitution in English and French. Useful for non-Portuguese readers, and the only translation of the Constitution produced by a Brazilian state institution rather than a commercial publisher.",
+      "howto": "The links are named by language and document: 'Constituição em Inglês (atualizado até a Emenda Constitucional nº 132/2023)' and 'ADCT - Texto em Inglês', or 'Constituição em Francês (atualizado até a Emenda Constitucional nº 131/2023)' and 'ADCT - Texto em Francês' — Constitution and ADCT are always separate documents. The Portuguese 'Constituição - Texto Promulgado' and 'Constituição - Texto Atualizado' links resolve to normas.leg.br, and 'Constituição em áudio' is narrated only through Emenda Constitucional nº 99/2017.",
+      "formats": [
+        "PDF",
+        "HTML"
+      ],
+      "api": null,
+      "note": "The translations are informational; they lag the Portuguese text and carry no legal effect."
+    },
+    {
+      "id": "lexml",
+      "name": "LexML Brasil",
+      "native": null,
+      "en": "LexML Brazil — Legislative and Legal Information Network",
+      "url": "https://www.lexml.gov.br/",
+      "kind": "research",
+      "official": true,
+      "authority": "Rede LexML Brasil, hosted by the Senado Federal",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Federated index across federal, state and municipal legislation, jurisprudence, legislative propositions and doctrine from participating institutions",
+      "desc": "The federated search layer over Brazilian legal information: instead of choosing between Planalto, the Senate, the Chamber and the courts, you search all participating collections at once and are handed off to the publisher's own copy. It is also the registry for the LexML URN citation scheme used across Brazilian government systems.",
+      "howto": "Search from the home page or use /busca/search?smode=advanced to filter by tipo de documento, localidade (which is how you reach state and municipal norms), autoridade and date. Results are links out to the holding institution — LexML indexes, it does not host the text.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Coverage depends entirely on which bodies feed the network; state and municipal coverage is uneven. The plain home page loads anywhere, but /busca/search is gated by a Senado Federal 'Verificação de segurança' interstitial, so results are not reachable without a scripted browser."
+    },
+    {
+      "id": "stf-jurisprudencia",
+      "name": "Pesquisa de Jurisprudencia do STF",
+      "native": "Pesquisa de Jurisprudência — Supremo Tribunal Federal",
+      "en": "Case Law Search — Supreme Federal Court",
+      "url": "https://jurisprudencia.stf.jus.br/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Supremo Tribunal Federal (STF)",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Four bases: acórdãos, súmulas (including súmulas vinculantes), decisões monocráticas and informativos",
+      "desc": "The constitutional court's own case law search. This is where you find súmulas vinculantes and general-repercussion (repercussão geral) rulings, which bind lower courts and the public administration, so it matters well beyond the parties to the case.",
+      "howto": "Enter a search expression, then narrow by base (acórdãos / súmulas / decisões monocráticas / informativos) and by filters such as relator, órgão julgador and date; you can extend the search from the ementa to the full text of the decision. The STF portal links straight into the app — /pages/search is the search screen, and appending base=sumulas&is_vinculante=true opens the súmulas vinculantes base directly.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "A JavaScript application behind a web application firewall: automated clients get an empty response, so it must be opened in a real browser. The stf.jus.br certificate chain is also served incomplete, which some strict clients reject."
+    },
+    {
+      "id": "stj-scon",
+      "name": "SCON — Pesquisa de Jurisprudencia do STJ",
+      "native": "SCON — Pesquisa de Jurisprudência do Superior Tribunal de Justiça",
+      "en": "SCON — Case Law Search, Superior Court of Justice",
+      "url": "https://scon.stj.jus.br/SCON/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Superior Tribunal de Justiça (STJ)",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "STJ acórdãos, súmulas, decisões monocráticas, informativos de jurisprudência and qualified precedents",
+      "desc": "The court of last resort for federal non-constitutional law. SCON is the standard tool for finding how a provision of a federal statute or code has actually been read, including the recursos repetitivos whose holdings govern identical cases nationwide.",
+      "howto": "Use the pesquisa livre box with operators, or the structured fields for ministro relator, órgão julgador and data de julgamento; the 'Precedentes Qualificados' area at processo.stj.jus.br/repetitivos/temas_repetitivos/ lists binding repetitive-appeal themes by subject.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "concordia",
+      "name": "Concordia — Sistema de Atos Internacionais",
+      "native": "Concórdia — Sistema de Atos Internacionais",
+      "en": "Concórdia — International Acts System",
+      "url": "https://concordia.itamaraty.gov.br/",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Ministério das Relações Exteriores (Itamaraty)",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Bilateral and multilateral international acts to which Brazil is a party, with status of ratification and entry into force",
+      "desc": "Itamaraty's treaty registry — the authoritative record of which international acts Brazil has signed, ratified and brought into force, and of their texts. Domestic effect additionally requires a decreto legislativo from Congress and a promulgating presidential decree, both of which are found on Planalto.",
+      "howto": "Search by counterpart country, subject or date to retrieve the treaty record, then cross-check the decreto legislativo and the promulgating decreto in the Planalto decree index for the domestic instrument.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The interface requires JavaScript."
+    },
+    {
+      "id": "doe-sp",
+      "name": "Diario Oficial do Estado de Sao Paulo",
+      "native": "Diário Oficial do Estado de São Paulo",
+      "en": "Official Gazette of the State of São Paulo",
+      "url": "https://doe.sp.gov.br/",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Governo do Estado de São Paulo (Imprensa Oficial do Estado — IMESP)",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "Published since May 1891; current daily editions online with keyword and date-range search",
+      "desc": "A representative state gazette, and the largest by volume. Each Brazilian state runs an equivalent, and state acts take effect through publication in the state's own diário, not in the DOU — so a state statute will never appear in the federal gazette.",
+      "howto": "The top menu carries exactly four public tools: 'Leitura do Diário' to open a given date's edition, 'Busca Avançada' (/busca-avancada) for keyword and date-range search, 'Publicar no Diário' for submitting matter, and 'Autenticar Publicação' to verify a published item. There is no statute lookup here — for the consolidated text of São Paulo state laws and decrees go to the ALESP norms base instead.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "A JavaScript single-page application; the navigation does not render without scripting."
+    },
+    {
+      "id": "alesp-norma",
+      "name": "Legislacao Estadual — Assembleia Legislativa de Sao Paulo",
+      "native": "Legislação Estadual — Assembleia Legislativa do Estado de São Paulo (ALESP)",
+      "en": "State Legislation — Legislative Assembly of São Paulo",
+      "url": "https://www.al.sp.gov.br/norma/",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Assembleia Legislativa do Estado de São Paulo",
+      "langs": [
+        "pt"
+      ],
+      "access": "free",
+      "coverage": "São Paulo state constitution, laws, complementary laws, decrees and consolidated collections",
+      "desc": "The model for how a state legislature publishes its own law: a searchable norms base with the state constitution, a consolidation of laws by subject, and thematic coletâneas. Other state assemblies run comparable systems under their own domains.",
+      "howto": "Use /norma/pesquisa for number-and-year or free-text search, /norma/pesquisa-por-tema and /norma/pesquisa-por-ano to browse, and 'Consolidação de Leis' for subject-consolidated texts.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "jusbrasil",
+      "name": "Jusbrasil",
+      "native": null,
+      "en": "Jusbrasil — commercial legal information platform",
+      "url": "https://www.jusbrasil.com.br/",
+      "kind": "research",
+      "official": false,
+      "authority": "Jusbrasil (private company)",
+      "langs": [
+        "pt"
+      ],
+      "access": "partial-paywall",
+      "coverage": "Aggregated legislation, case law from courts at every level, and diários oficiais including the DOU and state and judicial gazettes",
+      "desc": "Not official, but the tool a large share of Brazilian practitioners reach for first, because it aggregates federal, state, municipal and judicial publications into one search and surfaces lower-court decisions that individual tribunal sites index poorly. Include it in a search strategy, then verify anything that matters against the publisher's own copy.",
+      "howto": "Search by act name, article, party or case number; each result should be traced back to its source — the DOU on in.gov.br, the consolidated text on Planalto or normas.leg.br, or the deciding court's own jurisprudence portal.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Private publisher; much of the content sits behind registration or subscription, and its reproductions carry no official status."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current consolidated text of a federal statute",
+      "steps": "Open the Planalto legislation index, choose LEIS, then the year of the law, and open the entry for its number. Prefer the filename ending in 'compilado' or 'compilada' when one exists — that is the version updated for later amendments; the plain filename is the text as originally published. For example Lei 8.078/1990 is at /ccivil_03/leis/l8078compilado.htm and the Civil Code at /ccivil_03/leis/2002/l10406compilada.htm.",
+      "url": "https://www.planalto.gov.br/ccivil_03/",
+      "source": "Portal da Legislação — Ccivil_03"
+    },
+    {
+      "task": "See what has changed in a law and which act changed it",
+      "steps": "Look the norm up in the Senate's norms base, which records each act that amended, suspended or revoked it, with links to the amending norms and their DOU publication data. On the Planalto compiled text the same information appears inline as bracketed '(Redação dada pela Lei nº …)' notes next to each altered provision.",
+      "url": "https://legis.senado.leg.br/norma/",
+      "source": "Legislação Federal — Senado Federal"
+    },
+    {
+      "task": "Read a law exactly as it was published, or find an act from before the digital archive",
+      "steps": "For 1990 onward, open the DOU edition for the publication date on the Imprensa Nacional site and read the item in Seção 1. For older acts, use the digitised annual Coleção de Leis volumes on the Chamber of Deputies site.",
+      "url": "https://www.in.gov.br/leiturajornal",
+      "source": "Diário Oficial da União / Coleção de Leis Anuais do Brasil"
+    },
+    {
+      "task": "Find court decisions on a provision",
+      "steps": "For constitutional questions and binding súmulas vinculantes, search the STF jurisprudence portal and filter by base and by repercussão geral. For the interpretation of federal statutes and codes, search SCON at the STJ and check the Precedentes Qualificados listing for repetitive-appeal themes covering the same point.",
+      "url": "https://jurisprudencia.stf.jus.br/",
+      "source": "Pesquisa de Jurisprudência do STF / SCON — STJ"
+    },
+    {
+      "task": "Find the regulation or decree that implements a statute",
+      "steps": "Go to the Planalto decree index and browse the year in which the implementing decree was issued, or search the Base da Legislação Federal by tipo 'Decreto' plus the subject. Acts below decree level — portarias, instruções normativas and agency resoluções — are not compiled centrally; search them by date and issuing organ in the DOU, Seção 1.",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto/_dec_principal.htm",
+      "source": "Decretos — Ccivil_03"
+    },
+    {
+      "task": "Find a state or municipal law",
+      "steps": "Start at LexML and filter by localidade to see which body holds the norm, since it federates state and municipal collections. Then go to that state's own sources — the state legislative assembly's norms base for the text, and the state diário oficial for the act as published; São Paulo's pair (ALESP and doe.sp.gov.br) shows the typical arrangement.",
+      "url": "https://www.lexml.gov.br/",
+      "source": "LexML Brasil"
+    },
+    {
+      "task": "Read the Constitution in English or French",
+      "steps": "Open the Senate's Constituição Federal page and follow 'Constituição em Inglês' or 'Constituição em Francês', then the matching 'ADCT - Texto em Inglês'/'em Francês' — the Constitution and the ADCT are separate documents. The amendment number quoted in each link label tells you how current that translation is: English through Emenda Constitucional 132/2023, French through 131/2023.",
+      "url": "https://www25.senado.leg.br/web/atividade/legislacao/constituicao-federal",
+      "source": "Constituição Federal — Senado Federal"
+    }
+  ],
+  "subnational": "Brazil is a federation of 26 states, the Federal District and more than 5,500 municipalities, each with its own legislature and its own body of law; states have their own constitutions and municipalities their leis orgânicas. Subnational acts take effect through publication in the state's or municipality's own diário oficial — never in the Diário Oficial da União — so a state statute cannot be found through federal sources. Each state legislative assembly maintains a norms database (the ALESP system for São Paulo is representative) and each state runs a gazette, either through a state printing company such as IMESP in São Paulo or IOERJ in Rio de Janeiro or through a government portal. Municipal coverage is the weakest link: many municipalities publish only in a PDF gazette with no searchable index, and LexML's localidade filter is the most practical single starting point for locating whichever body holds the text.",
+  "caveats": "Only the Portuguese text published in the relevant diário oficial is authentic; the English and French versions of the Constitution offered by the Senate, and all commercial translations, are informational and lag the current text. The consolidated versions on planalto.gov.br and normas.leg.br are official government compilations, not re-enactments — where a compiled text and the DOU disagree, the published act governs, and not every act has a compiled version at all. The DOU archive on in.gov.br reaches back to 1990; earlier federal material must be sought in the digitised Coleção de Leis or in library collections, and older scans are only as searchable as their OCR. Sub-statutory acts of ministries and regulatory agencies are not centrally consolidated anywhere: they appear once in DOU Seção 1 and thereafter only on the issuing body's own site, where superseded versions are frequently removed without trace. Jusbrasil and similar platforms reproduce official material but are private publishers with paywalled tiers, and their copies carry no official status.",
+  "updated": "2026-08"
+}

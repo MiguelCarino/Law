@@ -1,0 +1,505 @@
+{
+  "code": "ca",
+  "iso": "CA",
+  "name": "Canada",
+  "nativeName": "Canada",
+  "flag": "🇨🇦",
+  "region": "North America",
+  "tradition": "mixed",
+  "traditionNote": "Nine provinces and the federal system run on English common law with binding precedent, while Quebec private law runs on the Civil Code of Quebec, so the same question can require both a statute search and a case search depending on the province.",
+  "languages": [
+    "English",
+    "French"
+  ],
+  "summary": "Federal law is made by the Parliament of Canada (House of Commons and Senate, with Royal Assent by the Governor General) and subordinate instruments are made by the Governor in Council, ministers and agencies. Everything of federal legal record is published in the Canada Gazette: proposed regulations and notices in Part I, made regulations in Part II, and Acts as enacted in Part III. Consolidated (up-to-date) Acts and regulations are published by the Department of Justice on the Justice Laws Website, and since 1 June 2009 those electronic consolidations are official and admissible as evidence under the Legislation Revision and Consolidation Act. Statutes come into force on Royal Assent unless the Act names a date or leaves it to an order in council; regulations generally take effect on registration or on the day stated. English and French versions of federal legislation are equally authoritative, so neither is a translation of the other.",
+  "hierarchy": [
+    "Constitution of Canada (Constitution Acts 1867-1982, including the Charter)",
+    "Federal statutes (Acts of Parliament)",
+    "Federal regulations and other statutory instruments (Governor in Council, ministerial)",
+    "Provincial and territorial statutes (within provincial heads of power)",
+    "Provincial and territorial regulations",
+    "Municipal by-laws (delegated by provincial statute)",
+    "Common law and, in Quebec, the Civil Code and civil-law jurisprudence"
+  ],
+  "gazette": {
+    "id": "canada-gazette",
+    "name": "Canada Gazette",
+    "native": "Gazette du Canada",
+    "en": "Canada Gazette",
+    "url": "https://gazette.gc.ca/accueil-home-eng.html",
+    "kind": "gazette",
+    "official": true,
+    "authority": "King's Printer for Canada / Privy Council Office",
+    "langs": [
+      "en",
+      "fr"
+    ],
+    "access": "free",
+    "coverage": "1841-present; online at gazette.gc.ca from 1998 (Parts I and II to the current year, Part III to 2025), 1841-1997 at Library and Archives Canada",
+    "desc": "The official newspaper of the Government of Canada and the point at which federal instruments become public law. Part I carries notices and proposed regulations open for comment, Part II carries regulations as registered and made, and Part III carries the Acts of Parliament as assented to.",
+    "howto": "The home page has no menu of parts: follow the 'Canada Gazette publications' card to gazette.gc.ca/rp-pr/publications-eng.html, which lists Part I (notices and proposed regulations), Part II (registered regulations) and Part III (Acts of Parliament) year by year, newest first. For keyword work use the Advanced Search link on the home page (it opens canada.ca/en/public-services-procurement/gazette/advanced-search.html), which filters by part, date range and text. If you know the regulation number (SOR/ or SI/), go straight to Part II for the year it was registered.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": null,
+    "note": "The Gazette shows text as published on a given date; it is never updated afterwards, so for law currently in force use the Justice Laws consolidations instead."
+  },
+  "constitution": {
+    "id": "constitution",
+    "name": "Constitution Acts, 1867 to 1982",
+    "native": "Lois constitutionnelles de 1867 a 1982",
+    "en": "Constitution Acts, 1867 to 1982",
+    "url": "https://laws-lois.justice.gc.ca/eng/const/Const_index.html",
+    "kind": "constitution",
+    "official": true,
+    "authority": "Department of Justice Canada",
+    "langs": [
+      "en",
+      "fr"
+    ],
+    "access": "free",
+    "coverage": "Constitution Act 1867 (as amended), Canada Act 1982, Constitution Act 1982 including the Canadian Charter of Rights and Freedoms",
+    "desc": "The Department of Justice consolidation of Canada's written constitution: the 1867 Act that creates Parliament, the provinces and the division of legislative powers, and the 1982 Act that adds the Charter, Aboriginal rights, the amending formula and the supremacy clause.",
+    "howto": "The page is titled 'Constitutional Documents' and offers two things: the Canadian Charter of Rights and Freedoms on its own, and the 'Consolidation of Constitution Acts, 1867 to 1982'. Open the consolidation and use its page-by-page table of contents; a single-file PDF of the whole consolidation is linked beside it. The Charter is Part I of the Constitution Act, 1982, sections 1 to 34.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": null,
+    "note": "The French text of the Constitution Act, 1867 is unauthoritative: the Act was enacted at Westminster in English only and the French version prepared under section 55 of the Constitution Act, 1982 has never been proclaimed. The Constitution Act, 1982 is equally authoritative in both languages under its section 57."
+  },
+  "sources": [
+    {
+      "id": "justice-laws",
+      "name": "Justice Laws Website",
+      "native": "Site Web de la legislation (Justice)",
+      "en": "Justice Laws Website",
+      "url": "https://laws-lois.justice.gc.ca/eng/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Department of Justice Canada",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "All consolidated federal Acts and regulations in force, updated roughly every two weeks",
+      "desc": "The single place for the current text of any federal Act or regulation. Since 1 June 2009 these electronic consolidations are official and can be used as evidence, which is what separates this site from every commercial or academic reproduction of the same text.",
+      "howto": "Use Consolidated Acts or Consolidated Regulations to browse alphabetically, or search by title, chapter (e.g. R.S.C. 1985, c. C-46) or SOR/SI number. Every page shows a 'current to' date at the top and the amendment history at the bottom; the Previous Versions link gives point-in-time text. There is no query API: laws-lois.justice.gc.ca/eng/XML/ is a data dictionary describing the XML elements, and the corpus itself is downloaded in bulk (see the bulk XML entry).",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": null,
+      "note": "The 'current to' date is not today's date. Amendments assented to after that date, and provisions not yet in force, are flagged separately and are not folded into the text."
+    },
+    {
+      "id": "justice-important-note",
+      "name": "Important Note on the official status of federal consolidations",
+      "native": "Note importante sur le statut officiel des codifications",
+      "en": "Important Note on the official status of federal consolidations",
+      "url": "https://laws-lois.justice.gc.ca/eng/ImportantNote/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Department of Justice Canada",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Statement of legal status, current",
+      "desc": "The Department of Justice statement explaining exactly which electronic texts are official, on what statutory basis (the Legislation Revision and Consolidation Act), and how minor corrections are reported. Read this before citing any consolidation as authoritative.",
+      "howto": "Read straight through; it is one page. It also explains that reproductions of these texts hosted elsewhere are not official.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "annual-statutes",
+      "name": "Annual Statutes of Canada",
+      "native": "Lois annuelles du Canada",
+      "en": "Annual Statutes of Canada",
+      "url": "https://laws-lois.justice.gc.ca/eng/AnnualStatutes/",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Department of Justice Canada",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "2001-present online; earlier years via Canada Gazette Part III and print volumes",
+      "desc": "Public General Acts in the form in which Parliament actually enacted them in a given calendar year, before consolidation. This is where you go for as-enacted text, transitional provisions and coming-into-force clauses that a consolidation strips out.",
+      "howto": "Pick the year, then the chapter number. Each Act lists its assented-to date and its coming-into-force provisions; cross-check the chapter number against the citation in the consolidated Act's amendment history.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "For Acts before 2001 use Canada Gazette Part III or the printed Statutes of Canada volumes."
+    },
+    {
+      "id": "table-public-statutes",
+      "name": "Table of Public Statutes and Responsible Ministers",
+      "native": "Tableau des lois d'interet public et des ministres responsables",
+      "en": "Table of Public Statutes and Responsible Ministers",
+      "url": "https://laws-lois.justice.gc.ca/eng/tablepublicstatutes/index.html",
+      "kind": "research",
+      "official": true,
+      "authority": "Department of Justice Canada",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "All public general Acts in force, with full amendment chains",
+      "desc": "An A-Z table listing every public statute, the minister responsible, and every amending Act with section-level detail. It answers 'what has changed in this Act and when' faster than reading the consolidated text's footnotes.",
+      "howto": "Pick the first letter of the Act's title, open the entry, and read the amendment column; each entry cites the amending Act by year and chapter, which you can then pull from the Annual Statutes.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The Department states the Table is provided for research purposes; the consolidated Act itself remains the official text."
+    },
+    {
+      "id": "legisinfo",
+      "name": "LEGISinfo",
+      "native": null,
+      "en": "LEGISinfo (Parliament of Canada bill tracker)",
+      "url": "https://www.parl.ca/legisinfo/en/overview",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Parliament of Canada (Library of Parliament, House of Commons, Senate)",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Bills of the current and past Parliaments; currently the 45th Parliament, 1st session from 26 May 2025",
+      "desc": "The official tracker for every Senate (S-) and Commons (C-) bill: text at each reading, stage in each chamber, committee stage, Royal Assent date and links to related debates. Use it for law that is coming, not law that is in force.",
+      "howto": "Search by bill number, title or keyword, or filter by parliament and session; each bill page shows the progress bar and links the bill text at first reading, as amended and as passed. Result sets can be exported as JSON or XML.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "JSON",
+        "XML"
+      ],
+      "api": null,
+      "note": "A bill listed as having received Royal Assent is not necessarily in force; check its coming-into-force section."
+    },
+    {
+      "id": "scc-decisions",
+      "name": "Supreme Court of Canada Decisions",
+      "native": "Decisions de la Cour supreme du Canada",
+      "en": "Supreme Court of Canada Decisions",
+      "url": "https://decisions.scc-csc.ca/scc-csc/en/nav.do",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Supreme Court of Canada (platform operated by Lexum)",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Supreme Court Judgments from 1970 to date; Applications for Leave from 2005; Canada Supreme Court Reports from 1970 to the 2023 volumes",
+      "desc": "The Court's own database, split into three collections - Supreme Court Judgments, Applications for Leave, and the Canada Supreme Court Reports (S.C.R.) - plus news releases and bulletins of proceedings. This is the apex of the Canadian court hierarchy, so it is the first stop for binding interpretation of federal and constitutional provisions.",
+      "howto": "The landing page is 'Decisions and Resources'. Pick a collection, then browse by year or use the search box; each collection has an Advanced Search with tabs for Date, Case name, Neutral citation (e.g. 2024 SCC 1) and, for the Reports, Report citation, plus full-text operators (\"\", AND, OR, EXACT(), /p, /s, /n). Judgment pages give the English and French reasons and link the printable PDF. RSS and JSON feeds are offered from the same pages.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Two limits the site does not advertise: the date navigation only reaches back to 1970, so pre-1970 Supreme Court judgments are not here at all (use CanLII, which carries them from 1877, or the printed S.C.R.), and the Canada Supreme Court Reports collection stops at the 2023 volumes. Where a case appears in the Reports, the S.C.R. version is the citable report."
+    },
+    {
+      "id": "federal-courts",
+      "name": "Federal Court Decisions",
+      "native": "Decisions de la Cour federale",
+      "en": "Federal Court Decisions",
+      "url": "https://decisions.fct-cf.gc.ca/fc-cf/en/d/s/index.do?col=54",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Federal Court / Courts Administration Service",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Federal Court decisions from 1972 to date, posted within days of release; the 1970s and 1980s are patchy and continuous coverage starts in the 1990s",
+      "desc": "Judgments of the Federal Court, the trial-level national court for immigration, judicial review of federal decision-makers, intellectual property, tax and Aboriginal law. Much federal administrative law is only found here, not in provincial reporters.",
+      "howto": "This URL opens the Advanced Search form: full text, case name, neutral citation (e.g. 2025 FC 123), file number, date range and parties, plus a Database selector that can also search Federal Court of Appeal Decisions and Tax Court of Canada Judgments. To browse instead, go to Decisions and pick a year from the Federal Court Decisions collection. The Federal Court of Appeal publishes separately at https://www.fca-caf.ca/en/pages/decisions.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Reasons are issued in the language of the proceeding; a translated version may appear later."
+    },
+    {
+      "id": "orders-in-council",
+      "name": "Orders in Council",
+      "native": "Decrets",
+      "en": "Orders in Council database",
+      "url": "https://orders-in-council.canada.ca/index.php?lang=en",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Privy Council Office, Orders in Council Division",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "1990-present; published on the third working day after approval by the Governor General",
+      "desc": "The searchable record of Orders in Council (P.C. numbers) made by the Governor in Council: appointments, regulation-making decisions, and the orders that bring statutory provisions into force. It is where you confirm the exact date a section of an Act started to apply.",
+      "howto": "Search by P.C. number, date range, department, keyword, or by the Act and bill number under 'Legislation'; the coming-into-force filter covers Acts since 2002.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Some orders are withheld under statutory exemptions (national security, personal or commercially sensitive information), so the database is not a complete record."
+    },
+    {
+      "id": "treaty-accord",
+      "name": "Canada Treaty Information",
+      "native": "Information sur les traites du Canada",
+      "en": "Canada Treaty Information",
+      "url": "https://www.treaty-accord.gc.ca/index.aspx?lang=eng",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Global Affairs Canada, Treaty Law Division",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Canada Treaty Series and treaty status records; electronic-only publication since 1 April 2014",
+      "desc": "The official register of bilateral, plurilateral and multilateral treaties to which Canada is a party, with signature date, tabling in Parliament, ratification, entry into force and termination. Treaties are not self-executing in Canada, so this tells you the international position, not the domestic one.",
+      "howto": "Open Search and enter free text, a signature date as dd/mm/yyyy, or a Canada Treaty Series publication number as year/number (for example 2003/9); a Subjects dropdown narrows by topic from Adoption to Weapons. Each record links the treaty text and its status history. The interface needs JavaScript - with it disabled the menus do not appear.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The search page carries its own disclaimer that these pages are being updated and results 'may not be current and/or complete at this time', and directs urgent requests to the Treaty Law Division at info.jli@international.gc.ca; the site itself has not been substantially updated since 2019. A treaty in force for Canada has domestic legal effect only to the extent Parliament has implemented it by statute."
+    },
+    {
+      "id": "justice-bulk-xml",
+      "name": "Consolidated federal Acts and regulations - bulk XML",
+      "native": null,
+      "en": "Consolidated federal Acts and regulations - bulk XML",
+      "url": "https://open.canada.ca/data/en/dataset/ff56de85-f8b9-4719-8dff-ecf362adf0af",
+      "kind": "research",
+      "official": true,
+      "authority": "Department of Justice Canada / Open Government Portal",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Full XML for every consolidated federal Act and regulation; a separate point-in-time set covers Acts from 2003 and regulations from 2006",
+      "desc": "Bulk download of the same XML that generates the Justice Laws Website, for anyone who needs the whole corpus rather than one instrument. A mirror is maintained on GitHub as justicecanada/laws-lois-xml.",
+      "howto": "Open the dataset record and take the bulk XML archive, or clone https://github.com/justicecanada/laws-lois-xml for the current set; the XML element reference is documented at laws-lois.justice.gc.ca/eng/XML/.",
+      "formats": [
+        "XML"
+      ],
+      "api": "https://github.com/justicecanada/laws-lois-xml",
+      "note": "Separate datasets exist for current XML, point-in-time XML and the WEB XML variant that carries extra presentation attributes."
+    },
+    {
+      "id": "lac-gazette-archive",
+      "name": "Canada Gazette, 1841 to 1997 (Library and Archives Canada)",
+      "native": "Gazette du Canada, 1841 a 1997",
+      "en": "Canada Gazette, 1841 to 1997 (Library and Archives Canada)",
+      "url": "https://recherche-collection-search.bac-lac.gc.ca/eng/help/cangaz",
+      "kind": "gazette",
+      "official": true,
+      "authority": "Library and Archives Canada",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "1841-1997, digitised issues and indexes",
+      "desc": "The digitised historical run of the Canada Gazette, covering everything published before the 1998 cut-off of the gazette.gc.ca archive. Necessary for tracing repealed instruments, historic proclamations and pre-1998 as-enacted text.",
+      "howto": "Search Collection Search with 'Canada Gazette 1841-1997' selected as the database, then narrow by year and volume; results are page images you page through, so use the annual index volumes to locate a date first.",
+      "formats": [
+        "PDF",
+        "Image"
+      ],
+      "api": null,
+      "note": "Full-text search quality varies because the collection is scanned images with OCR, not born-digital text. Collection Search refuses non-browser requests, so this link works in a browser but not in a script; gazette.gc.ca itself links to this exact address as the home of the 1841-1997 run."
+    },
+    {
+      "id": "canlii",
+      "name": "CanLII",
+      "native": "Institut canadien d'information juridique (IIJCan)",
+      "en": "Canadian Legal Information Institute",
+      "url": "https://www.canlii.org/",
+      "kind": "caselaw",
+      "official": false,
+      "authority": "Federation of Law Societies of Canada (non-profit)",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Court and tribunal decisions and legislation from every federal, provincial and territorial jurisdiction, including Supreme Court of Canada judgments back to 1877",
+      "desc": "The one search box that covers every Canadian jurisdiction at once: superior and appellate courts, administrative tribunals, statutes and regulations, with citator links showing which later cases cite a decision. In practice it is where most Canadian research actually starts, and for pre-1970 Supreme Court judgments it is the free option the Court's own site does not give you.",
+      "howto": "Search by citation, case name or keyword, or browse by jurisdiction then court or legislation type; the 'Cited by' and 'Citing' panels on each case page are the free substitute for a commercial citator. Programmatic access is the CanLII REST API at api.canlii.org/v1/, documented at developer.canlii.org; it rejects unkeyed requests, and keys are issued free on application and rate-limited.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://api.canlii.org/v1/",
+      "note": "CanLII is not an official publisher. Its legislation is a reproduction; cite Justice Laws or the relevant provincial official source for statutory text. The site sits behind a bot filter, so automated fetches are refused even though the pages are public."
+    },
+    {
+      "id": "ontario-elaws",
+      "name": "e-Laws (Ontario)",
+      "native": "Lois-en-ligne",
+      "en": "e-Laws (Ontario)",
+      "url": "https://www.ontario.ca/laws",
+      "kind": "subnational",
+      "official": true,
+      "authority": "King's Printer for Ontario",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Consolidated and source Ontario Acts and regulations, current",
+      "desc": "Ontario's official electronic source for statutes and regulations, with the French site at ontario.ca/lois. The site states the rule in its own words: laws viewed on or downloaded from e-Laws are official copies of the law under Part IV of the Legislation Act, 2006, printouts of those copies are also official, and any copy not meant to be official carries a disclaimer.",
+      "howto": "Search or browse the alphabetical list of current consolidated law; the search has separate modes for consolidated law, source law (as filed or as assented to), period law (point in time) and commencement orders in council. Each law page carries a currency date and a versions selector. The site is a JavaScript application - with scripts blocked it shows only a 'needs JavaScript' notice.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Ontario legislation is enacted in English and French only where the French version has been enacted; not every older Ontario Act has an official French text."
+    },
+    {
+      "id": "legisquebec",
+      "name": "LegisQuebec",
+      "native": "LégisQuébec",
+      "en": "LegisQuebec (Quebec consolidated statutes and regulations)",
+      "url": "https://www.legisquebec.gouv.qc.ca/en/chapters?corpus=statutes",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Editeur officiel du Quebec (Quebec Official Publisher)",
+      "langs": [
+        "fr",
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Consolidated Quebec statutes (CQLR) and regulations, plus annual statutes and regulations in PDF from 1996",
+      "desc": "The official consolidation of Quebec law, including the Civil Code of Quebec and the Code of Civil Procedure. Quebec is the one province whose private law is civilian, so the Code rather than case law is the starting point for contract, property, family and obligations questions.",
+      "howto": "Browse Consolidated Statutes by CQLR alphanumeric code - the Civil Code of Quebec is CCQ-1991, not C-1991, which returns an error page - or pick a letter, or search by title or keyword; regulations are nested under their enabling statute as 'A-2.1, r. 1' and so on. Each provision has a history line and a point-in-time selector. Annual statutes and regulations are available as PDF from 1996. Newly adopted texts appear first in the Gazette officielle du Quebec, Part 2.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Quebec statutes must be enacted and published in both French and English under section 133 of the Constitution Act, 1867, but interpretation disputes are resolved on the French text under Quebec's own language legislation."
+    },
+    {
+      "id": "bclaws",
+      "name": "BC Laws",
+      "native": null,
+      "en": "BC Laws (British Columbia statutes and regulations)",
+      "url": "https://www.bclaws.gov.bc.ca/civix/content/complete/statreg/?xsl=/templates/browse.xsl",
+      "kind": "subnational",
+      "official": true,
+      "authority": "King's Printer for British Columbia, with the Ministry of Attorney General and the Legislative Assembly",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Every public Act and every regulation of general public interest currently in force in BC, plus archived consolidations, bills, orders in council and Hansard",
+      "desc": "British Columbia's legislation site, notable for having a documented API and a deep historical archive of superseded consolidations, which makes point-in-time provincial research practical.",
+      "howto": "Browse the alphabetical list of current statutes and regulations, or use the search; the Point in Time tables and the Table of Legislative Changes give the wording as it stood on a past date, including repealed Acts. Programmatic access is the CiviX Server API (Content, Document and Search APIs) documented at bclaws.gov.bc.ca/civix/template/complete/api/index.html, returning XML or HTML.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": "https://www.bclaws.gov.bc.ca/civix/template/complete/api/index.html",
+      "note": "Do not treat the online text as evidence without checking. The site's own FAQ still says 'this current consolidation is an unofficial version' and that the official version is the print version published by the King's Printer under the King's Printer Act and the Regulations Act - Annual Bound Statutes and the bound regulations. Text highlighted in green is an amendment in force since the last official consolidation."
+    },
+    {
+      "id": "ontario-gazette",
+      "name": "The Ontario Gazette",
+      "native": "Gazette de l'Ontario",
+      "en": "The Ontario Gazette",
+      "url": "https://www.ontario.ca/search/ontario-gazette",
+      "kind": "subnational",
+      "official": true,
+      "authority": "King's Printer for Ontario",
+      "langs": [
+        "en",
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Published every Saturday; online issues from Volume 133 Issue 1, 1 January 2000, to the current issue; digital-only since 31 March 2021",
+      "desc": "Ontario's gazette of record, described by the province as the official publication for legislative decisions, proclamations of new statutes, all regulations made under Ontario statutes, and notices that must be made public. Included here as the model for the twelve other provincial and territorial gazettes, each of which publishes separately.",
+      "howto": "The page lists issues newest first as 'Ontario Gazette Volume nnn Issue nn | date'; page back through the list to reach earlier years, as far as 1 January 2000. Each issue opens in HTML with a PDF beside it - take the PDF, because the province warns the HTML and PDF can differ and only the PDF is the official copy. The French edition is at ontario.ca/fr/recherche/gazette-ontario. To place a notice, or to trace an issue older than 2000, use ontario.ca/page/ontario-gazette-place-notice, which points to the Archives of Ontario and to Publications Ontario for pre-2021 hard copies.",
+      "formats": [
+        "PDF",
+        "HTML"
+      ],
+      "api": null,
+      "note": "The old Publications Ontario catalogue record for the Gazette is a shop listing marked out of stock, not an issue archive; it only redirects here. The online PDF is the official copy and the print edition ceased on 31 March 2021."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current text of a federal statute",
+      "steps": "Go to the Justice Laws Website and open Consolidated Acts, then browse by the first letter of the title or search the title or chapter citation (for example R.S.C. 1985, c. C-46 for the Criminal Code). Check the 'current to' date shown at the top of the page and the note listing amendments not yet in force.",
+      "url": "https://laws-lois.justice.gc.ca/eng/",
+      "source": "Justice Laws Website"
+    },
+    {
+      "task": "See what recently changed in an Act, and what is coming",
+      "steps": "For enacted changes, look up the Act in the Table of Public Statutes, which lists every amending Act by year and chapter and the sections it touched, then pull that amending Act from the Annual Statutes. For changes still in Parliament, search the bill in LEGISinfo and read its progress and coming-into-force clause.",
+      "url": "https://laws-lois.justice.gc.ca/eng/tablepublicstatutes/index.html",
+      "source": "Table of Public Statutes and Responsible Ministers / LEGISinfo"
+    },
+    {
+      "task": "Find a court decision",
+      "steps": "For Supreme Court of Canada judgments from 1970 onward, search the Court's own database by case name or neutral citation (for example 2024 SCC 1). For anything older than 1970, and for every other court and tribunal, search CanLII across all jurisdictions and use the 'Cited by' panel to see how the decision has been treated since. Federal Court and Federal Court of Appeal judgments have their own databases at decisions.fct-cf.gc.ca and fca-caf.ca.",
+      "url": "https://decisions.scc-csc.ca/scc-csc/en/nav.do",
+      "source": "Supreme Court of Canada Decisions / CanLII"
+    },
+    {
+      "task": "Find a federal regulation or the order that brought a provision into force",
+      "steps": "Search Consolidated Regulations on Justice Laws by SOR/ or SI/ number or by the enabling Act. For the as-made text and the regulatory impact analysis statement, find the same number in Canada Gazette Part II; for a coming-into-force date, search the Act in the Orders in Council database.",
+      "url": "https://gazette.gc.ca/rp-pr/publications-eng.html",
+      "source": "Canada Gazette Part II / Justice Laws Website / Orders in Council"
+    },
+    {
+      "task": "Find provincial or territorial law",
+      "steps": "Each province and territory publishes its own official legislation site: Ontario e-Laws at ontario.ca/laws, LegisQuebec for Quebec, BC Laws for British Columbia, and equivalents run by each King's Printer elsewhere. If you do not know which jurisdiction applies, search CanLII first and use the jurisdiction filter, then confirm the text on that province's own official site.",
+      "url": "https://www.canlii.org/",
+      "source": "CanLII, then the relevant provincial official site"
+    },
+    {
+      "task": "Read the constitution and the Charter",
+      "steps": "Open the Constitution Acts, 1867 to 1982 index on Justice Laws. The Charter of Rights and Freedoms is Part I of the Constitution Act, 1982, sections 1 to 34; the federal-provincial division of powers is sections 91 and 92 of the Constitution Act, 1867.",
+      "url": "https://laws-lois.justice.gc.ca/eng/const/Const_index.html",
+      "source": "Constitution Acts, 1867 to 1982"
+    },
+    {
+      "task": "Trace a pre-1998 instrument",
+      "steps": "The gazette.gc.ca archive only reaches back to 1998. For earlier proclamations, regulations and Acts as published, search Library and Archives Canada's digitised Canada Gazette 1841-1997 collection, using the annual index volumes to find the issue date before opening the scans.",
+      "url": "https://recherche-collection-search.bac-lac.gc.ca/eng/help/cangaz",
+      "source": "Canada Gazette, 1841 to 1997 (Library and Archives Canada)"
+    }
+  ],
+  "subnational": "Canada is a federation: ten provinces and three territories legislate in their own right on the subjects assigned to them by sections 92, 92A, 93 and 95 of the Constitution Act, 1867, and provincial law is not subordinate to federal law within those heads of power. Each jurisdiction has its own legislature, its own gazette and its own King's Printer publishing its own consolidated statutes and regulations, so there is no single national database of provincial law that is official everywhere. Start at the province's own site where you know the jurisdiction: e-Laws for Ontario, LegisQuebec for Quebec, BC Laws for British Columbia, and the corresponding King's Printer site for each of the others. Municipal by-laws exist only as a delegation from provincial statute and are published by individual municipalities, unevenly.",
+  "caveats": "The consolidated text on Justice Laws is official but is only current to the date printed at the top of each page, and provisions passed but not yet proclaimed in force are listed separately rather than folded in, so 'on the website' does not mean 'in force today'. Gazette text is a snapshot of the day of publication and is never corrected afterwards; the consolidation and the Gazette will diverge and that is by design. English and French versions of federal legislation are equally authoritative, so a discrepancy between them is a genuine interpretive problem, not a translation error, with one exception: the French text of the Constitution Act, 1867 has no force of law because it was never proclaimed under section 55 of the Constitution Act, 1982. CanLII, Lexum-hosted mirrors, university guides and commercial databases reproduce official text accurately but are not official publishers, and only the Supreme Court Reports version of a Supreme Court judgment is the reported text. Official status varies by jurisdiction and does not follow from the site being a government one: the federal consolidations are official for evidentiary purposes under the Legislation Revision and Consolidation Act, Ontario's e-Laws says outright that laws viewed on or downloaded from it are official copies under Part IV of the Legislation Act, 2006, but BC Laws still states that its online consolidation is unofficial and that the official version is the King's Printer print edition. Coverage also runs shallower than the sites imply: the Supreme Court's own database starts at 1970, the Canada Gazette archive at gazette.gc.ca starts at 1998, the Ontario Gazette online run starts in 2000, and the federal Annual Statutes start at 2001.",
+  "updated": "2026-08"
+}

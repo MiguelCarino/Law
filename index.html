@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/webp" href="logo.webp">
+  <title>Carino Law — official legal sources, by country</title>
+  <meta name="description" content="Where law is officially published in sixteen countries: the gazette of record, the constitution, the consolidated statute databases and the courts. Every link goes to the official publisher, and the unofficial ones say so.">
+
+  <link rel="stylesheet" href="fonts/carino-fonts.css">
+
+  <style>
+    :root{
+      --accent:#eab308; --accent-faint:rgba(234,179,8,0.05); --accent-glow:rgba(234,179,8,0.15);
+      --primary-hover:#fbbf24;
+      --bg-body:#050505; --bg-elev:#0d0d0d; --bg-card:#0b0b0b;
+      --text-main:#fff; --text-muted:#a3a3a3; --text-dim:#666;
+      --border:#262626; --border-glow:rgba(234,179,8,0.3);
+      --ok:#22c55e; --danger:#ef4444; --warn:#eab308; --info:#38bdf8;
+      --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+      --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+      --display:'Red Hat Display',var(--sans);
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    html{overflow:hidden;}
+    body{font-family:var(--sans);margin:0;background:var(--bg-body);color:var(--text-main);
+      height:100dvh;display:flex;flex-direction:column;overflow:hidden;
+      background-image:radial-gradient(1200px 500px at 50% -8%,rgba(234,179,8,0.05),transparent 70%);}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{color:var(--primary-hover);}
+    button{font-family:inherit;}
+    h2,h3,h4,h5{font-family:var(--display);}
+
+    .wrap{flex:1;min-height:0;max-width:1220px;width:100%;margin:0 auto;padding:14px 20px 8px;
+      display:flex;flex-direction:column;overflow:hidden;}
+    @media(max-width:420px){.wrap{padding:12px 12px 6px;}}
+
+    /* ── APP BAR ── */
+    .appbar{flex-shrink:0;display:flex;flex-direction:column;gap:8px;}
+    .app-intro{display:flex;flex-direction:column;gap:3px;}
+    .app-eyebrow{font-family:var(--mono);font-size:0.6rem;font-weight:700;letter-spacing:0.16em;
+      text-transform:uppercase;color:var(--accent);}
+    .app-title{margin:0;font-family:var(--display);font-weight:900;font-size:1.85rem;line-height:1.05;
+      background:linear-gradient(130deg,#fef08a 0%,#eab308 48%,#b45309 100%);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+    .app-desc{margin:1px 0 0;color:var(--text-muted);font-size:0.84rem;line-height:1.45;max-width:900px;}
+    .app-desc b{color:var(--text-main);}
+    @media(max-width:640px){.app-title{font-size:1.5rem;}.app-desc{font-size:0.8rem;}}
+
+    .searchbox{position:relative;width:100%;}
+    .searchbox svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--text-dim);pointer-events:none;}
+    #q{width:100%;background:var(--bg-elev);border:1px solid var(--border);border-radius:11px;color:var(--text-main);
+      font-family:var(--mono);font-size:0.95rem;padding:12px 15px 12px 44px;transition:0.15s;}
+    #q::placeholder{color:var(--text-dim);}
+    #q:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-glow);}
+    #q::-webkit-search-cancel-button{filter:grayscale(1) opacity(0.5);}
+
+    #chips{font-family:var(--mono);font-size:0.64rem;color:var(--text-dim);
+      display:flex;gap:6px;align-items:center;flex-wrap:nowrap;min-height:22px;
+      overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding-bottom:1px;}
+    #chips::-webkit-scrollbar{display:none;}
+    #chips:empty{display:none;}
+    .chip{border:1px solid var(--border);border-radius:20px;padding:3px 9px;cursor:pointer;transition:0.15s;
+      color:var(--text-muted);background:transparent;font-family:var(--mono);font-size:0.64rem;white-space:nowrap;}
+    .chip:hover{border-color:var(--accent);color:var(--accent);}
+    .chip.active{border-color:var(--accent);color:var(--accent);background:var(--accent-faint);}
+    .chip-lbl{color:var(--text-muted);}
+
+    /* ── TABS (relocated into the shared navbar) ── */
+    .tabs{display:flex;gap:6px;align-items:center;}
+    .tab{display:flex;align-items:center;gap:7px;border:1px solid transparent;border-radius:8px;background:transparent;
+      color:var(--text-muted);font-family:var(--sans);font-weight:600;font-size:0.82rem;padding:7px 12px;cursor:pointer;
+      transition:0.13s;white-space:nowrap;line-height:1;}
+    .tab:hover{color:var(--text-main);background:rgba(255,255,255,0.05);}
+    .tab.active{color:var(--accent);background:var(--accent-glow);border-color:rgba(234,179,8,0.4);}
+    .tab:focus-visible,.chip:focus-visible,.r-cc:focus-visible,#q:focus-visible{outline:2px solid var(--accent);
+      outline-offset:2px;}
+    .tab .tlead{font-family:var(--sans);font-weight:400;font-size:0.72rem;color:var(--text-dim);}
+    #carinoNav .tab .tlead{display:none;}
+    #carinoNav .cn-actions{overflow-x:auto;scrollbar-width:none;}
+    #carinoNav .cn-actions::-webkit-scrollbar{display:none;}
+    @media(max-width:520px){#carinoNav .tab{padding:7px 9px;font-size:0.78rem;}}
+
+    /* ── PANELS ── */
+    .panels{position:relative;flex:1;min-height:0;margin-top:12px;}
+    .panel{position:absolute;inset:0;display:none;flex-direction:column;overflow-y:auto;overflow-x:hidden;
+      padding-right:4px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+    .panel::-webkit-scrollbar{width:8px;}
+    .panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+    .panel.active{display:flex;}
+
+    .summary{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:10px;
+      border:1px solid var(--border-glow);border-radius:10px;background:var(--accent-faint);
+      padding:8px 13px;font-family:var(--mono);font-variant-numeric:tabular-nums;}
+    .sm-c{font-size:0.72rem;color:var(--text-dim);white-space:nowrap;}
+    .sm-c b{color:var(--accent);font-size:0.92rem;font-weight:700;}
+    .sm-k{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.09em;}
+
+    .empty{color:var(--text-dim);font-family:var(--mono);font-size:0.8rem;padding:30px 4px;text-align:center;}
+
+    /* ══ BADGES — official standing is the single most load-bearing fact here ══ */
+    .badge{font-family:var(--mono);font-size:0.56rem;font-weight:700;letter-spacing:0.1em;
+      text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap;border:1px solid;}
+    .b-official{color:var(--accent);border-color:rgba(234,179,8,0.45);background:rgba(234,179,8,0.09);}
+    .b-unofficial{color:var(--text-dim);border-color:var(--border);background:transparent;}
+    .b-kind{color:var(--info);border-color:rgba(56,189,248,0.35);background:rgba(56,189,248,0.07);}
+    .b-free{color:var(--ok);border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.07);}
+    .b-reg{color:#a3e635;border-color:rgba(163,230,53,0.3);background:rgba(163,230,53,0.07);}
+    .b-part{color:#fb923c;border-color:rgba(251,146,60,0.32);background:rgba(251,146,60,0.07);}
+    .b-pay{color:var(--danger);border-color:rgba(239,68,68,0.32);background:rgba(239,68,68,0.07);}
+    .b-lang{color:var(--text-muted);border-color:var(--border);background:transparent;}
+
+    /* ══ COUNTRY GRID ══ */
+    .cgrid{display:grid;gap:11px;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));padding-bottom:16px;}
+    .ccard{border:1px solid var(--border);border-radius:12px;background:var(--bg-card);padding:13px 14px;
+      cursor:pointer;transition:0.15s;display:flex;flex-direction:column;gap:8px;text-align:left;color:inherit;
+      font-family:inherit;}
+    .ccard:hover{border-color:var(--border-glow);background:var(--bg-elev);transform:translateY(-1px);}
+    .ccard:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+    .cc-top{display:flex;align-items:flex-start;gap:10px;}
+    .cc-flag{font-size:1.5rem;line-height:1;flex-shrink:0;}
+    .cc-names{min-width:0;flex:1;display:block;}
+    /* both are <span>: they must be blockified or the native name runs on
+       into the English one instead of sitting under it */
+    .cc-name{display:block;font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1.15;}
+    .cc-native{display:block;font-size:0.68rem;color:var(--text-dim);margin-top:2px;line-height:1.3;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .cc-native:empty{display:none;}
+    .cc-iso{font-family:var(--mono);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;color:var(--accent);
+      border:1px solid var(--border);border-radius:4px;padding:2px 5px;flex-shrink:0;}
+    .cc-line{font-size:0.74rem;color:var(--text-muted);line-height:1.4;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .cc-gaz{font-family:var(--mono);font-size:0.66rem;color:var(--text-dim);display:flex;gap:6px;align-items:baseline;}
+    .cc-gaz b{color:var(--text-main);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .cc-foot{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:auto;padding-top:2px;}
+
+    /* ══ SOURCE ROWS — used by Gazettes, Constitutions and All sources ══ */
+    .rows{display:flex;flex-direction:column;gap:7px;padding-bottom:16px;}
+    .row{border:1px solid var(--border);border-radius:10px;background:var(--bg-card);padding:11px 13px;
+      display:flex;flex-direction:column;gap:6px;transition:0.15s;}
+    .row:hover{border-color:#3a3a3a;background:var(--bg-elev);}
+    .r-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+    .r-cc{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.1em;color:var(--accent);
+      cursor:pointer;border:0;background:transparent;padding:0;}
+    .r-cc:hover{color:var(--primary-hover);text-decoration:underline;}
+    .r-name{font-family:var(--display);font-weight:700;font-size:0.95rem;line-height:1.2;}
+    .r-name a{color:var(--text-main);}
+    .r-name a:hover{color:var(--accent);}
+    .r-native{font-size:0.72rem;color:var(--text-dim);}
+    .r-en{font-size:0.7rem;color:var(--text-dim);font-style:italic;}
+    .r-desc{font-size:0.78rem;color:var(--text-muted);line-height:1.5;}
+    .r-howto{font-size:0.75rem;color:var(--text-muted);line-height:1.5;border-left:2px solid var(--border);
+      padding-left:9px;}
+    .r-howto b{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
+      color:var(--text-dim);font-weight:700;display:block;margin-bottom:2px;}
+    .r-meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:0.63rem;
+      color:var(--text-dim);}
+    .r-facts{font-family:var(--mono);font-size:0.63rem;color:var(--text-dim);line-height:1.5;}
+    .r-url{font-family:var(--mono);font-size:0.66rem;word-break:break-all;}
+
+    /* ══ FIND-A-LAW RECIPES ══ */
+    .recipe{border:1px solid var(--border);border-radius:10px;background:var(--bg-card);padding:11px 13px;
+      display:flex;flex-direction:column;gap:5px;}
+    .rc-task{font-family:var(--display);font-weight:700;font-size:0.92rem;line-height:1.25;}
+    .rc-steps{font-size:0.79rem;color:var(--text-muted);line-height:1.5;}
+    .rc-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:0.64rem;
+      color:var(--text-dim);}
+
+    /* ══ DETAIL DIALOG ══ */
+    dialog#detail{border:1px solid var(--border);border-radius:14px;background:var(--bg-body);color:var(--text-main);
+      padding:0;width:min(880px,94vw);max-height:88vh;overflow:hidden;}
+    dialog#detail::backdrop{background:rgba(0,0,0,0.78);backdrop-filter:blur(3px);}
+    .dt{display:flex;flex-direction:column;max-height:88vh;}
+    .dt-head{flex-shrink:0;display:flex;align-items:flex-start;gap:13px;padding:16px 18px 13px;
+      border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0f0f0f 0%,var(--bg-body) 100%);}
+    .dt-flag{font-size:2.1rem;line-height:1;}
+    .dt-h{flex:1;min-width:0;}
+    .dt-name{font-family:var(--display);font-weight:900;font-size:1.4rem;line-height:1.1;margin:0;}
+    .dt-native{font-size:0.8rem;color:var(--text-muted);margin-top:3px;}
+    .dt-x{border:1px solid var(--border);background:transparent;color:var(--text-muted);border-radius:8px;
+      width:32px;height:32px;cursor:pointer;font-size:1.1rem;line-height:1;flex-shrink:0;transition:0.15s;}
+    .dt-x:hover{border-color:var(--danger);color:var(--danger);}
+    .dt-body{overflow-y:auto;padding:16px 18px 22px;display:flex;flex-direction:column;gap:18px;
+      scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+    .dt-body::-webkit-scrollbar{width:8px;}
+    .dt-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+    .sec{display:flex;flex-direction:column;gap:8px;}
+    .sec-h{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+      color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;}
+    .sec-p{font-size:0.83rem;color:var(--text-muted);line-height:1.6;margin:0;}
+    .sec-p b{color:var(--text-main);}
+    /* the hierarchy of norms is a ladder, so it is drawn as one */
+    .ladder{display:flex;flex-direction:column;gap:0;font-family:var(--mono);font-size:0.72rem;}
+    .rung{display:flex;align-items:center;gap:9px;padding:4px 0;color:var(--text-muted);}
+    .rung .n{color:var(--text-dim);font-size:0.6rem;width:16px;flex-shrink:0;text-align:right;}
+    .rung .bar{height:3px;border-radius:2px;background:var(--accent);flex-shrink:0;}
+    .rung:first-child{color:var(--text-main);}
+    .caveat{border:1px solid rgba(251,146,60,0.28);border-radius:9px;background:rgba(251,146,60,0.05);
+      padding:10px 12px;font-size:0.8rem;color:#fdba74;line-height:1.55;}
+    .caveat b{color:#fed7aa;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
+      display:block;margin-bottom:4px;}
+    .kindgrp{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.11em;text-transform:uppercase;
+      color:var(--text-dim);margin-top:4px;}
+
+    @media(max-width:640px){
+      .dt-head{padding:13px 14px 11px;}.dt-body{padding:13px 14px 18px;}
+      .dt-name{font-size:1.18rem;}.dt-flag{font-size:1.7rem;}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{transition:none !important;animation:none !important;}
+      .ccard:hover{transform:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- carino-navbar.js moves [data-carino-actions] into its right cluster and
+     deletes [data-carino-strip]; the tabs end up inside the shared top bar. -->
+<header data-carino-strip style="display:none;">
+  <div data-carino-actions class="tabs" id="tabs" role="tablist">
+    <button class="tab active" data-panel="atlas"  role="tab" aria-selected="true"  data-i18n>Countries</button>
+    <button class="tab"        data-panel="gazette" role="tab" aria-selected="false" data-i18n>Gazettes</button>
+    <button class="tab"        data-panel="charter" role="tab" aria-selected="false" data-i18n>Constitutions</button>
+    <button class="tab"        data-panel="find"   role="tab" aria-selected="false" data-i18n>Find a law</button>
+    <button class="tab"        data-panel="all"    role="tab" aria-selected="false" data-i18n>All sources</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="appbar">
+    <div class="app-intro">
+      <div class="app-eyebrow" data-i18n>Official sources · 16 countries</div>
+      <h1 class="app-title" data-i18n>Where the law is published</h1>
+      <p class="app-desc" data-i18n-html>Every country has one channel where a law becomes real — the <b>Diario Oficial de la Federación</b> in Mexico, the <b>Journal Officiel</b> in France, the <b>Kanpō</b> in Japan. This is a map of those channels: the gazette of record, the constitution, the consolidated statute databases and the courts, linked at the official publisher. The ones that aren't official say so.</p>
+    </div>
+
+    <div class="searchbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search countries, gazettes, courts, databases…" data-i18n-placeholder>
+    </div>
+
+    <div id="chips"></div>
+  </div>
+
+  <div class="panels">
+    <section class="panel active" id="p-atlas"   role="tabpanel"></section>
+    <section class="panel"        id="p-gazette" role="tabpanel"></section>
+    <section class="panel"        id="p-charter" role="tabpanel"></section>
+    <section class="panel"        id="p-find"    role="tabpanel"></section>
+    <section class="panel"        id="p-all"     role="tabpanel"></section>
+  </div>
+</div>
+
+<dialog id="detail"><div class="dt">
+  <div class="dt-head">
+    <div class="dt-flag" id="dtFlag"></div>
+    <div class="dt-h">
+      <h2 class="dt-name" id="dtName"></h2>
+      <div class="dt-native" id="dtNative"></div>
+    </div>
+    <button class="dt-x" id="dtClose" aria-label="Close">✕</button>
+  </div>
+  <div class="dt-body" id="dtBody"></div>
+</div></dialog>
+
+<script src="carino-navbar.js" data-app="Law" data-repo="Law" defer></script>
+<script src="carino-lang.js" defer></script>
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

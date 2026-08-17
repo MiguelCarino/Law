@@ -1,0 +1,467 @@
+{
+  "code": "cl",
+  "iso": "CL",
+  "name": "Chile",
+  "nativeName": "República de Chile",
+  "flag": "🇨🇱",
+  "region": "Latin America",
+  "tradition": "civil",
+  "traditionNote": "Chile is a codified civil-law system: the binding rule is the enacted text of the code, statute or decree, and court decisions bind only the parties to the case, so you start from the consolidated statutory text rather than from precedent.",
+  "languages": [
+    "Spanish"
+  ],
+  "summary": "Laws are passed by the bicameral Congreso Nacional (Cámara de Diputadas y Diputados and Senado), promulgated by the President and published in the Diario Oficial de la República de Chile, which is the gazette of record and the point at which a statute becomes binding. Unless the text itself sets another date, a law takes effect on the day it is published in the Diario Oficial. The authentic text is the Spanish text as published in the Diario Oficial; since 17 August 2016 the Diario Oficial is a digitally signed electronic edition, and each individual publication carries a CVE code that lets you verify a printed copy against the original. For the current, amended text of a law, the practical reference is Ley Chile, the free consolidated database run by the Biblioteca del Congreso Nacional, which rebuilds each norm after every amendment and keeps every past version dated. The Constitution in force is the 1980 text as consolidated by Decreto 100 of 2005 and amended many times since; replacement constitutions drafted in 2022 and 2023 were both rejected at referendum and never entered into force.",
+  "hierarchy": [
+    "Constitución Política de la República (1980, consolidated text of 2005, as amended)",
+    "Ratified international treaties in force (human-rights treaties given special standing under art. 5)",
+    "Leyes interpretativas de la Constitución and leyes orgánicas constitucionales (special quorums)",
+    "Leyes de quórum calificado",
+    "Leyes ordinarias, decretos con fuerza de ley (DFL) and surviving decretos leyes (DL)",
+    "Decretos supremos and reglamentos issued by the President and ministries",
+    "Resoluciones, circulares and instructions of public services",
+    "Ordenanzas and municipal decrees of the 345 municipalities"
+  ],
+  "gazette": {
+    "id": "diario-oficial",
+    "name": "Diario Oficial de la Republica de Chile",
+    "native": "Diario Oficial de la República de Chile",
+    "en": "Official Gazette of the Republic of Chile",
+    "url": "https://www.diariooficial.interior.gob.cl/",
+    "kind": "gazette",
+    "official": true,
+    "authority": "Ministerio del Interior y Seguridad Pública",
+    "langs": [
+      "es"
+    ],
+    "access": "free",
+    "coverage": "Printed editions from 1 March 1877; digitally signed electronic edition from 17 August 2016 to date",
+    "desc": "The gazette of record. A law, decree or reglamento is only in force once it appears here, and this is where the authentic as-enacted text lives, alongside judicial notices, company and cooperative filings, trademarks and patents, and the Boletín Oficial de Minería.",
+    "howto": "Open the Edición Electrónica tab for the current day and browse the sections (Normas Generales, Normas Particulares, Publicaciones Judiciales, Empresas y Cooperativas, Marcas y Patentes); use Ediciones Anteriores to pick a past date, and Verificar Publicación con su CVE to authenticate a printed copy against the signed original.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": null,
+    "note": "The pre-2016 archive and the 2011-2016 Empresas y Cooperativas electronic editions sit behind the Versiones Anteriores section (https://www.diariooficial.interior.gob.cl/versiones-anteriores/), not the main electronic edition browser. The gazette publishes texts as enacted only; it never shows you the consolidated current version."
+  },
+  "constitution": {
+    "id": "constitucion",
+    "name": "Constitucion Politica de la Republica de Chile (Decreto 100 de 2005)",
+    "native": "Constitución Política de la República de Chile (Decreto 100 de 2005)",
+    "en": "Political Constitution of the Republic of Chile",
+    "url": "https://www.bcn.cl/leychile/navegar?idNorma=242302",
+    "kind": "constitution",
+    "official": true,
+    "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+    "langs": [
+      "es"
+    ],
+    "access": "free",
+    "coverage": "1980 Constitution, consolidated text fixed by Decreto 100 published 22 September 2005, with all reforms to date",
+    "desc": "The operative constitutional text: Decreto Supremo 100 of 2005 fixed the refundido, coordinado y sistematizado text of the 1980 Constitution, and Ley Chile keeps it updated as constitutional reforms are published. Every article carries the date of the version currently shown.",
+    "howto": "Read the consolidated text on the Texto tab (the tab strip is Texto / Versiones / Proyectos de Ley / Historia de la Ley / Jurisprudencia); use the Versiones tab to open the Constitution as it stood on any past date, e.g. https://www.bcn.cl/leychile/navegar?idNorma=242302&idVersion=2020-08-20, which loads the 20-AGO-2020 to 25-AGO-2020 text with a banner warning that the version is no longer in force.",
+    "formats": [
+      "HTML",
+      "PDF",
+      "XML"
+    ],
+    "api": "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=242302",
+    "note": "Both replacement constitutions - the Convención Constitucional proposal rejected on 4 September 2022 and the Consejo Constitucional proposal rejected on 17 December 2023 - are historical documents with no legal force; the 1980/2005 text was never displaced."
+  },
+  "sources": [
+    {
+      "id": "leychile",
+      "name": "Ley Chile",
+      "native": null,
+      "en": "Chilean Law (consolidated legislation database)",
+      "url": "https://www.bcn.cl/leychile/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Chilean norms from the 19th century to date; dated version histories for norms published from 1998 onward",
+      "desc": "The single most useful legal site in Chile: free consolidated full text of laws, DFL, decree laws, supreme decrees, reglamentos and treaties, rebuilt after each amendment. Its versioning is the reason to come here rather than to the gazette - every norm carries a Versiones panel listing each successive consolidated text with the date it took effect, so you can read the law exactly as it stood on a chosen date, and a comparison view shows the two texts in parallel columns with only the modified articles highlighted in colour. Each norm page also links the amending norms, related jurisprudence, and its legislative history.",
+      "howto": "Search by number and type from the home page, or use the Búsqueda Avanzada form (the BÚSQUEDA AVANZADA button in the header) when you know the tipo, número and organismo. On a norm page the tabs are Texto / Versiones / Proyectos de Ley / Historia de la Ley / Jurisprudencia: Texto is the wording in force today, Versiones gives the historical texts, and you can address one directly by appending &idVersion=YYYY-MM-DD to the navegar URL.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=242302",
+      "note": "Ley Chile texts are an official consolidation prepared by the BCN, but the legally authentic wording remains the text published in the Diario Oficial; the version-comparison feature is only fully populated for norms published from 1998."
+    },
+    {
+      "id": "leychile-avanzada",
+      "name": "Ley Chile - Busqueda Avanzada",
+      "native": "Ley Chile - Búsqueda Avanzada",
+      "en": "Ley Chile advanced search",
+      "url": "https://www.bcn.cl/leychile/Consulta/buscador_avanzada",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Same corpus as Ley Chile",
+      "desc": "The structured entry point into Ley Chile, and the fastest way to isolate subordinate legislation: you can restrict a search to a norm type (ley, decreto con fuerza de ley, decreto supremo, resolución), to the issuing ministry or service, to a number range, and to a publication-date window.",
+      "howto": "Pick a match mode (TODAS / EXACTA / ALGUNAS), then set the norm type under Identificación de la Norma - the list runs from Ley, Decreto, Resolución, Decreto con Fuerza de Ley and Decreto Ley through to Tratado, Ordenanza and Reglamento Municipal - and add a Publicación or Promulgación date range. Organismo and the number range sit behind MÁS FILTROS. Two extra controls are worth knowing: Nivel de búsqueda (NORMA / ARTÍCULO / PARTE) decides whether your terms must co-occur in one article, and Tipo de versión (ORIGINAL / INTERMEDIO / ÚLTIMA VERSIÓN / TODAS) decides whether you are searching current or historical wording. The form is also reachable from the BÚSQUEDA AVANZADA button in the header of every Ley Chile page.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "The path is case-sensitive and the capital C in /Consulta/ matters: the lowercase /leychile/consulta/buscador_avanzada and the older /leychile/consulta/buscador_experto both fall through to Ley Chile's 404 page. BCN retired the 'Búsqueda Experta' label; the live tool is titled Búsqueda Avanzada."
+    },
+    {
+      "id": "leychile-codigos",
+      "name": "Codigos de la Republica",
+      "native": "Códigos de la República",
+      "en": "Codes of the Republic",
+      "url": "https://www.bcn.cl/leychile/codigos",
+      "kind": "codes",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "All Chilean codes in force (Civil, Penal, Procesal Penal, del Trabajo, Tributario, de Comercio, Orgánico de Tribunales, Sanitario, de Aguas, de Minería and others)",
+      "desc": "A curated landing page listing every Chilean code with a direct link to its consolidated Ley Chile text, which saves you guessing which law number a code was originally enacted as.",
+      "howto": "Pick the code from the list; the linked norm page carries the same Versiones and comparison tools as any other Ley Chile norm, so you can read a code article as it stood before a reform.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "leychile-tratados",
+      "name": "Buscador de Tratados Internacionales",
+      "native": null,
+      "en": "International Treaties search",
+      "url": "https://www.bcn.cl/leychile/consulta/buscador_tratados",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Bilateral and multilateral treaties, agreements, conventions and protocols signed by Chile since 1824 and published in official sources, browsable by counterparty country",
+      "desc": "Treaties enter Chilean law through a promulgating supreme decree published in the Diario Oficial; this search links each treaty to that decree and its consolidated text, which is otherwise hard to locate by treaty name alone.",
+      "howto": "Use the form's Tratado de Chile con (country), Período en que se firmó (date range) and Tipo (Bilateral / Multilateral) filters, or browse the country listing at https://www.bcn.cl/leychile/consulta/tratados_por_pais?pais=Brasil (swap the pais parameter) to see everything in force with a given state.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The Ministerio de Relaciones Exteriores holds the custodial originals; the BCN listing is a finding aid over the promulgating decrees."
+    },
+    {
+      "id": "historia-ley",
+      "name": "Historia de la Ley",
+      "native": null,
+      "en": "Legislative History",
+      "url": "https://www.bcn.cl/historiadelaley/",
+      "kind": "research",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Compiled legislative histories for a large and growing selection of laws; the 100 most recent are listed on the front page",
+      "desc": "The compiled travaux préparatoires of a law: message or motion, committee reports, chamber debates, vetoes, Constitutional Court review and the final text, assembled into one navigable document. This is where you go when the wording of an article is ambiguous and you need what Congress actually discussed.",
+      "howto": "Search by law number, or open Últimas Historias de la Ley Publicadas for recent statutes; each history has a per-stage navigation and a downloadable full-text document.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Coverage is selective rather than exhaustive - the BCN populates it by priority, so some older laws have no compiled history. The site sits behind an AWS WAF challenge that asks for human verification before it will load, so scripted access and some privacy extensions are blocked; open it in an ordinary browser. Each compiled history is also reachable from the Historia de la Ley tab on the corresponding Ley Chile norm page."
+    },
+    {
+      "id": "camara",
+      "name": "Camara de Diputadas y Diputados - Proyectos de Ley",
+      "native": "Cámara de Diputadas y Diputados - Proyectos de Ley",
+      "en": "Chamber of Deputies - Bills",
+      "url": "https://www.camara.cl/legislacion/ProyectosDeLey/proyectos_ley.aspx",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Cámara de Diputadas y Diputados de Chile",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Bills in tramitación and dispatched bills, by boletín number",
+      "desc": "The lower chamber's bill tracker. Tax, budget and recruitment bills can only originate here, so for those subjects this is the first chamber's record of the text and its committee stages.",
+      "howto": "Search by boletín number or keyword to open a bill's file, which lists each tramitación step with the documents (mensaje/moción, informes de comisión, votaciones) attached.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "A bill is not law until published in the Diario Oficial; text on this site is a draft at whatever stage it has reached."
+    },
+    {
+      "id": "senado",
+      "name": "Senado - Tramitacion de Proyectos",
+      "native": "Senado - Tramitación de Proyectos",
+      "en": "Senate - Bill tracking",
+      "url": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/index.php",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Senado de la República de Chile",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Bills initiated and dispatched by legislative year, plus session records",
+      "desc": "The Senate's parallel tracker, with a Búsqueda por Boletín o Palabra field and browsing by topic, committee or author. Useful because it shows dispatched bills with their eventual law number and publication status.",
+      "howto": "Enter the boletín number or a keyword; the bill file shows current status (En tramitación / Publicado), the chamber it sits in, and the linked committee documents and votes.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "pjud",
+      "name": "Portal Unificado de Sentencias - Poder Judicial",
+      "native": null,
+      "en": "Unified Judgments Portal - Judiciary",
+      "url": "https://www.pjud.cl/portal-unificado-sentencias",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Poder Judicial de Chile",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "A selection of judgments of the Corte Suprema, Cortes de Apelaciones and the labour, criminal, family, debt-collection and civil courts nationwide, served in original or anonymised form",
+      "desc": "The judiciary's own case-law hub. It is a landing page rather than the search box itself: from here you reach the Buscador Unificado de Fallos at juris.pjud.cl, jurisprudential lines grouped by Supreme Court chamber, a human-rights judgments search at busddhh.pjud.cl, the Third Chamber's health and immigration compendia, and the indemnification reference tables (baremo) at baremo.pjud.cl.",
+      "howto": "Follow Buscador Unificado de Sentencias through to https://juris.pjud.cl/busqueda, which opens with one tab per jurisdiction (Corte Suprema, Corte de Apelaciones, Laborales, Cobranza, Penales, Familia, Civiles); enter free text and refine with Búsqueda Avanzada, or browse the Índice Temático. Results split into Búsqueda con descripción de contenido and Búsqueda sin descripción de contenido.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Chilean judgments bind only the parties; there is no doctrine of binding precedent, and the database is a selection rather than a complete record of every decision ever issued."
+    },
+    {
+      "id": "tc",
+      "name": "Buscador de Jurisprudencia del Tribunal Constitucional",
+      "native": null,
+      "en": "Constitutional Court jurisprudence search",
+      "url": "https://buscador.tcchile.cl/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Tribunal Constitucional de Chile",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Judgments and resolutions of the Constitutional Court across its history",
+      "desc": "The Constitutional Court decides preventive review of bills and inapplicability challenges against statutes in force, so this is where you check whether a specific provision has been struck down or held inapplicable before relying on its text.",
+      "howto": "Search with Texto en sentencia and narrow using Seleccionar Competencia (the Court's heads of jurisdiction, e.g. 'Inaplicabilidad de Precepto Legal (Art. 93 N° 6)'), Cuerpo legal for the statute examined, Ministro Redactor for the drafting judge, plus Número de rol and Fecha de sentencia.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "An inaplicabilidad ruling disapplies a provision in one concrete case only; general repeal requires a separate declaration of unconstitutionality, so a norm can still appear in force on Ley Chile after an adverse ruling."
+    },
+    {
+      "id": "contraloria",
+      "name": "Base de Dictamenes - Contraloria General de la Republica",
+      "native": "Base de Dictámenes - Contraloría General de la República",
+      "en": "Dictamen database - Office of the Comptroller General",
+      "url": "https://www.contraloria.cl/appinf/LegisJuri/DictamenesGeneralesMunicipales.nsf/fsconsultaNva?OpenFrameset",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Contraloría General de la República de Chile",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Dictámenes and pronouncements of the Contraloría, a corpus well over 100,000 items",
+      "desc": "The Contraloría's dictámenes are binding interpretations of administrative law for the whole public administration, and it also runs toma de razón, the legality check a supreme decree must pass before it can be published. For public-sector questions the dictamen is often more decisive in practice than any court judgment.",
+      "howto": "The form takes Nº Dictamen, Materia (Generales or Municipales), a Desde/Hasta date range and Texto libre, with sort options ASC, DESC and DESC/Vig and a results-per-page selector. Search by number when you have the citation; otherwise use Texto libre and sort by DESC/Vig to surface the still-current rulings first.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Dictámenes are frequently modified or reconsidered, so a hit in this database is not necessarily the Contraloría's current position. The searcher is an old Lotus Domino frameset, so it does not deep-link to a result and the browser Back button behaves oddly; the CGR site's own 'Buscar Jurisprudencia' and 'Dictámenes y pronunciamientos' pages (contraloria.cl/web/cgr/buscar-jurisprudencia, /dictamenes-y-pronunciamientos) are only signposts that hand off to this database."
+    },
+    {
+      "id": "comparador",
+      "name": "Comparador de Textos Constitucionales",
+      "native": null,
+      "en": "Constitutional texts comparator",
+      "url": "https://www.bcn.cl/comparador/",
+      "kind": "constitution",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Six texts: Constitución Vigente, Propuesta Consejo Constitucional 2023, Anteproyecto Comisión Experta 2023, Propuesta Convención 2022, Proyecto Reforma Constitucional 2018 and Constitución 1925",
+      "desc": "The BCN's side-by-side tool for reading the constitution in force against the rejected replacement drafts of the 2022 Convención Constitucional and the 2023 Consejo Constitucional, the 2023 Comisión Experta anteproyecto that preceded the latter, the 2018 reform bill and the 1925 Constitution. This is the cleanest official route to the superseded and rejected texts, which have historical and comparative interest only.",
+      "howto": "Open the Comparar view at https://www.bcn.cl/comparador/compara and tick up to four texts, then compare por tema or por párrafo. The text you click becomes the basis of the comparison, and the ordering matters: the comparison runs against whichever text sits leftmost on screen.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Neither replacement draft ever entered into force; both were rejected at plebiscite (4 September 2022 and 17 December 2023). The Anteproyecto Comisión Experta 2023 and the Proyecto Reforma Constitucional 2018 likewise never became law, and the 1925 Constitution was superseded in 1980."
+    },
+    {
+      "id": "datos-bcn",
+      "name": "Datos Abiertos Enlazados BCN",
+      "native": null,
+      "en": "BCN Linked Open Data",
+      "url": "https://datos.bcn.cl/es/",
+      "kind": "research",
+      "official": true,
+      "authority": "Biblioteca del Congreso Nacional de Chile (BCN)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Norms, parliamentarians, sessions, localities, municipal reports and budget datasets as RDF/OWL",
+      "desc": "The machine-readable layer under Ley Chile: RDF datasets, a SPARQL endpoint and a catalogue of web services, including the XML service that returns the full consolidated text of a norm with per-article version dates.",
+      "howto": "Start from Documentación > Normas for the URI scheme, or call the norm XML service directly as https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=242302 (or &idLey=18575) to pull a full consolidated text with fechaVersion metadata.",
+      "formats": [
+        "RDF",
+        "XML",
+        "HTML"
+      ],
+      "api": "https://www.leychile.cl/Consulta/obtxml?opt=7&idLey=18575",
+      "note": "The obtxml endpoint still answers anonymously and returns a Norma document carrying fechaVersion, fechaPromulgacion and fechaPublicacion attributes, but BCN now also issues API keys for its web services and documents them at https://www.bcn.cl/leychile/api/docs - register there before building anything that polls at volume."
+    },
+    {
+      "id": "portal-transparencia",
+      "name": "Portal de Transparencia del Estado",
+      "native": null,
+      "en": "State Transparency Portal",
+      "url": "https://www.portaltransparencia.cl/PortalPdT/",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Consejo para la Transparencia",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Active-transparency publications of central government bodies, regional governments and municipalities",
+      "desc": "Municipalities and regional governments must publish their ordenanzas, reglamentos, decrees and council minutes under the transparency law, and this portal is the common front door to those obligations when a municipality has no usable site of its own.",
+      "howto": "Use Buscar Organismos to open a body's ficha, then its Transparencia Activa listing. The categories are numbered and fixed by law: '01. Actos y documentos publicados en Diario Oficial', '02. Potestades y Marco Normativo' (which holds the Marco Normativo link) and '07. Actos y resoluciones con efectos sobre terceras personas' are the ones that carry ordenanzas, reglamentos and municipal decrees. Items marked (*) publish nothing and give a justification instead; where a body fails to publish, an amparo can be filed with the Consejo para la Transparencia.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Presentation and completeness vary by municipality; many also keep their own transparencia subdomain with a fuller ordenanza list."
+    },
+    {
+      "id": "vlex",
+      "name": "vLex Chile",
+      "native": null,
+      "en": "vLex Chile",
+      "url": "https://vlex.cl/",
+      "kind": "research",
+      "official": false,
+      "authority": "vLex (part of Clio), private publisher",
+      "langs": [
+        "es",
+        "en"
+      ],
+      "access": "paywall",
+      "coverage": "Chilean legislation, court and administrative decisions, commentary and journals",
+      "desc": "A commercial platform that aggregates Chilean legislation, judicial and Contraloría material with editorial annotations, citation links and cross-jurisdiction search. Practitioners use it for the annotation and linking that the free official sites do not provide.",
+      "howto": "Search across sources or browse by source (e.g. the Contraloría General de la República collection); a free trial exposes some content but full text requires a subscription.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Not an official publisher. Nothing on vLex is authoritative for the wording of a norm - verify against the Diario Oficial or Ley Chile."
+    },
+    {
+      "id": "constitute",
+      "name": "Constitute Project - Chile 1980 (rev. 2021)",
+      "native": null,
+      "en": "Constitute Project - Chile 1980 (rev. 2021)",
+      "url": "https://www.constituteproject.org/constitution/Chile_2021",
+      "kind": "translation",
+      "official": false,
+      "authority": "Comparative Constitutions Project; translation by Rodrigo Delaveau Swett",
+      "langs": [
+        "en",
+        "es"
+      ],
+      "access": "free",
+      "coverage": "1980 Constitution as revised to 2021",
+      "desc": "The most usable English rendering of the Chilean Constitution, with topic tagging and side-by-side comparison against other countries' texts. There is no official English version of Chilean law, so this fills a real gap.",
+      "howto": "Read online or export to PDF; check the revision year in the title against the current Ley Chile text, since reforms after 2021 will not be reflected.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Unofficial translation with no legal value; only the Spanish text published in the Diario Oficial is authentic."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current text of a statute (ley, DFL or decreto ley)",
+      "steps": "Open the Búsqueda Avanzada, set Tipo de Norma to Ley and enter the number (e.g. 21.719), or type the number into the Ley Chile home search. The Texto tab shows the consolidated text as it stands today, with each article annotated by the law that last modified it.",
+      "url": "https://www.bcn.cl/leychile/Consulta/buscador_avanzada",
+      "source": "Ley Chile - Búsqueda Avanzada"
+    },
+    {
+      "task": "See exactly what an amendment changed, or read a law as it stood on a past date",
+      "steps": "On any Ley Chile norm page open the Versiones panel: it lists every consolidated text with the dates it was in force. Select a date to read that version, or select two and use the comparison view, which shows the texts in two columns and colours only the articles that changed. You can also address a version directly by appending &idVersion=YYYY-MM-DD to the navegar URL.",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=242302",
+      "source": "Ley Chile (versions and comparison)"
+    },
+    {
+      "task": "Check what was officially published today, or verify the authentic wording of a norm",
+      "steps": "Open the Edición Electrónica for the date in question and browse Normas Generales for statutes and reglamentos of general application, or Normas Particulares for individual acts; download the per-publication PDF. To authenticate a printed copy, enter its CVE code in Verificar Publicación. Editions before 17 August 2016 are under Versiones Anteriores.",
+      "url": "https://www.diariooficial.interior.gob.cl/edicionelectronica/index.php",
+      "source": "Diario Oficial de la República de Chile"
+    },
+    {
+      "task": "Find a court decision",
+      "steps": "Go to the Buscador Unificado de Fallos at https://juris.pjud.cl/busqueda, pick the jurisdiction tab (Corte Suprema, Corte de Apelaciones, Laborales, Cobranza, Penales, Familia, Civiles), then search free text and refine with Búsqueda Avanzada or the Índice Temático; for constitutional challenges to a statute, search the Constitutional Court's own database at buscador.tcchile.cl instead.",
+      "url": "https://juris.pjud.cl/busqueda",
+      "source": "Portal Unificado de Sentencias - Poder Judicial"
+    },
+    {
+      "task": "Find a regulation, supreme decree or resolución issued under a statute",
+      "steps": "In the Búsqueda Avanzada set Tipo de Norma to Decreto (or Resolución), pick the issuing Organismo, and add the parent law's number as a free-text term; the results list the reglamentos with their publication dates and consolidated texts. A norm page's REGLAMENTO link also lists the implementing decrees issued under it.",
+      "url": "https://www.bcn.cl/leychile/Consulta/buscador_avanzada",
+      "source": "Ley Chile - Búsqueda Avanzada"
+    },
+    {
+      "task": "Find how the administration must apply a rule (binding administrative interpretation)",
+      "steps": "Open the Base de Dictámenes and search by Nº Dictamen, or by Texto libre narrowed with Materia (Generales / Municipales) and a Desde/Hasta date range; sort by DESC/Vig to bring the still-current rulings up first, then check whether a later dictamen has confirmed, complemented or reconsidered the one you found.",
+      "url": "https://www.contraloria.cl/appinf/LegisJuri/DictamenesGeneralesMunicipales.nsf/fsconsultaNva?OpenFrameset",
+      "source": "Base de Dictámenes - Contraloría General de la República"
+    },
+    {
+      "task": "Find a municipal ordenanza or a regional government act",
+      "steps": "Chile has no national database of municipal law. Go to the Portal de Transparencia, select the Municipalidad or Gobierno Regional, and open its Marco Normativo / Actos y Resoluciones section; if it is incomplete, check the municipality's own transparencia subdomain.",
+      "url": "https://www.portaltransparencia.cl/PortalPdT/",
+      "source": "Portal de Transparencia del Estado"
+    }
+  ],
+  "subnational": "Chile is a unitary state: there are no state or provincial legislatures and no subnational statute law. The 16 regions have elected regional governors and consejos regionales that issue resolutions and regional plans within limits set by national law, and the 345 municipalities issue ordenanzas, reglamentos and municipal decrees binding within the comuna. None of this is collected nationally - Ley Chile covers national norms only, so you start at the individual municipality's transparency pages or at the Portal de Transparencia del Estado, and coverage varies sharply from one comuna to another.",
+  "caveats": "Only the Spanish text published in the Diario Oficial is authentic; there is no official English version of any Chilean law or of the Constitution, so translations such as Constitute's are convenience only. Ley Chile's consolidated texts are prepared by the Biblioteca del Congreso Nacional and are the working reference for the whole legal community, but they are a consolidation, not the enacted instrument - where wording matters, check the Diario Oficial. Version histories and the comparison view on Ley Chile are fully populated only for norms published from 1998 onward, and Historia de la Ley is a selective, priority-driven collection rather than complete coverage of every statute. The judicial and Contraloría databases are curated selections, and a Constitutional Court inaplicabilidad ruling disapplies a provision in a single case without removing it from Ley Chile, so a text shown as in force may still have been held inapplicable. Commercial sites such as vLex, Microjuris and Thomson Reuters offerings, and mirror sites that reproduce Chilean statutes with official-looking layouts, are private publications with no authority over the text. One domain trap is worth flagging: in Chile only executive-branch bodies use gob.cl, so the Diario Oficial sits on diariooficial.interior.gob.cl while Congress, the courts and the autonomous control organs publish from plain .cl domains - bcn.cl (Biblioteca del Congreso Nacional), camara.cl, senado.cl, pjud.cl, tcchile.cl, contraloria.cl and portaltransparencia.cl are all genuine state institutions despite the absence of gob in the name, and the .cl suffix alone says nothing either way.",
+  "updated": "2026-08"
+}

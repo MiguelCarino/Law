@@ -1,0 +1,488 @@
+{
+  "code": "sv",
+  "iso": "SV",
+  "name": "El Salvador",
+  "nativeName": "República de El Salvador",
+  "flag": "🇸🇻",
+  "region": "Latin America",
+  "tradition": "civil",
+  "traditionNote": "A civil-law system built on codes and legislative decrees, so the starting point for almost any question is the enacted text in the Diario Oficial rather than a line of decided cases.",
+  "languages": [
+    "Spanish"
+  ],
+  "summary": "Law is made by the unicameral Asamblea Legislativa through decretos legislativos, sanctioned and promulgated by the President; the Executive issues reglamentos and decretos ejecutivos, and the 44 municipal councils issue ordenanzas. Everything of legal effect is published in the Diario Oficial, printed by the Imprenta Nacional under the Ministerio de Gobernación y Desarrollo Territorial, and the text as published there is the authentic one. Under Art. 140 of the Constitution a permanent law is not binding until it has been promulgated and published, and at least eight days must pass after publication unless the instrument sets its own date. Consolidated 'texto vigente' versions on the Asamblea Legislativa site are administrative compilations prepared by the Departamento de Índice Legislativo, useful and widely relied on but not themselves the official text. There is no single free full-text database of Salvadoran law in force, so most research means combining the Asamblea index, the Supreme Court's Centro de Documentación Judicial, and the dated Diario Oficial issue itself.",
+  "hierarchy": [
+    "Constitución de la República (1983, as amended)",
+    "Ratified international treaties",
+    "Códigos y leyes secundarias (decretos legislativos)",
+    "Reglamentos y decretos ejecutivos",
+    "Ordenanzas y reglamentos municipales"
+  ],
+  "gazette": {
+    "id": "diario-oficial",
+    "name": "Diario Oficial",
+    "native": null,
+    "en": "Official Gazette",
+    "url": "https://www.diariooficial.gob.sv/",
+    "kind": "gazette",
+    "official": true,
+    "authority": "Imprenta Nacional, Ministerio de Gobernación y Desarrollo Territorial",
+    "langs": [
+      "es"
+    ],
+    "access": "free",
+    "coverage": "1847 to 2026; the AÑO selector carries 175 year options from 1847 onward, but the current year only exposes months already completed, so the archive trails real time by up to a month",
+    "desc": "The gazette of record and the only place a Salvadoran law, reglamento, executive decree, municipal ordinance or judicial notice acquires legal effect. Digitised issues are downloadable as PDF back to the nineteenth century.",
+    "howto": "Under 'Seleccion de volumen de Diario Oficial' pick the AÑO, then the MES (the month control lists bare numbers, 1 to 12, not month names), and click Descargar next to the issue date you need. There is no full-text search, so you must already know the publication date, or the número and tomo, which you can get from the Asamblea record for the decree.",
+    "formats": [
+      "PDF"
+    ],
+    "api": null,
+    "note": "Browse-by-date only. Without the date, número or tomo of the issue this archive is very hard to use; find those on the Asamblea Legislativa record first. The download archive also lags: in the middle of August 2026 the month selector for 2026 stopped at July, so for the very newest issues you need the Imprenta Nacional, which sells the current edition."
+  },
+  "constitution": {
+    "id": "constitucion",
+    "name": "Constitucion de la Republica de El Salvador",
+    "native": "Constitución de la República de El Salvador",
+    "en": "Constitution of the Republic of El Salvador",
+    "url": "https://www.asamblea.gob.sv/leyes-y-decretos/constitucion",
+    "kind": "constitution",
+    "official": true,
+    "authority": "Asamblea Legislativa de El Salvador",
+    "langs": [
+      "es"
+    ],
+    "access": "free",
+    "coverage": "1983 constitution (Decreto Constituyente No. 38, published in the Diario Oficial 16 December 1983, in force 20 December 1983), consolidated through reform note (34), D.L. 570 of 7 May 2026, published in Diario Oficial No. 83, Tomo 451; the 60-page PDF carries a numbered reform log and includes the July 2025 reforms (D.L. 370 and 371) with their transitional provision ending the current presidential term on 1 June 2027",
+    "desc": "The Assembly's own page for the Constitution, with an explanatory note on its origins and a button, 'Ir al Decreto', that opens the consolidated text as a PDF. This is the version most Salvadoran institutions cite.",
+    "howto": "Click 'Ir al Decreto' to open the consolidated PDF (currently https://www.asamblea.gob.sv/sites/default/files/2026-05/1.%20CONSTITUCI%C3%93N%20DE%20LA%20REP%C3%9ABLICA.pdf). To check whether a given article has since changed, cross-check the 'Acuerdos de Reforma a la Constitución' page.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": null,
+    "note": "A consolidation, not the promulgated text. The authentic wording of each reform is the decree as published in the Diario Oficial."
+  },
+  "sources": [
+    {
+      "id": "asamblea-buscador",
+      "name": "Buscador de Leyes y Decretos",
+      "native": "Búsqueda de Leyes y Decretos",
+      "en": "Laws and Decrees Search",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/busqueda-decretos",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Asamblea Legislativa de El Salvador, Departamento de Índice Legislativo",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Legislative decrees, laws, codes and reglamentos indexed by the Departamento de Índice Legislativo; historical depth varies by instrument",
+      "desc": "The closest thing El Salvador has to a national statute database. Each hit opens a record giving the decree number, date of issue, materia and rama del derecho, the Diario Oficial number, tomo and publication date, plus an 'ABRIR DOCUMENTO' button serving the text as PDF.",
+      "howto": "Type a term in 'Palabras de Interés' (e.g. CODIGO PENAL) and submit; open 'Opciones de Búsqueda Avanzada' to narrow by No. de Diario Oficial, No. de Tomo, No. de Decreto or rama del derecho. Click a result to open its record, then 'ABRIR DOCUMENTO' for the PDF.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The page itself warns the index is 'en permanente actualización' and asks you to phone or email indice.legislativo@asamblea.gob.sv if a document is missing, which is an honest signal about how complete it is."
+    },
+    {
+      "id": "asamblea-anios",
+      "name": "Leyes y Decretos por Ano",
+      "native": "Decretos por Año",
+      "en": "Decrees by Year",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/decretos-por-anios",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Asamblea Legislativa de El Salvador",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "1860 to 2026: 91 year tiles, unbroken from 1967 onward but sparse before that (1860, 1879, 1897, 1900, 1925, then scattered years through the 1930s to 1950s)",
+      "desc": "Chronological browse of everything the Assembly enacted in a given year, headed 'Decretos Emitidos en <year>' and listing each decree by number, title and Fecha de Emisión. Useful when you know roughly when something passed but not what it was called, or when you want to see the whole output of a legislature. The current-year tile is the most up-to-date free list of new Salvadoran legislation.",
+      "howto": "Pick the year tile, then page through the decree list; clicking an entry opens the same record view as the search in a modal, with the Diario Oficial number, tomo and publication date and an ABRIR DOCUMENTO button. Appending /0 to a year URL gives published decrees and /1 gives those still awaiting publication.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The pre-1967 tiles are isolated sample years, not a continuous archive, so a gap here is not evidence that nothing was enacted; fall back to the search or the Diario Oficial archive."
+    },
+    {
+      "id": "asamblea-ultimos",
+      "name": "Ultimos Decretos Aprobados",
+      "native": "Últimos Decretos Aprobados",
+      "en": "Most Recently Approved Decrees",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/ultimos-aprobados",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Asamblea Legislativa de El Salvador",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Only the years that still contain decrees awaiting gazette publication; as of August 2026 the page offers a single year, 2024, holding four unpublished decrees from November 2024",
+      "desc": "Despite the name this is not a rolling feed of the newest legislation. It is a backlog tracker: it lists only the years in which decrees were approved in plenary but have not yet appeared in the Diario Oficial, under a red banner reading 'Pendiente de Publicación Material en el Diario Oficial y de Entrada en Vigencia'. Its real use is checking whether a decree you have heard about is still unpublished, and therefore not yet law.",
+      "howto": "Click the year in the 'Años' table, which opens the /1 (pending) view of Decretos por Año. To see what has actually just been enacted, use the current-year tile in Decretos por Año instead, which is where new decrees appear.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Approval is not publication: a decree listed here is not binding until it appears in the Diario Oficial and the vacatio legis has run. The page is close to dormant, having carried the same 2024 entries for well over a year, so do not treat it as a current-awareness tool."
+    },
+    {
+      "id": "asamblea-reformas-const",
+      "name": "Acuerdos de Reforma a la Constitucion",
+      "native": "Acuerdos de Reforma a la Constitución",
+      "en": "Constitutional Reform Agreements",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/acuerdos-de-reforma-a-la-constitucion",
+      "kind": "constitution",
+      "official": true,
+      "authority": "Asamblea Legislativa de El Salvador",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Constitutional reform agreements sorted into Ratificados, Pendientes de Ratificar and No Ratificados",
+      "desc": "The official tracker for constitutional change. Each row gives the acuerdo number, title, date of issue, date of publication, and links to both the acuerdo and its ratifying decree, so you can tell which proposed reforms actually took effect.",
+      "howto": "Switch between the three tabs. Only items under 'Ratificados' with a Decreto de Ratificación have entered the constitutional text; open the ratification decree for its Diario Oficial citation.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The amendment route itself changed. Art. 248 as reformed by D.L. 197 of 29 January 2025 (Diario Oficial No. 20, Tomo 446, same date) now lets a reform agreed by half plus one of elected deputies be ratified either by the next Assembly with two thirds or by the same Assembly with three quarters, so a single legislature can complete a reform; the two-legislature route still exists alongside it. The entrenched limits on form of government, national territory and presidential alternation remain in the text."
+    },
+    {
+      "id": "asamblea-anuarios",
+      "name": "Anuarios Legislativos",
+      "native": null,
+      "en": "Legislative Yearbooks",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/anuarios-legislativos",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Asamblea Legislativa de El Salvador, Unidad de Índice Legislativo",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Digital yearbooks from 1996 onward, each covering 1 May to 30 April",
+      "desc": "Annual compilation of every decree issued in a legislative year, produced under Art. 94 of the Assembly's internal rules. Tomo I holds laws, reforms, authentic interpretations, extensions and repeals; Tomo II holds elections, ratifications of conventions, municipal boundaries and miscellaneous decrees, with a general index of extracts.",
+      "howto": "Pick the year, then Tomo I for substantive legislation or the Índice General to scan one-line extracts of every decree in correlative order.",
+      "formats": [
+        "PDF"
+      ],
+      "api": null,
+      "note": "The page states plainly that texts in the yearbooks appear as approved, with no later reform or update folded in. Treat them as as-enacted, never as current law."
+    },
+    {
+      "id": "cdj-jurisprudencia",
+      "name": "Busqueda de Jurisprudencia - Centro de Documentacion Judicial",
+      "native": "Búsqueda de Jurisprudencia - Centro de Documentación Judicial",
+      "en": "Case Law Search - Judicial Documentation Centre",
+      "url": "https://www.jurisprudencia.gob.sv/busqueda/busquedaLibre.php?id=1",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Corte Suprema de Justicia, Departamento de Documentación Judicial",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Sentencias and resoluciones of the Supreme Court chambers, cámaras and trial courts; the underlying document store holds items dated as far back as the 1860s, with depth varying sharply by court and period",
+      "desc": "The national case-law database, and the only free full-text search over Salvadoran judgments, including the Sala de lo Constitucional. Documents are served as PDF or HTML from the court's document vault.",
+      "howto": "Use 'Búsqueda Libre' to search words inside the text, choosing exact phrase or any-of-these-words, and set a Desde/Hasta date range; or use the advanced tab to search by reference number or by delito. Results open an extract page from which you reach the full resolution.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Coverage is uneven and not a complete record of what the courts have decided; absence from this database does not mean a decision does not exist."
+    },
+    {
+      "id": "cdj-legislacion",
+      "name": "Busqueda de Legislacion - Centro de Documentacion Judicial",
+      "native": "Búsqueda de Legislación - Centro de Documentación Judicial",
+      "en": "Legislation Search - Judicial Documentation Centre",
+      "url": "https://www.jurisprudencia.gob.sv/busqueda/busquedaLeg.php?id=2",
+      "kind": "codes",
+      "official": true,
+      "authority": "Corte Suprema de Justicia, Departamento de Documentación Judicial",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Laws, decrees, reglamentos and ordinances as compiled by the court's documentation department",
+      "desc": "The judiciary's own legislation collection, maintained separately from the Assembly's. Worth a second look when the Assembly index does not surface an instrument, particularly for older or subordinate texts.",
+      "howto": "'Búsqueda Avanzada' searches by document name or decree/agreement number; 'Búsqueda Libre' does full-text over the document body with a Desde/Hasta date range. Set the records-per-page control before running a broad query.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The interface does not say whether a given text is the as-enacted or the consolidated version; check the decree citation against the Diario Oficial."
+    },
+    {
+      "id": "cdj-instrumentos",
+      "name": "Busqueda de Instrumentos Internacionales",
+      "native": "Búsqueda de Instrumentos Internacionales",
+      "en": "International Instruments Search",
+      "url": "https://www.jurisprudencia.gob.sv/busqueda/busquedaInstrumentos.php?id=3",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Corte Suprema de Justicia, Departamento de Documentación Judicial",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Treaties and international instruments ratified by El Salvador, as held by the judicial documentation department",
+      "desc": "Where to look for the Spanish text of a treaty El Salvador has ratified. Treaties ratified under Art. 144 of the Constitution form part of domestic law, so this sits alongside the statute databases rather than apart from them.",
+      "howto": "Search by instrument name or by keyword, then open the record for the text and its ratifying legislative decree.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The ratifying decree, and its Diario Oficial publication, are what give the treaty domestic effect; note both when citing."
+    },
+    {
+      "id": "cdj-lineas",
+      "name": "Lineas y Criterios Jurisprudenciales",
+      "native": "Líneas y Criterios Jurisprudenciales",
+      "en": "Jurisprudential Lines and Criteria",
+      "url": "https://www.jurisprudencia.gob.sv/ddj/lineas-jurisprudenciales/",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Corte Suprema de Justicia, Departamento de Documentación Judicial",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Year volumes running from about 2010 to 2024, densest for conflicts of competence; there is no volume for the Sala de lo Constitucional or the Sala de lo Contencioso Administrativo",
+      "desc": "Curated PDF digests grouped under ten headings: 'Materia Privado, Social y Público' and 'Materia Penal', both of which collect the Supreme Court's líneas on conflictos de competencia, then Cámaras en materia Privado y Social, Cámaras en materia Penal, Cámaras de Menores, Cámaras en materia de Extinción de Dominio, Cámaras de Familia, the Cámara Primera de lo Civil de la Primera Sección del Centro, and Tribunales de Sentencia in penal and procesal penal matters. Faster than free-text searching when you want an established criterion, but narrower than the name suggests.",
+      "howto": "Scroll to the heading for the court and subject you need, then open the 'Enlace a PDF' for the year volume, or the 'Documento Completo' volume where one exists, and use the PDF's own index of criteria; each entry cites the reference numbers of the decisions behind it, which you can then pull in full from the jurisprudencia search.",
+      "formats": [
+        "PDF"
+      ],
+      "api": null,
+      "note": "Digests, not judgments; always read the cited decision before relying on the summary. Note also that the Supreme Court material here is overwhelmingly about which court has competence, not about substantive constitutional or administrative doctrine, for which you need the jurisprudencia database or the Revistas de Derecho Constitucional under the same site's Publicaciones menu."
+    },
+    {
+      "id": "cdj-boletines",
+      "name": "Boletines de Jurisprudencia y Legislacion",
+      "native": "Boletines de Jurisprudencia y Legislación",
+      "en": "Case Law and Legislation Bulletins",
+      "url": "https://www.jurisprudencia.gob.sv/ddj/",
+      "kind": "research",
+      "official": true,
+      "authority": "Corte Suprema de Justicia, Departamento de Documentación Judicial",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Monthly PDF bulletins in two series, BoletinJuris and BoletinLegis, current to July 2026",
+      "desc": "The landing page of the Centro de Documentación Judicial, which besides linking all four databases publishes a monthly jurisprudence bulletin and a monthly legislation bulletin. These are the most reliable free 'what changed this month' feed for El Salvador.",
+      "howto": "Scroll the front page for the current month's BoletinJuris and BoletinLegis PDFs; earlier months remain linked below. Search tutorials for the databases are under 'Videotutoriales de búsqueda'.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "imprenta-nacional",
+      "name": "Imprenta Nacional",
+      "native": null,
+      "en": "National Printing Office",
+      "url": "https://imprentanacional.gob.sv/",
+      "kind": "gazette",
+      "official": true,
+      "authority": "Ministerio de Gobernación y Desarrollo Territorial",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Institutional; the searchable back-issue archive lives at diariooficial.gob.sv",
+      "desc": "The publisher of the Diario Oficial. The site shows the latest issue on sale, a service guide and the institutional framework, and hosts SIPUDO, the online system through which private parties and institutions submit documents for publication in the gazette.",
+      "howto": "For back issues go to diariooficial.gob.sv. Use this site for the current issue, publication fees and procedure, or to reach SIPUDO at sipudo.imprentanacional.gob.sv if you need something published.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "The Ministerio de Gobernación's own marco institucional page confirms its statutory competence to 'llevar la dirección y administración de la Imprenta Nacional y del Diario Oficial'."
+    },
+    {
+      "id": "fgr-jurisleg",
+      "name": "Jurisprudencia y Legislacion - Fiscalia General de la Republica",
+      "native": "Jurisprudencia y Legislación - Fiscalía General de la República",
+      "en": "Case Law and Legislation - Attorney General's Office",
+      "url": "https://jurisprudenciaylegislacion.fgr.gob.sv/",
+      "kind": "research",
+      "official": true,
+      "authority": "Fiscalía General de la República, Escuela de Capacitación Fiscal",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "Curated legislation and case law by subject, plus supranational rulings including judgments against El Salvador",
+      "desc": "A prosecutorial research portal organising legislation and jurisprudence 'por materia', with a distinct section for supranational decisions such as Inter-American Court judgments against El Salvador. Useful precisely because it is arranged by topic rather than by decree number.",
+      "howto": "Use Legislación > Por Materia or Jurisprudencia > Por Materia to browse a subject area; 'Novedades' under each heading lists recent additions.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "A selective teaching collection built for prosecutors, not a comprehensive register."
+    },
+    {
+      "id": "transparencia",
+      "name": "Portal de Transparencia",
+      "native": null,
+      "en": "Transparency Portal",
+      "url": "https://www.transparencia.gob.sv/",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Instituto de Acceso a la Información Pública (IAIP)",
+      "langs": [
+        "es"
+      ],
+      "access": "free",
+      "coverage": "All obligated public institutions, each with its own marco normativo section",
+      "desc": "The practical route to subordinate legislation. Reglamentos, internal instructivos, resolutions and tariff schedules that never make it into a central legal database are posted by each institution under its own transparency page.",
+      "howto": "Use the Institución box on the front page, or the Directorio, to reach the issuing body's profile, then open 'Mostrar Menú' and pick 'Marco Normativo', whose sub-headings are 'Ley Principal que rige a la institución', 'Manuales básicos de organización' and 'Otros documentos normativos'. Municipal profiles carry an extra 'Ordenanzas municipales y sus proyectos' heading under Estándares municipales.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Institutions post at their own pace and file naming is inconsistent, so a missing document here does not mean it was never issued. The Directorio de Oficiales de Información is also visibly out of date, still listing alcaldías such as Concepción de Ataco and El Carrizal that ceased to exist in the 2023 municipal restructuring."
+    },
+    {
+      "id": "wipolex",
+      "name": "WIPO Lex - El Salvador",
+      "native": null,
+      "en": "WIPO Lex - El Salvador",
+      "url": "https://www.wipo.int/wipolex/en/members/profile/SV",
+      "kind": "translation",
+      "official": false,
+      "authority": "World Intellectual Property Organization",
+      "langs": [
+        "en",
+        "es",
+        "fr",
+        "ar",
+        "ru",
+        "zh"
+      ],
+      "access": "free",
+      "coverage": "About 35 laws and 64 treaties for El Salvador, covering intellectual property and closely related fields including the Constitution, the Commercial Code and consumer protection",
+      "desc": "The most reliable free source of English-language texts of Salvadoran laws, though only within its subject range. Each entry carries the decree number and date, so it doubles as a citation check.",
+      "howto": "Open the El Salvador profile, filter the legislation list by subject or year, and open an entry for the Spanish original plus any available translation.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Compiled by an international organisation, not by El Salvador. Translations are unofficial and entries can lag behind later reforms."
+    },
+    {
+      "id": "constitute",
+      "name": "Constitute Project - El Salvador",
+      "native": null,
+      "en": "Constitute Project - El Salvador",
+      "url": "https://www.constituteproject.org/constitution/El_Salvador_2014",
+      "kind": "translation",
+      "official": false,
+      "authority": "Comparative Constitutions Project / Oxford University Press",
+      "langs": [
+        "en",
+        "es",
+        "ar"
+      ],
+      "access": "free",
+      "coverage": "El Salvador 1983 constitution, revised through 2014",
+      "desc": "A readable, article-tagged English translation of the Constitution, translated by Marcia W. Coward, Milagros M. Gavilan and Reka Koerner with updates by the Comparative Constitutions Project. Convenient for orientation and comparison across countries.",
+      "howto": "Switch language with the EN/ES/AR control and jump by topic tag, The rendering is a third-party transcription; the authentic text is the Assembly's Spanish PDF.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Academic and unofficial, and badly out of date: the revision stops at 2014 while the Spanish text has since taken nine further reforms, numbered (26) to (34) in the Assembly's log, running from January 2025 to May 2026 and including the rewrite of the amendment procedure in Art. 248 and the 2025 changes to the presidential term. The page itself flags that the constitution was 'subsequently amended'. Use it for orientation only."
+    },
+    {
+      "id": "vlex-sv",
+      "name": "vLex El Salvador",
+      "native": null,
+      "en": "vLex El Salvador",
+      "url": "https://sv.vlex.com/",
+      "kind": "research",
+      "official": false,
+      "authority": "vLex (private publisher)",
+      "langs": [
+        "es"
+      ],
+      "access": "paywall",
+      "coverage": "Códigos, the Diario Oficial, and case law from the Supreme Court, cámaras, trial courts and the Tribunal Supremo Electoral, with commentary",
+      "desc": "The commercial database Salvadoran practitioners actually use when the free official sites come up short, mainly because it consolidates codes and indexes court decisions more thoroughly than the state does.",
+      "howto": "Search from the front page; browsing hit lists and metadata is open, but opening full documents requires a subscription.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Private and paywalled. Its consolidations are editorial products and carry no official status."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current text of a statute or code",
+      "steps": "Search the instrument name in 'Palabras de Interés' on the Assembly's Buscador de Leyes y Decretos, open the matching record, and click ABRIR DOCUMENTO for the PDF. Note the No. de Diario Oficial, Tomo and Fecha de Publicación shown on the record, because you will need them to verify the text.",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/busqueda-decretos",
+      "source": "Buscador de Leyes y Decretos"
+    },
+    {
+      "task": "Verify a text against the official publication",
+      "steps": "Take the Diario Oficial number, tomo and publication date from the Assembly record, then on the Imprenta Nacional download portal select that AÑO and MES and download the issue PDF. The wording in that issue is the authentic text.",
+      "url": "https://www.diariooficial.gob.sv/",
+      "source": "Diario Oficial"
+    },
+    {
+      "task": "See what changed recently or track amendments",
+      "steps": "Open the current-year tile in 'Decretos por Año', which lists every decree of the year newest first with its number, title and date of issue; this, not the misleadingly named 'Últimos Decretos Aprobados', is the live feed of new legislation. For a monthly digest with citations, download the current BoletinLegis PDF from the Centro de Documentación Judicial front page. Check 'Últimos Decretos Aprobados' only to see whether a decree is still awaiting gazette publication.",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/decretos-por-anios",
+      "source": "Decretos por Año / Boletines de Legislación"
+    },
+    {
+      "task": "Look up a court decision",
+      "steps": "Use 'Búsqueda Libre' on the Centro de Documentación Judicial jurisprudence database, entering words that appear in the decision and a Desde/Hasta date range, or switch to the advanced tab to search by reference number. For the settled position on a question rather than a single ruling, read the relevant Líneas y Criterios Jurisprudenciales digest first.",
+      "url": "https://www.jurisprudencia.gob.sv/busqueda/busquedaLibre.php?id=1",
+      "source": "Búsqueda de Jurisprudencia - Centro de Documentación Judicial"
+    },
+    {
+      "task": "Find a reglamento, executive decree or other subordinate instrument",
+      "steps": "Try the Assembly's advanced search, which indexes items by Tipo including Reglamento, and the Supreme Court's legislation database as a second pass. If neither has it, go to the issuing institution's page on the IAIP Portal de Transparencia and look under its marco normativo.",
+      "url": "https://www.jurisprudencia.gob.sv/busqueda/busquedaLeg.php?id=2",
+      "source": "Búsqueda de Legislación - CDJ / Portal de Transparencia"
+    },
+    {
+      "task": "Check whether a constitutional reform actually took effect",
+      "steps": "Open 'Acuerdos de Reforma a la Constitución' and use the Ratificados tab. Only an acuerdo with a linked Decreto de Ratificación and a publication date has entered the constitutional text; items under Pendientes de Ratificar or No Ratificados have not.",
+      "url": "https://www.asamblea.gob.sv/leyes-y-decretos/acuerdos-de-reforma-a-la-constitucion",
+      "source": "Acuerdos de Reforma a la Constitución"
+    },
+    {
+      "task": "Find a municipal ordinance",
+      "steps": "There is no national database of ordenanzas municipales, but the IAIP Portal de Transparencia is the best first stop: open the municipality's profile and look under Estándares municipales for 'Ordenanzas municipales y sus proyectos', a heading every municipality is obliged to populate. If it is empty or the ordinance is old, identify the approximate date and retrieve the Diario Oficial issue for that month from the download portal and read its sumario; failing that, contact the municipality directly.",
+      "url": "https://www.transparencia.gob.sv/",
+      "source": "Portal de Transparencia / Diario Oficial"
+    }
+  ],
+  "subnational": "El Salvador is a unitary state, so there are no state or provincial legislatures. The 14 departments are administrative units headed by governors and enact nothing. Local legislation exists only at municipal level: since the Ley Especial para la Reestructuración Municipal (Decreto Legislativo 762, Diario Oficial No. 110, Tomo 439, 14 June 2023) the country has 44 municipalities divided into 262 districts, and their councils issue ordenanzas and municipal tariffs. Those appear in the Diario Oficial, but there is no consolidated national collection of them, so tracing municipal rules generally means the gazette issue for the relevant date or the municipality itself.",
+  "caveats": "The authentic text of any Salvadoran instrument is the version published in the Diario Oficial; every consolidated 'texto vigente' elsewhere, including the Assembly's own PDFs and the constitution file linked from its site, is an administrative compilation. The Assembly's search page says outright that its index is under permanent revision and invites you to telephone or email if a document is missing, and the Anuarios Legislativos state that their texts are as approved with no later reform folded in, so neither should be treated as a guaranteed statement of law in force. The Diario Oficial archive itself has no full-text search and can only be browsed by year and month, which makes the date, número and tomo effectively mandatory before you can confirm anything, and it lags by up to a month, so the most recent issues are not yet downloadable. Beware too that the Assembly page named 'Últimos Decretos Aprobados' is not a list of the latest legislation but a near-dormant backlog of decrees still awaiting publication; the current-year tile under 'Decretos por Año' is the page that actually keeps up. Case-law coverage in the Centro de Documentación Judicial is real but uneven, and absence of a decision there is not evidence it does not exist. English versions from Constitute and WIPO Lex are unofficial translations of limited currency, and vLex, which is what many practitioners actually use, is a private paywalled publisher with no official status. One practical wrinkle: www.asamblea.gob.sv serves an incomplete TLS certificate chain, omitting the intermediate, so browsers generally recover but strict clients such as curl and scripted fetchers reject it; the site is genuine and the pages load normally in a browser.",
+  "updated": "2026-08"
+}

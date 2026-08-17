@@ -1,0 +1,501 @@
+{
+  "code": "us",
+  "iso": "US",
+  "name": "United States",
+  "nativeName": "United States of America",
+  "flag": "🇺🇸",
+  "region": "North America",
+  "tradition": "common",
+  "traditionNote": "A common-law federation: statutes and regulations are heavily codified, but their meaning is fixed by binding judicial precedent, so the code text and the case law have to be read together (Louisiana's private law is civil-law derived, and Puerto Rico's is mixed).",
+  "languages": [
+    "English"
+  ],
+  "summary": "Law is made at two levels: Congress and the federal agencies for the United States as a whole, and fifty state legislatures plus DC and the territories for everything else, with the Constitution and validly enacted federal law prevailing over conflicting state law. Acts of Congress are published first as individual slip laws, then bound chronologically in the United States Statutes at Large, and then re-arranged by subject into the United States Code by the Office of the Law Revision Counsel. Executive and agency material - proposed rules, final rules, notices, executive orders and proclamations - is published every federal business day in the Federal Register, and the standing body of regulations is compiled into the Code of Federal Regulations. Statutes generally take effect on the date the act specifies or on enactment; agency rules state their own effective date in the Federal Register, normally at least 30 days after publication. The authentic text is the Statutes at Large for acts of Congress (and the US Code itself for the 27 titles enacted into positive law), and the officially published Federal Register and CFR for regulations - on govinfo these carry a GPO digital signature.",
+  "hierarchy": [
+    "Constitution of the United States",
+    "Acts of Congress and ratified treaties (equal rank; the later in time governs)",
+    "Federal regulations (Code of Federal Regulations), executive orders and proclamations",
+    "State constitutions",
+    "State statutes",
+    "State agency regulations",
+    "County, city and other local ordinances"
+  ],
+  "gazette": {
+    "id": "federal-register",
+    "name": "Federal Register",
+    "native": null,
+    "en": null,
+    "url": "https://www.federalregister.gov/",
+    "kind": "gazette",
+    "official": true,
+    "authority": "Office of the Federal Register, National Archives and Records Administration (NARA), printed by the Government Publishing Office (GPO)",
+    "langs": [
+      "en"
+    ],
+    "access": "free",
+    "coverage": "1936-present, every federal business day, updated daily by 6 a.m.; this site holds the browsable and full-text-searchable run from 1994-present (earliest document 3 January 1994); authenticated PDFs for the whole 1936-present run sit on govinfo",
+    "desc": "The daily journal of the federal government: agency proposed rules and final rules, agency notices, and presidential documents including executive orders and proclamations. Nothing an agency does becomes generally effective law without appearing here first.",
+    "howto": "Use the search box or the agency browse; filter by document type (Rule / Proposed Rule / Notice / Presidential Document) and date. Every document has a stable citation (e.g. 91 FR 12345) and a document number, and each page links out to the signed GPO PDF on govinfo. 'Public Inspection' shows documents filed but not yet published.",
+    "formats": [
+      "HTML",
+      "PDF",
+      "XML",
+      "JSON",
+      "CSV"
+    ],
+    "api": "https://www.federalregister.gov/api/v1/documents.json",
+    "note": "The HTML site blocks automated clients - requests from datacentre addresses are 302-redirected to unblock.federalregister.gov - so scripted use is expected to go through the documented JSON API, which is open and unauthenticated."
+  },
+  "constitution": {
+    "id": "nara-constitution",
+    "name": "Constitution of the United States",
+    "native": null,
+    "en": null,
+    "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+    "kind": "constitution",
+    "official": true,
+    "authority": "National Archives and Records Administration (NARA)",
+    "langs": [
+      "en"
+    ],
+    "access": "free",
+    "coverage": "1787 original text plus all 27 amendments; the engrossed parchment is held and displayed by NARA",
+    "desc": "The National Archives transcription taken directly from the original parchment, preserving the 1787 spelling and punctuation. This is the custodian's own rendering of the document it physically holds.",
+    "howto": "The transcript page carries the full 1787 text article by article; the Bill of Rights (Amendments 1-10) and Amendments 11-27 are on sibling pages under /founding-docs. High-resolution images of the parchment are downloadable from the same section.",
+    "formats": [
+      "HTML",
+      "PDF",
+      "Images"
+    ],
+    "api": null,
+    "note": "For the meaning courts have given each clause, use the Constitution Annotated rather than the bare transcript."
+  },
+  "sources": [
+    {
+      "id": "govinfo",
+      "name": "govinfo",
+      "native": null,
+      "en": null,
+      "url": "https://www.govinfo.gov/",
+      "kind": "codes",
+      "official": true,
+      "authority": "U.S. Government Publishing Office (GPO)",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "40+ collections; earliest holdings reach back to 1789 (Statutes at Large) and 1790 (United States Reports)",
+      "desc": "The federal government's own repository and the single place where statutes, the Federal Register, the CFR, congressional material and court opinions can be searched together. Its PDFs carry a GPO digital signature and seal, which is what makes them the authenticated official version rather than a convenience copy.",
+      "howto": "Search from the front page - or browse by A to Z, Category, Date, Committee or Author - then narrow with the collection facet, or go straight to a collection URL such as /app/collection/STATUTE. Field operators work in the basic search box (for example collection:statute uscodecitation:\"22 U.S.C. 2151\" finds the Statutes at Large page behind a US Code section). Authenticated PDFs carry a visible eagle seal reading 'Authenticated U.S. Government Information'; click it in Adobe Reader to verify the GPO certificate.",
+      "formats": [
+        "PDF",
+        "HTML",
+        "XML",
+        "TXT"
+      ],
+      "api": "https://api.govinfo.gov/docs/",
+      "note": "Bulk XML for most collections is at https://www.govinfo.gov/bulkdata/ (USCODE, PLAW, FR, CFR and others)."
+    },
+    {
+      "id": "uscode-olrc",
+      "name": "United States Code (Office of the Law Revision Counsel)",
+      "native": null,
+      "en": null,
+      "url": "https://uscode.house.gov/",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "Office of the Law Revision Counsel, U.S. House of Representatives",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "54 titles; current release plus every main edition and annual supplement back to 1994",
+      "desc": "The consolidated, subject-arranged statement of general and permanent federal statute law, updated continuously by the office that actually compiles it. This is where you go for the text of a statute as it stands today rather than as it was passed.",
+      "howto": "The landing page is a menu, not a search page: open 'Search & Browse' first, then search a citation (e.g. 42 USC 1983) or a phrase, or browse title by title. 'Currency and Updating' states the last public law incorporated, and the same currency line repeats on each section. Each section carries source credits naming the Statutes at Large citations and every amending act. The side menu also holds the Popular Name Tool, the Cite Checker, Table III (Statutes at Large to Code) and a Downloads page with the bulk XML.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": null,
+      "note": "27 of the 54 titles have been enacted into positive law and are themselves legal evidence of the law; for the rest, the Code is only prima facie evidence and the Statutes at Large controls (1 U.S.C. 204). The host drops connections from many datacentre addresses, so automated retrieval usually has to fall back on the OLRC bulk downloads or the USCODE collection on govinfo."
+    },
+    {
+      "id": "statutes-at-large",
+      "name": "United States Statutes at Large",
+      "native": null,
+      "en": null,
+      "url": "https://www.govinfo.gov/app/collection/STATUTE",
+      "kind": "codes",
+      "official": true,
+      "authority": "Office of the Federal Register (compiler) and GPO (publisher)",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Volumes 1-137, i.e. 1789 through 2023 (volume 1 also carries the Declaration of Independence and the early treaties): volumes 1-64 (1789-1952) digitised by GPO, volumes 65-116 (1951-2002) imaged with the Library of Congress, 2003 onward published volume by volume - volume 138 is not yet posted",
+      "desc": "The permanent chronological record of every public and private law, resolution, constitutional amendment, proclamation and reorganization plan, in the exact form Congress passed it. Under 1 U.S.C. 112 the printed edition is legal evidence of the laws, which makes it the fallback authority whenever a US Code title is not positive law.",
+      "howto": "Browse by Congress and volume, or search a citation in the form 124 Stat. 119. To get from a US Code section back to the enacting act, take the Statutes at Large citation from the source credit in the Code and look up that volume and page here.",
+      "formats": [
+        "PDF",
+        "TXT",
+        "XML"
+      ],
+      "api": "https://api.govinfo.gov/docs/",
+      "note": "Volumes run several years behind current enactments; for recent acts use the slip law collection instead."
+    },
+    {
+      "id": "public-laws",
+      "name": "Public and Private Laws (slip laws)",
+      "native": null,
+      "en": null,
+      "url": "https://www.govinfo.gov/app/collection/PLAW",
+      "kind": "codes",
+      "official": true,
+      "authority": "Office of the Federal Register and GPO",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "104th Congress (1995-1996) to present, added as each act is signed (currently through the 119th Congress)",
+      "desc": "Each act of Congress issued individually as it is signed, before it is bound into the Statutes at Large. A slip law is itself an official publication and is competent evidence admissible in all state and federal courts, so this is the authoritative text of anything enacted in the last few years.",
+      "howto": "Browse by Congress and then by public law number (Pub. L. 119-102 style), or search by act title. Each package gives the signed PDF plus text and XML.",
+      "formats": [
+        "PDF",
+        "TXT",
+        "XML",
+        "HTML"
+      ],
+      "api": "https://www.govinfo.gov/bulkdata/PLAW",
+      "note": "Private laws (relief for named individuals) are numbered in a separate series and are here too."
+    },
+    {
+      "id": "congress-gov",
+      "name": "Congress.gov",
+      "native": null,
+      "en": null,
+      "url": "https://www.congress.gov/",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Library of Congress, with the Congressional Research Service, GPO, House and Senate",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Bill text and status from the 1970s forward, with selected earlier material; Congressional Record and committee documents",
+      "desc": "The official legislative tracking system: every bill, its successive printed versions, sponsors, committee reports, floor votes, amendments and final action. This is where you answer 'what is Congress doing to this law right now' and where you assemble a legislative history.",
+      "howto": "Search by bill number, public law number or keyword, then use the tabs on the bill page - 'Actions' (which has an 'All Actions' view) and 'Text' let you compare the introduced, reported, engrossed and enrolled versions, and 'Amendments' lists what changed on the floor.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML",
+        "JSON"
+      ],
+      "api": "https://api.congress.gov/",
+      "note": "A bill's presence here is a record of proposals, not of law; only the enrolled version that became a public law is operative. The site sits behind a bot challenge, so automated clients get an interstitial rather than the page and should use the API (free key required)."
+    },
+    {
+      "id": "ecfr",
+      "name": "Electronic Code of Federal Regulations (eCFR)",
+      "native": null,
+      "en": null,
+      "url": "https://www.ecfr.gov/",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Office of the Federal Register (NARA) and GPO",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "All 50 CFR titles (title 35 reserved), updated daily; point-in-time reconstruction reaches back to January 2017, and per-title 'last amended' dates and historical versions are exposed through the API",
+      "desc": "A continuously updated, consolidated compilation of federal agency regulations produced by the Office of the Federal Register and GPO - the closest thing to 'the regulations as they read today' and the practical starting point for any regulatory question.",
+      "howto": "The home page is a table of the 50 titles with each title's 'Last Amended' date and a 'view changes' link. Browse down to chapter, part and section, or search full text. Each part shows an 'up to date as of' date and a source note citing the Federal Register documents that produced it; the point-in-time tools let you view the CFR as it existed on any date back to January 2017, compare any two dates, and view a timeline of how a provision has changed.",
+      "formats": [
+        "HTML",
+        "XML",
+        "JSON",
+        "PDF"
+      ],
+      "api": "https://www.ecfr.gov/api/versioner/v1/titles.json",
+      "note": "The site says so itself: 'The eCFR is not an official legal edition of the CFR.' It is an editorial compilation, so where certainty matters the official statement of a regulation is the annual printed CFR read together with any later Federal Register amendments. The HTML site shares the Federal Register's bot wall and redirects automated clients to unblock.federalregister.gov; the API is open."
+    },
+    {
+      "id": "cfr-annual",
+      "name": "Code of Federal Regulations (annual edition)",
+      "native": null,
+      "en": null,
+      "url": "https://www.govinfo.gov/app/collection/CFR",
+      "kind": "regulations",
+      "official": true,
+      "authority": "Office of the Federal Register (NARA) and GPO",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "1997-present with selected volumes from 1996; titles 1-16 revised as of 1 January, 17-27 as of 1 April, 28-41 as of 1 July, 42-50 as of 1 October",
+      "desc": "The officially published, digitally signed annual snapshot of the regulations. When you need to prove what a rule said on a given date, or need an authenticated copy, this is the version to cite rather than the eCFR.",
+      "howto": "Pick the year, then the title and volume, and open the signed PDF. Combine with the List of CFR Sections Affected (LSA) and the Federal Register to bring an annual volume forward to today.",
+      "formats": [
+        "PDF",
+        "XML",
+        "TXT",
+        "HTML"
+      ],
+      "api": "https://www.govinfo.gov/bulkdata/CFR",
+      "note": null
+    },
+    {
+      "id": "constitution-annotated",
+      "name": "Constitution Annotated",
+      "native": null,
+      "en": null,
+      "url": "https://constitution.congress.gov/",
+      "kind": "constitution",
+      "official": true,
+      "authority": "Congressional Research Service, Library of Congress",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Every clause of the Constitution and all 27 amendments, with Supreme Court interpretation updated on a rolling basis",
+      "desc": "Congress's own clause-by-clause analysis of the Constitution as construed by the Supreme Court, prepared by CRS attorneys. It answers what a constitutional provision has been held to mean, which the bare NARA transcript cannot.",
+      "howto": "Use 'Browse Explanations' to walk down to an article, section and clause, 'U.S. Constitution' for the plain text, and the search box for a doctrine; each essay cites the controlling cases in sequence, and 'Updates' lists the recently revised essays. The same work is also issued as the bound 'Constitution of the United States of America: Analysis and Interpretation' on govinfo.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": null
+    },
+    {
+      "id": "scotus",
+      "name": "Supreme Court of the United States - Opinions",
+      "native": null,
+      "en": null,
+      "url": "https://www.supremecourt.gov/opinions/opinions.aspx",
+      "kind": "courts",
+      "official": true,
+      "authority": "Supreme Court of the United States",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Slip opinions for the current and recent terms; opinions relating to orders and in-chambers opinions; bound United States Reports from volume 502 (1991) forward",
+      "desc": "The Court's own posting of its decisions, usually within minutes of announcement. Also carries orders lists, granted cases, argument transcripts and audio, and the docket search.",
+      "howto": "Under OPINIONS, open 'Opinions of the Court' and pick the term to get slip opinions in reverse date order with a syllabus by the Reporter of Decisions; 'Opinions Relating to Orders' and 'In-Chambers Opinions' are separate lists, 'U. S. Reports' holds the paginated official volumes, and 'Case Citation Finder' converts a citation.",
+      "formats": [
+        "PDF",
+        "HTML"
+      ],
+      "api": null,
+      "note": "A slip opinion is subject to revision; the preliminary print and then the bound United States Reports volume is the final official text."
+    },
+    {
+      "id": "us-reports",
+      "name": "United States Reports",
+      "native": null,
+      "en": null,
+      "url": "https://www.govinfo.gov/app/collection/USREPORTS",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Reporter of Decisions of the Supreme Court, published by GPO",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Volumes 2 through 583 - cases from 1781 through the October Term 2017 - added as the Reporter of Decisions releases them",
+      "desc": "The official bound reports of the Supreme Court, with the pagination that citations refer to. This is the authoritative text and the only place to get correct star pagination for older cases without a commercial subscription.",
+      "howto": "Browse by volume, or search a party name or citation such as 410 U.S. 113. Individual opinions and whole volumes are both downloadable.",
+      "formats": [
+        "PDF",
+        "TXT"
+      ],
+      "api": "https://api.govinfo.gov/docs/",
+      "note": "Volumes lag the Court by several years; for anything recent use the slip opinions on supremecourt.gov. Volume 1 is excluded because it contains only Pennsylvania cases."
+    },
+    {
+      "id": "uscourts-opinions",
+      "name": "United States Courts Opinions",
+      "native": null,
+      "en": null,
+      "url": "https://www.govinfo.gov/app/collection/USCOURTS",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Administrative Office of the U.S. Courts (AOUSC), published by GPO",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Generally 2004-present, over 2.1 million opinion packages from selected appellate, district and bankruptcy courts plus the Court of International Trade, Court of Federal Claims and the JPML",
+      "desc": "The free official channel for lower federal court opinions, transferred directly by the courts to GPO. Useful when you need an authenticated PDF of a district or circuit opinion without paying PACER fees.",
+      "howto": "Search by party name, docket number or nature of suit, and filter by court. Each package identifies the court, the docket and the date filed.",
+      "formats": [
+        "PDF",
+        "TXT",
+        "XML"
+      ],
+      "api": "https://api.govinfo.gov/docs/",
+      "note": "Explicitly not comprehensive - participation is by court, and coverage of the earlier years is patchy."
+    },
+    {
+      "id": "pacer",
+      "name": "PACER - Public Access to Court Electronic Records",
+      "native": null,
+      "en": null,
+      "url": "https://pacer.uscourts.gov/",
+      "kind": "courts",
+      "official": true,
+      "authority": "Administrative Office of the U.S. Courts",
+      "langs": [
+        "en"
+      ],
+      "access": "partial-paywall",
+      "coverage": "Over a billion documents across all federal district, bankruptcy and appellate courts; electronic dockets generally from the late 1990s onward by court",
+      "desc": "The federal judiciary's docket system - complaints, motions, orders, judgments, everything filed in a federal case. The only complete official source for federal litigation records, as opposed to the subset of opinions published elsewhere.",
+      "howto": "Register for an account, then use the PACER Case Locator to find which court and case number a party appears in nationally, and drill into that court's CM/ECF docket for the filings.",
+      "formats": [
+        "PDF",
+        "HTML"
+      ],
+      "api": null,
+      "note": "USD 0.10 per page, capped at USD 3.00 per document; charges are waived below USD 30 in a quarter, which is why most users never pay."
+    },
+    {
+      "id": "courtlistener",
+      "name": "CourtListener",
+      "native": null,
+      "en": null,
+      "url": "https://www.courtlistener.com/",
+      "kind": "caselaw",
+      "official": false,
+      "authority": "Free Law Project (non-profit)",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Millions of opinions from 472 federal and state jurisdictions, plus the RECAP archive of PACER dockets, oral argument audio, judge profiles and financial disclosures",
+      "desc": "The practical free substitute for a commercial case-law database, and the only large open collection that spans federal and state courts together. The RECAP archive mirrors PACER documents that users have already paid for, so many federal filings are readable here at no cost.",
+      "howto": "Search by case name, citation or full text and filter by court and date; use the citation lookup to resolve a reporter cite, and set alerts to be emailed when new matching decisions appear.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "JSON"
+      ],
+      "api": "https://www.courtlistener.com/help/api/",
+      "note": "Not official. Coverage varies sharply by court and era, and RECAP only holds what someone has fetched from PACER. The API documentation now lives on wiki.free.law, which the courtlistener.com help path redirects to."
+    },
+    {
+      "id": "lii",
+      "name": "Legal Information Institute (LII)",
+      "native": null,
+      "en": null,
+      "url": "https://www.law.cornell.edu/uscode/text",
+      "kind": "research",
+      "official": false,
+      "authority": "Cornell Law School",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Full US Code, CFR, Federal Rules, the Constitution, Supreme Court decisions, the Uniform Commercial Code and the Wex encyclopedia",
+      "desc": "The most-used free reading interface for US primary law: cleaner navigation and cross-linking than the official sites, with notes and definitions attached to sections. Practitioners and journalists reach for this first even though it is a university project.",
+      "howto": "Browse the 54 titles from /uscode/text or jump straight to a citation URL such as /uscode/text/42/1983; the 'U.S. Code Toolbox' on each section carries a 'How current is this?' link, the Table of Popular Names and related Wex entries. The CFR, Constitution, Supreme Court and UCC collections hang off the top navigation.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Not official, and the section pages do not link out to the official text - there is no link to uscode.house.gov or govinfo from a section, so the currency has to be checked against those sites separately. LII trails the OLRC release."
+    },
+    {
+      "id": "lii-states",
+      "name": "Law by jurisdiction - US states and territories",
+      "native": null,
+      "en": null,
+      "url": "https://www.law.cornell.edu/states/listing",
+      "kind": "subnational",
+      "official": false,
+      "authority": "Legal Information Institute, Cornell Law School",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "All 50 states and the District of Columbia, plus a 'Territories and Affiliated Jurisdictions' section covering Guam, the Northern Mariana Islands, Puerto Rico and the U.S. Virgin Islands",
+      "desc": "There is no federal portal to state law, so a curated index is the realistic entry point. Each state page lists the constitution, the statutory code, the administrative code, the courts and their opinions, plus the attorney general and state bar, and links out to whichever site the state itself uses.",
+      "howto": "Pick the state, then follow the link to that state's own legislature or code site - for example California's Legislative Counsel site at leginfo.legislature.ca.gov or the Texas statutes site at statutes.capitol.texas.gov - and search there. Depth is uneven: the state entries are fuller than the territory entries.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Not official and only an index; the authoritative text is whatever the individual state designates, which varies state by state."
+    },
+    {
+      "id": "treaties-in-force",
+      "name": "Treaties in Force",
+      "native": null,
+      "en": null,
+      "url": "https://www.state.gov/treaties-in-force",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Office of the Legal Adviser, U.S. Department of State",
+      "langs": [
+        "en"
+      ],
+      "access": "free",
+      "coverage": "All treaties and other international agreements the United States considers in force, listed bilaterally by country and multilaterally by subject; issued annually - the 2026 edition is the current one, posted as a single PDF in June 2026",
+      "desc": "The State Department's authoritative list of which US international agreements are actually in force, with citations into the Treaties and Other International Acts Series (TIAS), UST and the Statutes at Large. Start here before hunting for treaty text.",
+      "howto": "The page carries one PDF per edition; download the current year's file. Section 1 is arranged bilaterally by country, Section 2 multilaterally by subject. Take the TIAS or UST citation from the entry and retrieve the full text from the Department's TIAS pages or govinfo.",
+      "formats": [
+        "PDF"
+      ],
+      "api": null,
+      "note": "It records status, not text; and it does not resolve whether a given agreement is self-executing in US courts."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current consolidated text of a federal statute",
+      "steps": "Go to the OLRC site, open 'Search & Browse' from the menu, and type the citation (for example '42 USC 1983') into the search box, or browse to the title and section. Read the currency line - it names the last public law incorporated - and check the source credit at the foot of the section for the enacting and amending acts.",
+      "url": "https://uscode.house.gov/",
+      "source": "United States Code (Office of the Law Revision Counsel)"
+    },
+    {
+      "task": "Get the law exactly as Congress enacted it, not as consolidated",
+      "steps": "For anything from the last few years, browse the Public and Private Laws collection by Congress and public law number. For older acts, take the Statutes at Large citation from the US Code source credit (for example '124 Stat. 119') and open that volume and page in the STATUTE collection. This matters most for the 27 titles that are not positive law, where the Statutes at Large text controls.",
+      "url": "https://www.govinfo.gov/app/collection/PLAW",
+      "source": "Public and Private Laws (slip laws) / United States Statutes at Large on govinfo"
+    },
+    {
+      "task": "See what changed recently or what is pending",
+      "steps": "On Congress.gov, search the bill or public law number and open the 'Actions', 'Text' and 'Amendments' tabs to compare the introduced, reported and enrolled versions. For agency changes, search the Federal Register by agency and date, or open a CFR part in the eCFR and compare two dates to see the text before and after a change.",
+      "url": "https://www.congress.gov/",
+      "source": "Congress.gov (and Federal Register / eCFR for regulations)"
+    },
+    {
+      "task": "Find a subordinate regulation",
+      "steps": "Browse the eCFR by title, chapter, part and section, or full-text search it. The source note under each part cites the Federal Register documents that created and amended it; follow those citations back to federalregister.gov for the agency's preamble and reasoning. For a signed, date-certain copy, open the matching annual CFR volume on govinfo.",
+      "url": "https://www.ecfr.gov/",
+      "source": "Electronic Code of Federal Regulations (eCFR)"
+    },
+    {
+      "task": "Look up a court decision",
+      "steps": "For the Supreme Court, use the Court's own opinions page for anything recent and the United States Reports on govinfo for the paginated official text of older cases. For lower federal courts and for state courts, search CourtListener by case name or citation; for the full docket and filings in a federal case, use the PACER Case Locator.",
+      "url": "https://www.supremecourt.gov/opinions/opinions.aspx",
+      "source": "Supreme Court of the United States - Opinions (with govinfo USCOURTS, CourtListener and PACER)"
+    },
+    {
+      "task": "Find state law rather than federal law",
+      "steps": "Identify the state first, then go to that state's own legislative site - there is no national portal. Use the jurisdiction index to jump to the state constitution, statutory code and administrative code, then search within the state's site; state court decisions are searchable across jurisdictions on CourtListener.",
+      "url": "https://www.law.cornell.edu/states/listing",
+      "source": "Law by jurisdiction - US states and territories"
+    },
+    {
+      "task": "Check whether a treaty binds the United States",
+      "steps": "Download the current Treaties in Force PDF and look under the counterparty country (Section 1) or the subject heading (Section 2). Note the TIAS or UST citation given in the entry and use it to pull the agreement text; Senate advice and consent for treaties is traceable on Congress.gov.",
+      "url": "https://www.state.gov/treaties-in-force",
+      "source": "Treaties in Force"
+    }
+  ],
+  "subnational": "Subnational law is enormous here and is not optional reading: each of the 50 states, the District of Columbia and the territories has its own constitution, legislature, statutory code, administrative code and court system, and most day-to-day law - contracts, property, family, criminal, tort, business entities - is state law. Each state publishes its own session laws, its own code and usually its own administrative register through its legislature, secretary of state or code revision commission; there is no federal aggregator and no common format. Puerto Rico legislates and publishes in Spanish as well as English, and Louisiana's private law derives from the civil-law tradition rather than the common law. Below the states, counties and municipalities enact ordinances that are frequently hosted by private codification vendors rather than by the municipality itself.",
+  "caveats": "The United States Code is not uniformly the law: only 27 of its 54 titles have been enacted into positive law and are legal evidence of the law in themselves; for the remaining titles the Code is prima facie evidence and the Statutes at Large governs if the two diverge. The eCFR states on its own reader-aid pages that it is not an official legal edition of the CFR - the official statement of a regulation is the annual CFR volume read together with any later Federal Register amendments, and only the GPO-signed PDFs on govinfo, the ones carrying the eagle 'Authenticated U.S. Government Information' seal, are authenticated. Supreme Court slip opinions are subject to revision until the bound United States Reports volume appears, which currently runs several years behind - the last volume posted is 583, covering the October Term 2017, and the Statutes at Large lags similarly at volume 137 (2023). Several of these official sites refuse automated access: federalregister.gov and ecfr.gov redirect robots to unblock.federalregister.gov, congress.gov and constitution.congress.gov answer 403 behind a bot challenge, and uscode.house.gov drops connections from datacentre addresses, so anything scripted has to go through the APIs and bulk-data feeds instead of the pages. Free official case law is incomplete: govinfo's court opinions collection is explicitly selective, PACER charges per page for the full record, and the comprehensive-looking databases - CourtListener, Justia, Google Scholar - are private, as are Westlaw and Lexis, whose headnotes, annotations and star pagination are proprietary and not part of the official text. Statute compilations, popular-name tables and similar aids published alongside the official texts are drafting conveniences and are marked unofficial by their own publishers.",
+  "updated": "2026-08"
+}

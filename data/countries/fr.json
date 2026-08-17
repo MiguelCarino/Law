@@ -1,0 +1,503 @@
+{
+  "code": "fr",
+  "iso": "FR",
+  "name": "France",
+  "nativeName": "République française",
+  "flag": "🇫🇷",
+  "region": "Europe",
+  "tradition": "civil",
+  "traditionNote": "Law is codified: the first move is almost always to the relevant code on Légifrance rather than to a case, and court decisions are read as interpretation of a written article rather than as binding precedent in their own right.",
+  "languages": [
+    "French"
+  ],
+  "summary": "Statutes (lois) are voted by Parliament — the Assemblée nationale and the Sénat — and promulgated by the President; the Government legislates by ordonnance, décret and arrêté within its own domain and by delegation. A text acquires legal force by publication in the Journal officiel de la République française (JORF), which since 1 January 2016 exists only in electronic form on Légifrance, authenticated by DILA's electronic signature and legally equivalent to the former paper edition. Unless a text fixes its own date, it enters into force the day after its publication in the JO. The authentic text is the French text as published in the JORF; the consolidated versions of codes and statutes on Légifrance are maintained by the same official publisher (DILA, under the Secrétariat général du Gouvernement) and are what practitioners actually read. Constitutional review is exercised by the Conseil constitutionnel, before promulgation or afterwards through the question prioritaire de constitutionnalité.",
+  "hierarchy": [
+    "Bloc de constitutionnalité (Constitution du 4 octobre 1958, Déclaration des droits de l'homme et du citoyen de 1789, Préambule de 1946, Charte de l'environnement de 2004)",
+    "Traités ratifiés et droit de l'Union européenne (art. 55 de la Constitution)",
+    "Lois organiques",
+    "Lois ordinaires et ordonnances ratifiées",
+    "Ordonnances non ratifiées et règlements autonomes",
+    "Décrets (Président de la République, Premier ministre, en Conseil d'État)",
+    "Arrêtés ministériels, préfectoraux et municipaux",
+    "Actes des collectivités territoriales",
+    "Circulaires et instructions (non normatives en principe)"
+  ],
+  "gazette": {
+    "id": "jorf",
+    "name": "Journal officiel de la Republique francaise (JORF)",
+    "native": "Journal officiel de la République française",
+    "en": "Official Journal of the French Republic",
+    "url": "https://www.legifrance.gouv.fr/jorf/jo",
+    "kind": "gazette",
+    "official": true,
+    "authority": "Direction de l'information légale et administrative (DILA), services du Premier ministre",
+    "langs": [
+      "fr"
+    ],
+    "access": "free",
+    "coverage": "1869-present; digital native editions from 2 June 2004, scanned editions back to 1869",
+    "desc": "The gazette of record: lois, ordonnances, décrets, arrêtés, nominations, parliamentary notices and official announcements. Publication here is what makes a text enforceable, and the daily authenticated PDF is the authentic version of the text as adopted.",
+    "howto": "The page opens on the latest edition, identified by number and date (e.g. 'JORF n° 0190 du 15 août 2026'), with its sommaire grouped by ministry and document type and a 'Consulter le Journal officiel authentifié' button for the signed PDF. A chronological list of the preceding editions sits below; 'Les journaux officiels depuis le 2 juin 2004' reaches the digital-native run and a separate entry reaches the scanned 1869-2004 editions. To find a specific instrument rather than browse a day, use Légifrance's advanced search restricted to the Journal officiel fund and search by title, NOR number or date.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": "https://echanges.dila.gouv.fr/OPENDATA/",
+    "note": "Since ordonnance n° 2015-1341 and décret n° 2016-1056 the electronic JORF is the authentic edition; the paper edition was discontinued for nearly all issues in 2016."
+  },
+  "constitution": {
+    "id": "constitution-1958",
+    "name": "Constitution du 4 octobre 1958",
+    "native": null,
+    "en": "Constitution of 4 October 1958",
+    "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/",
+    "kind": "constitution",
+    "official": true,
+    "authority": "DILA / Secrétariat général du Gouvernement (Légifrance)",
+    "langs": [
+      "fr"
+    ],
+    "access": "free",
+    "coverage": "Text of 1958 as amended, most recently by loi constitutionnelle n° 2024-200 of 8 March 2024; all historic versions available",
+    "desc": "The consolidated Constitution of the Fifth Republic on Légifrance, 16 titles and 89 articles, with each article annotated by the constitutional law that last amended it. The other components of the bloc de constitutionnalité — the 1789 Declaration, the 1946 Preamble and the 2004 Charte de l'environnement — are separate texts linked from the same Légifrance constitution menu.",
+    "howto": "Read by title and article in the left-hand table of contents; click an article then 'Voir les versions' / 'Comparer les versions' (ChronoLégi) to see its wording at any past date, and use the print/PDF control for a full copy.",
+    "formats": [
+      "HTML",
+      "PDF"
+    ],
+    "api": "https://piste.gouv.fr/",
+    "note": "The Conseil constitutionnel publishes its own reading copies of the same texts, but Légifrance is the version maintained by the official publisher."
+  },
+  "sources": [
+    {
+      "id": "legifrance-codes",
+      "name": "Legifrance - Les codes en vigueur",
+      "native": "Légifrance — Les codes",
+      "en": "Legifrance - French legal codes in force",
+      "url": "https://www.legifrance.gouv.fr/liste/code",
+      "kind": "codes",
+      "official": true,
+      "authority": "DILA / Secrétariat général du Gouvernement",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "108 codes listed, each with its current consolidated version and full version history",
+      "desc": "The alphabetical list of every French code in force — civil, pénal, travail, général des impôts, commerce, environnement and the rest — each in a continuously updated consolidated version. For codified subject matter this is the entry point, not the JORF.",
+      "howto": "Pick the code, then navigate the plan (livre / titre / chapitre) or type the article number (e.g. 1240) in the code's own search box. Each code page also offers a full PDF download and a filter for texts in force, deferred or repealed.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://piste.gouv.fr/",
+      "note": null
+    },
+    {
+      "id": "legifrance-recherche",
+      "name": "Legifrance - Recherche avancee",
+      "native": "Légifrance — Recherche avancée",
+      "en": "Legifrance - Advanced search",
+      "url": "https://www.legifrance.gouv.fr/recherche",
+      "kind": "consolidated",
+      "official": true,
+      "authority": "DILA / Secrétariat général du Gouvernement",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "All Légifrance funds: codes, textes consolidés (LEGI), JORF, circulaires, jurisprudence constitutionnelle, administrative, judiciaire and financière, conventions collectives, accords d'entreprise, CNIL",
+      "desc": "One search form across every collection Légifrance holds, with boolean operators and criteria groups. This is how you find a loi, ordonnance, décret or arrêté that is not codified, by title, number, NOR identifier, ministry or date.",
+      "howto": "Choose the fund (fonds) first — 'Textes consolidés' for law currently in force, 'Journal officiel' for the text as published — then search by title or number; a loi is cited as 'loi n° AAAA-NNN du JJ mois AAAA'.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": "https://piste.gouv.fr/",
+      "note": "Consolidated (LEGI) and as-published (JORF) versions of the same instrument are different documents; check which tab you landed on."
+    },
+    {
+      "id": "circulaires",
+      "name": "Legifrance - Circulaires et instructions",
+      "native": "Légifrance — Circulaires et instructions",
+      "en": "Legifrance - Ministerial circulars and instructions",
+      "url": "https://www.legifrance.gouv.fr/contenu/menu/droit-national-en-vigueur/circulaires-et-instructions",
+      "kind": "regulations",
+      "official": true,
+      "authority": "DILA / Secrétariat général du Gouvernement",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Circulars and instructions of the central administration; unpublished circulars are deemed repealed",
+      "desc": "The official repository of ministerial circulars and instructions — the administrative soft law that tells services how a décret is to be applied. Directly relevant because a circular not published here cannot be relied on against the public.",
+      "howto": "Open the section and use the CIRC fund in the search form, filtering by issuing ministry, signature date or keyword.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://piste.gouv.fr/",
+      "note": "Circulars interpret, they do not create law; they can themselves be challenged before the administrative courts when they add a rule."
+    },
+    {
+      "id": "conseil-constitutionnel",
+      "name": "Conseil constitutionnel - Les decisions",
+      "native": "Conseil constitutionnel — Les décisions",
+      "en": "Constitutional Council - Decisions",
+      "url": "https://www.conseil-constitutionnel.fr/decisions",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Conseil constitutionnel",
+      "langs": [
+        "fr",
+        "en",
+        "es",
+        "de"
+      ],
+      "access": "free",
+      "coverage": "All decisions from 1958 to date, browsable year by year; 913 DC decisions, 1,098 QPC decisions since 2010, 621 loi ordinaire and 188 loi organique decisions, 14 on treaties, plus over 4,100 Assemblée nationale election rulings",
+      "desc": "Every decision of the constitutional court: DC review of bills before promulgation, QPC review of statutes already in force, plus electoral and treaty decisions, with commentaries and analytical tables. This is where you learn whether a statutory provision has been struck down or upheld with a reservation.",
+      "howto": "Use 'Rechercher un terme ou un numéro de décision' for a keyword or a decision number (format like 2023-1050 QPC), then narrow with the decision-type list and the 'Par période' date filter; 'Moteur expert' opens the advanced form, and separate searches cover the commentaires and the tables analytiques. The 'QPC 360°' link in the footer follows pending QPC referrals.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": "https://piste.gouv.fr/",
+      "note": "Decisions are also distributed as the CONSTIT fund via the Légifrance API and as annual XML archives on data.gouv.fr."
+    },
+    {
+      "id": "arianeweb",
+      "name": "ArianeWeb - jurisprudence du Conseil d'Etat",
+      "native": "ArianeWeb — Conseil d'État",
+      "en": "ArianeWeb - Administrative case law of the Conseil d'Etat",
+      "url": "https://www.conseil-etat.fr/decisions-de-justice/jurisprudence/rechercher-une-decision-arianeweb",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Conseil d'État",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Nearly 300,000 decisions and analyses; contentious decisions, avis contentieux and ordonnances of the Conseil d'État and of the Tribunal des conflits from 19 February 1875, plus important cour administrative d'appel rulings. Lebon grading is uneven by period: A and B decisions from the 1960s, C decisions only from the early 1980s",
+      "desc": "The administrative supreme court's own database — decisions, jurisprudential analyses and the conclusions of the rapporteurs publics, which are often the real explanation of a ruling. Anything involving the State, a public body, taxation or public contracts ends up here rather than at the Cour de cassation.",
+      "howto": "Use simple search by keyword or advanced search by date, jurisdiction and case number; decisions are graded A (major), B (reported) or C, so filter on A and B when you want the leading cases. Conseil d'État decisions appear within about 24 hours of being delivered.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://piste.gouv.fr/",
+      "note": "ArianeWeb is selective, not exhaustive; the CETAT fund on Légifrance holds the wider administrative case-law set."
+    },
+    {
+      "id": "judilibre",
+      "name": "Judilibre - Cour de cassation",
+      "native": "Judilibre — Cour de cassation",
+      "en": "Judilibre - Judicial case law search",
+      "url": "https://www.courdecassation.fr/recherche-judilibre",
+      "kind": "caselaw",
+      "official": true,
+      "authority": "Cour de cassation",
+      "langs": [
+        "fr",
+        "en"
+      ],
+      "access": "free",
+      "coverage": "Cour de cassation decisions opened as open data from 30 September 2021; cour d'appel civil, social and commercial decisions from 15 April 2022; first-instance tribunal judiciaire civil judgments from December 2023; tribunal judiciaire criminal decisions (délits) from 31 December 2024 and cour d'appel criminal decisions from 31 December 2025, still expanding court by court",
+      "desc": "The judicial branch's open-data search engine for private and criminal law: cassation rulings with their headnotes and cross-references, plus a growing body of appeal and first-instance decisions, all pseudonymised. The place to check how the Cour de cassation reads a Civil Code article.",
+      "howto": "Search by keyword or by pourvoi number, then filter by chamber (civile, sociale, commerciale, criminelle), jurisdiction level, publication status (published at the Bulletin = 'B') and date. Set publication to 'B' to see only the decisions the Court itself considers significant.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "JSON"
+      ],
+      "api": "https://www.data.gouv.fr/dataservices/api-judilibre",
+      "note": "Decisions are pseudonymised before publication and the coverage of lower courts is still being rolled out court by court. courdecassation.fr sits behind a JavaScript/cookie wall that rejects scripted requests, so use a browser for the search page or the Judilibre API for machine access."
+    },
+    {
+      "id": "assemblee-nationale",
+      "name": "Assemblee nationale - Dossiers legislatifs",
+      "native": "Assemblée nationale — Dossiers législatifs",
+      "en": "National Assembly - Legislative dossiers",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/dossiers",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Assemblée nationale",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "17th legislature (2024-) with more than 2,300 dossiers; archives back to the 8th legislature via the legislature selector",
+      "desc": "For each bill, the full procedural trail: text as tabled, committee reports, amendments and their fate, session records and the text as adopted. This is where the intent behind a statute, and the version of a clause at each reading, can be reconstructed.",
+      "howto": "Filter by text type (projet de loi, proposition de loi, résolution), author or rapporteur, committee or filing date; the legislature number sits in the URL path, so change /17/ to reach an earlier one.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML",
+        "JSON"
+      ],
+      "api": "https://data.assemblee-nationale.fr/travaux-parlementaires/dossiers-legislatifs",
+      "note": null
+    },
+    {
+      "id": "senat",
+      "name": "Senat - Travaux legislatifs",
+      "native": "Sénat — Travaux législatifs",
+      "en": "Senate - Legislative work",
+      "url": "https://www.senat.fr/leg/",
+      "kind": "legislature",
+      "official": true,
+      "authority": "Sénat",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "1978-present in the dossier search, with thematic classification from 1999; texts adopted before 1978 held in a separate section. The companion open-data set carries references from October 1977 and full-text links from October 1995",
+      "desc": "The upper chamber's side of every dossier: bills, adopted 'petites lois', committee reports, international conventions submitted for ratification, European and other resolutions, classified by nature of text, alphabetically, and across thirty policy themes. Necessary whenever a text shuttled between the two chambers.",
+      "howto": "Under 'Classement', pick a nature of text (Lois promulguées, Petites lois, Conventions et accords internationaux, Résolutions européennes, Autres résolutions), the alphabetical index, or one of the thirty themes under 'Classement thématique des textes législatifs (depuis 1999)'. 'Rechercher un dossier législatif' (rechercheDosleg) filters by period — preset ranges from 15 days to 20 years, or back to 1978 — and each dossier page carries the reports and the successive texts.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": "https://www.data.gouv.fr/datasets/travaux-legislatifs-senat",
+      "note": null
+    },
+    {
+      "id": "vie-publique",
+      "name": "Vie-publique.fr - Panorama des lois",
+      "native": "Vie-publique.fr — Panorama des lois",
+      "en": "Vie-publique.fr - Overview of laws in progress",
+      "url": "https://www.vie-publique.fr/panorama-des-lois",
+      "kind": "research",
+      "official": true,
+      "authority": "Direction de l'information légale et administrative (DILA)",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Bills and ordinances followed day by day from tabling to promulgation, updated daily",
+      "desc": "The official plain-language tracker: for each bill, a summary updated as Parliament and the Conseil constitutionnel change it, plus links to the dossier and to the promulgated text. Use it to see the state of play on a text without reading the procedural record.",
+      "howto": "Browse the panorama chronologically or by theme, then open a text's page for its summary, its stage in the procedure and the links to the Assemblée, the Sénat and the JORF publication.",
+      "formats": [
+        "HTML"
+      ],
+      "api": null,
+      "note": "Editorial summaries written by DILA, not the legal text itself. The domain is vie-publique.fr rather than a .gouv.fr one, but the publisher is DILA (services du Premier ministre), the same body that publishes the JORF. The site sits behind a JavaScript/cookie wall that rejects scripted requests, so it must be opened in a real browser."
+    },
+    {
+      "id": "legi-opendata",
+      "name": "LEGI - codes, lois et reglements consolides (open data)",
+      "native": "LEGI — Codes, lois et règlements consolidés",
+      "en": "LEGI - Consolidated codes, statutes and regulations bulk data",
+      "url": "https://www.data.gouv.fr/datasets/legi-codes-lois-et-reglements-consolides",
+      "kind": "research",
+      "official": true,
+      "authority": "Premier ministre / DILA",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Full consolidated corpus: codes in force, statutes and décrets since 1945, selected earlier regulations, with daily incremental updates",
+      "desc": "The bulk download behind Légifrance — the whole consolidated corpus as XML with its DTDs, plus companion funds (JORF, KALI, CONSTIT, JADE, CASS). For anyone building a tool or needing offline text, this is the source rather than scraping the site.",
+      "howto": "Follow the dataset page to the DILA exchange server at echanges.dila.gouv.fr/OPENDATA/ over HTTPS or FTPS, take the base archive then the dated incremental files; DTDs are published alongside.",
+      "formats": [
+        "XML",
+        "PDF"
+      ],
+      "api": "https://echanges.dila.gouv.fr/OPENDATA/",
+      "note": "The dataset page states Licence Ouverte / Open Licence, with donnees-dila@dila.gouv.fr as the contact. The exchange server also carries the companion funds JORF, JORFSIMPLE, KALI, CONSTIT, JADE, CASS, CAPP, INCA, DOLE, CNIL and the Légifrance DTDs; note that the CIRCULAIRES fund there has not been refreshed since 2017, so circulars must be read on the Légifrance site itself."
+    },
+    {
+      "id": "api-legifrance",
+      "name": "API Legifrance (PISTE)",
+      "native": "API Légifrance — portail PISTE",
+      "en": "Legifrance API on the PISTE platform",
+      "url": "https://www.data.gouv.fr/dataservices/legifrance",
+      "kind": "research",
+      "official": true,
+      "authority": "DILA (services du Premier ministre) for the data; the PISTE platform that serves the API is run by the Agence pour l'informatique financière de l'État (AIFE), ministère de l'Économie et des Finances",
+      "langs": [
+        "fr"
+      ],
+      "access": "free-registration",
+      "coverage": "Stable version since 4 April 2023; all Légifrance funds, JSON responses with filtering, keyword search and metadata",
+      "desc": "The programmatic route into Légifrance: fetch a consolidated article at a given date, search a fund, resolve NOR and CID identifiers. Preferable to the bulk dumps when you need a single current text rather than the whole corpus.",
+      "howto": "Create a free account at piste.gouv.fr/registration, subscribe to the Légifrance API, then use the Swagger documentation and the sandbox catalogue; calls are quota-limited per access token.",
+      "formats": [
+        "JSON",
+        "XML"
+      ],
+      "api": "https://piste.gouv.fr/",
+      "note": "Governed by Open Licence 2.0 plus PISTE's terms; the beta API was closed permanently on 6 June 2023. Test calls run against https://sandbox-api.piste.gouv.fr before you move to the production host."
+    },
+    {
+      "id": "traites",
+      "name": "Base Traites et accords de la France",
+      "native": "Base Traités et accords de la France",
+      "en": "Treaties and agreements of France database",
+      "url": "https://basedoc.diplomatie.gouv.fr/pages/traites/",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Ministère de l'Europe et des Affaires étrangères — Archives diplomatiques",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "28,509 treaty records, bilateral and multilateral, in force or formerly in force, with a companion set of 28,581 'pièces constitutives'; merges the former Pacte (treaties in force) and Choiseul (pre-1914) databases",
+      "desc": "The Foreign Ministry's register of France's treaty commitments, with scans of recent texts and of historic instruments. Article 55 of the Constitution puts ratified treaties above statute, so this is where you check status, entry into force and depositary.",
+      "howto": "Search by partner country, title, keyword, treaty type (bilatéral / multilatéral) or signature date; each record carries the status field (EN VIGUEUR and the rest), the entry-into-force date for France, the depositary and, where digitised, a link to the scanned text. Publication décrets for treaties also appear in the JORF via Légifrance.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "JSON"
+      ],
+      "api": "https://basedoc.diplomatie.gouv.fr/api/explore/v2.1/",
+      "note": "The Ministry states the base is not guaranteed exhaustive; for multilateral treaties where France is not depositary, verify with the UN or Swiss depositary."
+    },
+    {
+      "id": "eurlex",
+      "name": "EUR-Lex",
+      "native": null,
+      "en": "EUR-Lex - EU law portal",
+      "url": "https://eur-lex.europa.eu/homepage.html",
+      "kind": "treaties",
+      "official": true,
+      "authority": "Publications Office of the European Union",
+      "langs": [
+        "fr",
+        "en",
+        "de",
+        "es",
+        "it"
+      ],
+      "access": "free",
+      "coverage": "Official Journal of the EU (L and C series), treaties, consolidated legislation, CJEU case law, national transposition measures; all 24 official languages",
+      "desc": "EU regulations apply in France directly and directives are transposed into French texts, so a French legal question often has a layer that only exists here. The national transposition tab links an EU directive to the French instruments that implement it.",
+      "howto": "Search by CELEX number or keyword, switch to French with the language selector, and open the 'Consolidated text' tab for the version in force; use 'National transposition' to reach the French implementing texts.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "XML"
+      ],
+      "api": null,
+      "note": "The authentic EU text is the Official Journal version; consolidated texts there are documentation tools. EUR-Lex answers automated requests with an empty HTTP 202 anti-bot response, so it must be opened in a browser."
+    },
+    {
+      "id": "lexpol",
+      "name": "Lexpol - droit de la Polynesie francaise",
+      "native": "Lexpol — Le service public de la diffusion du droit en Polynésie française",
+      "en": "Lexpol - Law of French Polynesia",
+      "url": "https://lexpol.cloud.pf/",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Secrétariat général du gouvernement de la Polynésie française",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Journal officiel de la Polynésie française from 1901 to date; general edition published Monday to Friday plus specialised editions",
+      "desc": "French Polynesia legislates for itself in a large part of its own affairs, and its acts (including lois du pays) are published in the JOPF, not in the national JORF. Lexpol is that gazette plus a searchable base of Polynesian texts in force.",
+      "howto": "Search the base for consolidated Polynesian instruments, or open a dated edition of the Journal officiel de la Polynésie française; the JOPF is issued as an authenticated PDF.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Confirmed as the official diffusion service by the Secrétariat général du gouvernement de la Polynésie française on service-public.pf, which names lexpol.cloud.pf as the site where Polynesian legal norms are published. The host resolves but refuses connections on ports 80 and 443 from outside French Polynesia, so it may be unreachable from a mainland or foreign network."
+    },
+    {
+      "id": "juridoc",
+      "name": "Juridoc - documentation juridique de la Nouvelle-Caledonie",
+      "native": "Juridoc — Documentation juridique de la Nouvelle-Calédonie",
+      "en": "Juridoc - Legal documentation of New Caledonia",
+      "url": "https://juridoc.gouv.nc/",
+      "kind": "subnational",
+      "official": true,
+      "authority": "Gouvernement de la Nouvelle-Calédonie",
+      "langs": [
+        "fr"
+      ],
+      "access": "free",
+      "coverage": "Journal officiel de la Nouvelle-Calédonie: complete issues as PDF since 1 January 2002, page-level PDFs and sommaires since 3 January 1955, chronological tables since 1955; Congress debates as complete PDFs since 17 April 2000; plus New Caledonian codes and recueils, consolidated texts, lois du pays, case law and a watch list of JORF texts affecting New Caledonia",
+      "desc": "New Caledonia holds transferred legislative competences and enacts lois du pays; they take effect on publication in the JONC, which is here rather than in the national gazette. The site also carries the territory's own codes and consolidated texts, and the réglementation of the Province des îles Loyauté.",
+      "howto": "The front page shows the latest JONC (issue number and date) with 'Afficher le sommaire' and 'Ouvrir le n° complet (format pdf)', and lists the consolidated texts most recently added or amended. The top bar's 'Toutes les rubriques' selector switches between Sommaires du JONC, Autres textes et lois du pays, Codes et recueils, Jurisprudence and Textes parus au JORF; earlier editions are reached through the chronological tables or by issue number. RSS feeds exist for each of these funds.",
+      "formats": [
+        "HTML",
+        "PDF",
+        "RSS"
+      ],
+      "api": null,
+      "note": "Lois du pays of New Caledonia can be reviewed by the Conseil constitutionnel, unlike ordinary territorial acts. Juridoc announces that it will be replaced by Leginova (https://leginova.gouv.nc/), the new official diffusion portal, which is already live; Juridoc stays available until the switch and will then redirect automatically. As of August 2026 the site also reports a fault in the compiled PDF download of consolidated codes and advises using the 'livre électronique' mode instead."
+    },
+    {
+      "id": "doctrine",
+      "name": "Doctrine",
+      "native": "Doctrine.fr",
+      "en": "Doctrine - commercial legal research platform",
+      "url": "https://www.doctrine.fr/",
+      "kind": "research",
+      "official": false,
+      "authority": "Doctrine (private company)",
+      "langs": [
+        "fr"
+      ],
+      "access": "paywall",
+      "coverage": "Décisions, conventions fiscales, juridictions, doctrine administrative, conventions collectives, documents parlementaires, avocats et cabinets and company records; also Germany, Italy, Spain and Luxembourg",
+      "desc": "The commercial platform most French practitioners search first, because it aggregates decisions and texts that are scattered across official sites and adds citation links and search tooling; it now presents itself primarily as an AI legal assistant over that corpus. Included here because it is what the profession uses, not because it is authoritative.",
+      "howto": "Search by case number, party, article or keyword; a free trial exists but sustained access is by subscription.",
+      "formats": [
+        "HTML",
+        "PDF"
+      ],
+      "api": null,
+      "note": "Private and paywalled; its texts are copies of public data and carry no official status. Dalloz, LexisNexis and Lefebvre Dalloz occupy the same space."
+    }
+  ],
+  "findLaw": [
+    {
+      "task": "Find the current text of a codified article (Civil Code, Labour Code, Penal Code)",
+      "steps": "Open the list of codes, click the code, then type the article number in that code's search box or walk the plan down livre / titre / chapitre. The page you land on is the version in force today, with the amending text named underneath.",
+      "url": "https://www.legifrance.gouv.fr/liste/code",
+      "source": "Legifrance - Les codes en vigueur"
+    },
+    {
+      "task": "Find a statute, ordonnance or decret that is not codified",
+      "steps": "Use Légifrance advanced search, set the fund to 'Textes consolidés' for the version in force or 'Journal officiel' for the text as published, and search by the citation (loi n° 2016-1321 du 7 octobre 2016), by NOR number or by title words.",
+      "url": "https://www.legifrance.gouv.fr/recherche",
+      "source": "Legifrance - Recherche avancee"
+    },
+    {
+      "task": "See what changed and when — amendments and past versions",
+      "steps": "On any consolidated article or text, use 'Voir les versions' and 'Comparer les versions' (ChronoLégi) to read the wording at any past date and identify the amending instrument. For the very latest changes, open the day's JORF edition and read the sommaire.",
+      "url": "https://www.legifrance.gouv.fr/jorf/jo",
+      "source": "Journal officiel de la Republique francaise (JORF)"
+    },
+    {
+      "task": "Find a court decision",
+      "steps": "Split by branch: private and criminal law goes to Judilibre (search by pourvoi number or keyword, filter chamber and publication 'B'); administrative disputes go to ArianeWeb on the Conseil d'État site; constitutionality goes to the Conseil constitutionnel decision search by decision number such as 2023-1050 QPC.",
+      "url": "https://www.courdecassation.fr/recherche-judilibre",
+      "source": "Judilibre - Cour de cassation"
+    },
+    {
+      "task": "Find the implementing decrees, arretes and circulars of a statute",
+      "steps": "Search the JORF fund on Légifrance for the décret or arrêté by NOR or title; a statute's Légifrance page also lists the texts taken for its application. For administrative interpretation, search the circulaires and instructions section by ministry.",
+      "url": "https://www.legifrance.gouv.fr/contenu/menu/droit-national-en-vigueur/circulaires-et-instructions",
+      "source": "Legifrance - Circulaires et instructions"
+    },
+    {
+      "task": "Trace the parliamentary history of a law",
+      "steps": "Open the dossier législatif on the Assemblée nationale (filter by text type, rapporteur or date) and the matching dossier on the Sénat for the other readings; Vie-publique's Panorama des lois gives a plain-language summary and the current stage of a bill still in progress.",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/dossiers",
+      "source": "Assemblee nationale - Dossiers legislatifs"
+    },
+    {
+      "task": "Find law that applies only in an overseas territory",
+      "steps": "For French Polynesia search Lexpol for the text or the JOPF edition — the site may refuse connections from outside the territory. For New Caledonia use Juridoc for the JONC and for lois du pays, and expect it to hand over to Leginova (leginova.gouv.nc). For mainland local acts, go to the commune's, département's or région's own website, or to the préfecture's recueil des actes administratifs.",
+      "url": "https://lexpol.cloud.pf/",
+      "source": "Lexpol - droit de la Polynesie francaise"
+    }
+  ],
+  "subnational": "France is a unitary state: communes, départements and régions have regulatory power granted by statute but do not enact legislation, and their acts (délibérations, arrêtés) are published by each authority itself. Since the reform made by ordonnance n° 2021-1310 and décret n° 2021-1311, in force from 1 July 2022, electronic publication on the authority's own website is the reference form of publicity for local acts, and préfectures publish state acts in their recueil des actes administratifs — so there is no single national database for local law. The overseas collectivities are the exception: French Polynesia and New Caledonia hold real legislative competence, publish their own official journals (JOPF via Lexpol, JONC via Juridoc), and New Caledonia's lois du pays are subject to review by the Conseil constitutionnel. Wallis-et-Futuna, Saint-Barthélemy, Saint-Martin and Saint-Pierre-et-Miquelon each have their own local acts published locally, while départements and régions d'outre-mer follow the national JORF.",
+  "caveats": "The authentic text is the French text as published in the JORF; since 1 January 2016 that means the electronically signed PDF on Légifrance, and before 2016 the paper edition. Consolidated texts on Légifrance are maintained by the official publisher and are what everyone uses, but they are editorial versions of the law in force, not the enacted instrument — check the JORF version when the exact wording as adopted matters. Translations of French law into English or other languages, wherever they are hosted, have no legal force and are provided for information only. Case-law coverage is uneven: ArianeWeb is a selection whose Lebon grading itself only reaches back so far (A and B from the 1960s, C from the early 1980s, even though decisions run from 1875), Judilibre is still rolling out first-instance and appeal courts and pseudonymises names, and older JORF issues before 2004 are scanned images with weaker full-text search. Several of the sites here — vie-publique.fr, courdecassation.fr and EUR-Lex — block scripted requests and need a real browser, and Lexpol is not reliably reachable from outside French Polynesia. Doctrine, Dalloz, LexisNexis and similar platforms are private and paywalled, so none of them is an official source even when the text they show is correct.",
+  "updated": "2026-08"
+}

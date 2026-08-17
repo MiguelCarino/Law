@@ -1,0 +1,22 @@
+{
+  "updated": "2026-08",
+  "note": "Order here is the order countries appear on the site. Each entry is a file in data/countries/. Adding a country = one JSON file plus one line here.",
+  "countries": [
+    "mx",
+    "us",
+    "ca",
+    "sv",
+    "cl",
+    "br",
+    "gb",
+    "fr",
+    "fi",
+    "ru",
+    "il",
+    "jp",
+    "kr",
+    "cn",
+    "au",
+    "nz"
+  ]
+}
