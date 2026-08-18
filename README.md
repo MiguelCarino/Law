@@ -1,12 +1,12 @@
 # Carino Law
 
-A map of where law is *officially published*, for sixteen countries.
+A map of where law is *officially published*, for twenty-eight countries.
 
 **[law.carino.systems](https://law.carino.systems)**
 
 Every country has one channel where a law stops being a proposal and becomes binding — the
 **Diario Oficial de la Federación** in Mexico, the **Journal Officiel** in France, the **官報** in
-Japan, **The Gazette** in the UK. Everything else — the consolidated text you actually read, the
+Japan, the **Bundesgesetzblatt** in Germany, **The Gazette** in the UK. Everything else — the consolidated text you actually read, the
 commercial database your firm pays for, the English translation — is downstream of that channel and
 is, legally, a convenience copy.
 
@@ -57,6 +57,11 @@ python3 -m http.server
 No build step, no dependencies, no CDN, no network calls at runtime beyond the data files. Fonts are
 self-hosted. It works offline once loaded.
 
+Five views over the same data — countries, gazettes, constitutions, find a law, all sources — each
+narrowed by chips for region, legal tradition and source kind. There is no search box: twenty-eight
+countries and a few hundred sources are small enough that the filters reach any of it in one click,
+and a filter shows you what it is filtering by.
+
 ## The data
 
 One JSON file per country in `data/countries/`, listed in `data/index.json`. The files *are* the
@@ -86,8 +91,8 @@ commit that touches `data/`.
 
 ## Limits
 
-- **Sixteen countries**, not all of them. Chosen to span common law, civil law, mixed and
-  socialist-civil systems across six regions rather than to be exhaustive.
+- **Twenty-eight countries**, not all of them. Chosen to span common law, civil law, mixed,
+  religious-mixed and socialist-civil systems across six regions rather than to be exhaustive.
 - **A snapshot.** Every URL was fetched and confirmed when the record was written; the date is in
   each file's `updated` field. Nothing here re-checks itself.
 - **Not a substitute for the source.** Where a country's authentic text exists only in its own

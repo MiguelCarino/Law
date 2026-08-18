@@ -4,9 +4,8 @@
 //
 // carino-lang.js (deferred, loaded just before this script) resolves the locale
 // and fires 'carino:langchange'; this file owns the dictionaries and re-applies.
-// Static markup uses data-i18n (textContent), data-i18n-html (innerHTML, for the
-// one paragraph carrying inline <b>) or data-i18n-placeholder; dynamic strings
-// are wrapped at render time in app.js via TT() -> window.t.
+// Static markup uses data-i18n (textContent); dynamic strings are wrapped at
+// render time in app.js via TT() -> window.t.
 //
 // What is NOT translated: everything under data/. Those files are the document —
 // the name of a gazette, the description of a court database and the caveat about
@@ -24,14 +23,14 @@ const I18N = {
         'All sources': 'Todas las fuentes',
 
         // Masthead
-        'Official sources · 16 countries': 'Fuentes oficiales · 16 países',
+        'Official sources · 28 countries': 'Fuentes oficiales · 28 países',
         'Where the law is published': 'Dónde se publica el derecho',
-        'Every country has one channel where a law becomes real — the <b>Diario Oficial de la Federación</b> in Mexico, the <b>Journal Officiel</b> in France, the <b>Kanpō</b> in Japan. This is a map of those channels: the gazette of record, the constitution, the consolidated statute databases and the courts, linked at the official publisher. The ones that aren\'t official say so.': 'Cada país tiene un canal donde una ley cobra existencia — el <b>Diario Oficial de la Federación</b> en México, el <b>Journal Officiel</b> en Francia, el <b>Kanpō</b> en Japón. Este es un mapa de esos canales: el diario oficial, la constitución, las bases de datos de textos vigentes y los tribunales, con enlace al órgano que los publica oficialmente. Las fuentes que no son oficiales lo advierten.',
-        'Search countries, gazettes, courts, databases…': 'Busca países, diarios oficiales, tribunales, bases de datos…',
+        'Every country publishes its law in one official place. This is a directory of those places — the gazette of record, the constitution, the consolidated statutes, the courts and the treaties — each linked at the body that publishes it. The sources that are not official say so.': 'Cada país publica su derecho en un lugar oficial. Este es un directorio de esos lugares: el diario oficial, la constitución, los textos vigentes, los tribunales y los tratados, cada uno enlazado al órgano que lo publica. Las fuentes que no son oficiales lo advierten.',
 
         // Filters
         'kind': 'tipo',
         'region': 'región',
+        'tradition': 'tradición',
         'official only': 'solo oficiales',
 
         // Badges — official standing is the load-bearing distinction here
@@ -105,14 +104,14 @@ const I18N = {
         'All sources': 'Todas as fontes',
 
         // Masthead
-        'Official sources · 16 countries': 'Fontes oficiais · 16 países',
+        'Official sources · 28 countries': 'Fontes oficiais · 28 países',
         'Where the law is published': 'Onde a lei é publicada',
-        'Every country has one channel where a law becomes real — the <b>Diario Oficial de la Federación</b> in Mexico, the <b>Journal Officiel</b> in France, the <b>Kanpō</b> in Japan. This is a map of those channels: the gazette of record, the constitution, the consolidated statute databases and the courts, linked at the official publisher. The ones that aren\'t official say so.': 'Todo país tem um canal onde a norma passa a existir — o <b>Diario Oficial de la Federación</b> no México, o <b>Journal Officiel</b> na França, o <b>Kanpō</b> no Japão. Este é um mapa desses canais: o diário oficial, a constituição, as bases de legislação consolidada e os tribunais, com link para o órgão publicador oficial. As fontes que não são oficiais estão identificadas como tais.',
-        'Search countries, gazettes, courts, databases…': 'Buscar países, diários oficiais, tribunais, bases…',
+        'Every country publishes its law in one official place. This is a directory of those places — the gazette of record, the constitution, the consolidated statutes, the courts and the treaties — each linked at the body that publishes it. The sources that are not official say so.': 'Todo país publica suas leis em um lugar oficial. Este é um diretório desses lugares: o diário oficial, a constituição, a legislação consolidada, os tribunais e os tratados, cada um com link para o órgão que o publica. As fontes que não são oficiais estão identificadas como tais.',
 
         // Filters
         'kind': 'tipo',
         'region': 'região',
+        'tradition': 'tradição',
         'official only': 'somente oficiais',
 
         // Badges — official standing is the load-bearing distinction here
@@ -186,14 +185,14 @@ const I18N = {
         'All sources': '全情報源',
 
         // Masthead
-        'Official sources · 16 countries': '公式情報源 · 16か国',
+        'Official sources · 28 countries': '公式情報源 · 28か国',
         'Where the law is published': '法令が公布される場所',
-        'Every country has one channel where a law becomes real — the <b>Diario Oficial de la Federación</b> in Mexico, the <b>Journal Officiel</b> in France, the <b>Kanpō</b> in Japan. This is a map of those channels: the gazette of record, the constitution, the consolidated statute databases and the courts, linked at the official publisher. The ones that aren\'t official say so.': 'どの国にも、法令が正式に効力を持つ公布の場が一つある。メキシコの<b>Diario Oficial de la Federación</b>、フランスの<b>Journal Officiel</b>、日本の<b>官報</b>。本サイトはその地図であり、公布の官報、憲法、現行法令データベース、裁判所を、それぞれ公式の発行元へリンクしている。公式でないものは、その旨を明記している。',
-        'Search countries, gazettes, courts, databases…': '国・官報・裁判所・データベースを検索…',
+        'Every country publishes its law in one official place. This is a directory of those places — the gazette of record, the constitution, the consolidated statutes, the courts and the treaties — each linked at the body that publishes it. The sources that are not official say so.': 'どの国にも、法令を公布する公式の場が一つある。本サイトはその場所の一覧である。官報、憲法、現行法令、裁判所、条約を、それぞれ公布する機関へ直接リンクしている。公式でないものは、その旨を明記している。',
 
         // Filters
         'kind': '種別',
         'region': '地域',
+        'tradition': '法系',
         'official only': '公式のみ',
 
         // Badges — official standing is the load-bearing distinction here
@@ -267,14 +266,14 @@ const I18N = {
         'All sources': 'Все источники',
 
         // Masthead
-        'Official sources · 16 countries': 'Официальные источники · 16 стран',
+        'Official sources · 28 countries': 'Официальные источники · 28 стран',
         'Where the law is published': 'Где публикуются законы',
-        'Every country has one channel where a law becomes real — the <b>Diario Oficial de la Federación</b> in Mexico, the <b>Journal Officiel</b> in France, the <b>Kanpō</b> in Japan. This is a map of those channels: the gazette of record, the constitution, the consolidated statute databases and the courts, linked at the official publisher. The ones that aren\'t official say so.': 'В каждой стране есть один канал, через который закон обретает силу, — <b>Diario Oficial de la Federación</b> в Мексике, <b>Journal Officiel</b> во Франции, <b>Kanpō</b> в Японии. Это карта таких каналов: официальное издание, конституция, базы консолидированного законодательства и суды — со ссылками на официального издателя. Там, где источник неофициальный, об этом сказано прямо.',
-        'Search countries, gazettes, courts, databases…': 'Поиск: страны, издания, суды, базы данных…',
+        'Every country publishes its law in one official place. This is a directory of those places — the gazette of record, the constitution, the consolidated statutes, the courts and the treaties — each linked at the body that publishes it. The sources that are not official say so.': 'В каждой стране закон публикуется в одном официальном месте. Это справочник таких мест: официальное издание, конституция, консолидированное законодательство, суды и международные договоры — каждый со ссылкой на публикующий орган. Источники, которые не являются официальными, отмечены как таковые.',
 
         // Filters
         'kind': 'тип',
         'region': 'регион',
+        'tradition': 'правовая семья',
         'official only': 'только официальные',
 
         // Badges — official standing is the load-bearing distinction here
@@ -354,8 +353,8 @@ function t(key) {
 window.t = t;
 
 // Static markup. data-i18n: original trimmed textContent is the key.
-// data-i18n-html: original innerHTML (whitespace-collapsed) is the key.
-// data-i18n-placeholder: the search box.
+// data-i18n-html (innerHTML, whitespace-collapsed) is kept for markup that
+// carries inline tags; nothing in index.html needs it today.
 function applyStaticI18n() {
     document.querySelectorAll('[data-i18n]').forEach((el) => {
         if (!el.dataset.i18nKey) el.dataset.i18nKey = el.textContent.trim();
@@ -364,10 +363,6 @@ function applyStaticI18n() {
     document.querySelectorAll('[data-i18n-html]').forEach((el) => {
         if (!el.dataset.i18nKey) el.dataset.i18nKey = el.innerHTML.trim().replace(/\s+/g, ' ');
         el.innerHTML = t(el.dataset.i18nKey);
-    });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
-        if (!el.dataset.i18nKey) el.dataset.i18nKey = el.placeholder;
-        el.placeholder = t(el.dataset.i18nKey);
     });
 }
 

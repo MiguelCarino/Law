@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/webp" href="logo.webp">
   <title>Carino Law — official legal sources, by country</title>
-  <meta name="description" content="Where law is officially published in sixteen countries: the gazette of record, the constitution, the consolidated statute databases and the courts. Every link goes to the official publisher, and the unofficial ones say so.">
+  <meta name="description" content="A directory of where law is officially published, country by country: the gazette of record, the constitution, the consolidated statutes, the courts and the treaties, each linked at the body that publishes it. The sources that are not official say so.">
 
   <link rel="stylesheet" href="fonts/carino-fonts.css">
 
@@ -17,55 +17,68 @@
       --text-main:#fff; --text-muted:#a3a3a3; --text-dim:#666;
       --border:#262626; --border-glow:rgba(234,179,8,0.3);
       --ok:#22c55e; --danger:#ef4444; --warn:#eab308; --info:#38bdf8;
+      --stage-grad:radial-gradient(1200px 520px at 50% -12%,rgba(234,179,8,0.08) 0%,transparent 60%),
+        linear-gradient(180deg,#0b0b0b 0%,#050505 100%);
+      --gold-text:linear-gradient(130deg,#fef08a 0%,#eab308 50%,#b45309 100%);
       --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
       --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
       --display:'Red Hat Display',var(--sans);
     }
     *{box-sizing:border-box;}
-    html,body{height:100%;}
-    html{overflow:hidden;}
-    body{font-family:var(--sans);margin:0;background:var(--bg-body);color:var(--text-main);
-      height:100dvh;display:flex;flex-direction:column;overflow:hidden;
-      background-image:radial-gradient(1200px 500px at 50% -8%,rgba(234,179,8,0.05),transparent 70%);}
+    html{scroll-behavior:smooth;}
+    /* Slim scrollbars in every engine — the cross-browser recipe from
+       carino-branding.css. Neither engine reads the other's properties. */
+    :root{scrollbar-width:thin;scrollbar-color:#3a3a3a transparent;}
+    ::-webkit-scrollbar{width:8px;height:8px;}
+    ::-webkit-scrollbar-track{background:transparent;}
+    ::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:6px;}
+    body{font-family:var(--sans);margin:0;background:var(--bg-body);color:var(--text-main);}
     a{color:var(--accent);text-decoration:none;}
     a:hover{color:var(--primary-hover);}
     button{font-family:inherit;}
     h2,h3,h4,h5{font-family:var(--display);}
 
-    .wrap{flex:1;min-height:0;max-width:1220px;width:100%;margin:0 auto;padding:14px 20px 8px;
-      display:flex;flex-direction:column;overflow:hidden;}
-    @media(max-width:420px){.wrap{padding:12px 12px 6px;}}
+    .wrap{max-width:1220px;width:100%;margin:0 auto;padding:0 20px 80px;}
+    @media(max-width:420px){.wrap{padding:0 12px 60px;}}
 
-    /* ── APP BAR ── */
-    .appbar{flex-shrink:0;display:flex;flex-direction:column;gap:8px;}
-    .app-intro{display:flex;flex-direction:column;gap:3px;}
-    .app-eyebrow{font-family:var(--mono);font-size:0.6rem;font-weight:700;letter-spacing:0.16em;
-      text-transform:uppercase;color:var(--accent);}
-    .app-title{margin:0;font-family:var(--display);font-weight:900;font-size:1.85rem;line-height:1.05;
-      background:linear-gradient(130deg,#fef08a 0%,#eab308 48%,#b45309 100%);
+    /* ── HERO — the fleet landing block (carino-branding.css .guide-hero) ── */
+    .hero{background:var(--stage-grad);border-bottom:1px solid var(--border);
+      padding:62px 24px 54px;text-align:center;margin-bottom:6px;}
+    .hero-kicker{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.35em;
+      text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+    .hero-title{margin:0;font-family:var(--display);font-weight:900;
+      font-size:clamp(2.6rem,7vw,4.6rem);line-height:0.95;text-transform:uppercase;letter-spacing:1px;
+      background:var(--gold-text);
       -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .app-desc{margin:1px 0 0;color:var(--text-muted);font-size:0.84rem;line-height:1.45;max-width:900px;}
-    .app-desc b{color:var(--text-main);}
-    @media(max-width:640px){.app-title{font-size:1.5rem;}.app-desc{font-size:0.8rem;}}
+    .hero-lede{max-width:660px;margin:20px auto 0;color:var(--text-muted);
+      font-family:var(--mono);font-size:0.85rem;line-height:1.7;}
+    @media(max-width:640px){
+      .hero{padding:40px 16px 34px;}
+      .hero-kicker{letter-spacing:0.24em;margin-bottom:14px;}
+      .hero-lede{font-size:0.78rem;margin-top:16px;}
+    }
 
-    .searchbox{position:relative;width:100%;}
-    .searchbox svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--text-dim);pointer-events:none;}
-    #q{width:100%;background:var(--bg-elev);border:1px solid var(--border);border-radius:11px;color:var(--text-main);
-      font-family:var(--mono);font-size:0.95rem;padding:12px 15px 12px 44px;transition:0.15s;}
-    #q::placeholder{color:var(--text-dim);}
-    #q:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-glow);}
-    #q::-webkit-search-cancel-button{filter:grayscale(1) opacity(0.5);}
+    /* ── FILTER BAR ──
+       With no search box the chips are the only way to narrow the set, so they
+       stay put at the top of the viewport while the grid scrolls under them —
+       the same sticky treatment carino-branding.css gives its section nav.
+       -webkit- first: Safari only honours the prefixed filter property. */
+    .filters{position:sticky;top:0;z-index:50;margin:0 -20px 14px;padding:11px 20px;
+      background:rgba(5,5,5,0.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);}
+    @media(max-width:420px){.filters{margin:0 -12px 12px;padding:10px 12px;}}
 
-    #chips{font-family:var(--mono);font-size:0.64rem;color:var(--text-dim);
-      display:flex;gap:6px;align-items:center;flex-wrap:nowrap;min-height:22px;
-      overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding-bottom:1px;}
-    #chips::-webkit-scrollbar{display:none;}
+    #chips{font-family:var(--mono);font-size:0.66rem;color:var(--text-dim);
+      display:flex;gap:7px;align-items:center;flex-wrap:wrap;min-height:24px;}
     #chips:empty{display:none;}
-    .chip{border:1px solid var(--border);border-radius:20px;padding:3px 9px;cursor:pointer;transition:0.15s;
-      color:var(--text-muted);background:transparent;font-family:var(--mono);font-size:0.64rem;white-space:nowrap;}
+    .chip{border:1px solid var(--border);border-radius:20px;padding:4px 10px;cursor:pointer;transition:0.15s;
+      color:var(--text-muted);background:transparent;font-family:var(--mono);font-size:0.66rem;white-space:nowrap;}
     .chip:hover{border-color:var(--accent);color:var(--accent);}
     .chip.active{border-color:var(--accent);color:var(--accent);background:var(--accent-faint);}
-    .chip-lbl{color:var(--text-muted);}
+    .chip-lbl{color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;font-size:0.6rem;}
+    /* a rule, not a "·": on a wrapping bar the glyph ends up orphaned at the
+       end of a line, reading as a chip that failed to render */
+    .chip-sep{width:1px;height:15px;background:var(--border);margin:0 2px;}
 
     /* ── TABS (relocated into the shared navbar) ── */
     .tabs{display:flex;gap:6px;align-items:center;}
@@ -74,7 +87,7 @@
       transition:0.13s;white-space:nowrap;line-height:1;}
     .tab:hover{color:var(--text-main);background:rgba(255,255,255,0.05);}
     .tab.active{color:var(--accent);background:var(--accent-glow);border-color:rgba(234,179,8,0.4);}
-    .tab:focus-visible,.chip:focus-visible,.r-cc:focus-visible,#q:focus-visible{outline:2px solid var(--accent);
+    .tab:focus-visible,.chip:focus-visible,.r-cc:focus-visible{outline:2px solid var(--accent);
       outline-offset:2px;}
     .tab .tlead{font-family:var(--sans);font-weight:400;font-size:0.72rem;color:var(--text-dim);}
     #carinoNav .tab .tlead{display:none;}
@@ -82,13 +95,9 @@
     #carinoNav .cn-actions::-webkit-scrollbar{display:none;}
     @media(max-width:520px){#carinoNav .tab{padding:7px 9px;font-size:0.78rem;}}
 
-    /* ── PANELS ── */
-    .panels{position:relative;flex:1;min-height:0;margin-top:12px;}
-    .panel{position:absolute;inset:0;display:none;flex-direction:column;overflow-y:auto;overflow-x:hidden;
-      padding-right:4px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
-    .panel::-webkit-scrollbar{width:8px;}
-    .panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
-    .panel.active{display:flex;}
+    /* ── PANELS — the page scrolls, not a pane inside it ── */
+    .panel{display:none;}
+    .panel.active{display:block;}
 
     .summary{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:10px;
       border:1px solid var(--border-glow);border-radius:10px;background:var(--accent-faint);
@@ -227,22 +236,14 @@
   </div>
 </header>
 
+<header class="hero">
+  <div class="hero-kicker" data-i18n>Official sources · 28 countries</div>
+  <h1 class="hero-title" data-i18n>Where the law is published</h1>
+  <p class="hero-lede" data-i18n>Every country publishes its law in one official place. This is a directory of those places — the gazette of record, the constitution, the consolidated statutes, the courts and the treaties — each linked at the body that publishes it. The sources that are not official say so.</p>
+</header>
+
 <div class="wrap">
-  <div class="appbar">
-    <div class="app-intro">
-      <div class="app-eyebrow" data-i18n>Official sources · 16 countries</div>
-      <h1 class="app-title" data-i18n>Where the law is published</h1>
-      <p class="app-desc" data-i18n-html>Every country has one channel where a law becomes real — the <b>Diario Oficial de la Federación</b> in Mexico, the <b>Journal Officiel</b> in France, the <b>Kanpō</b> in Japan. This is a map of those channels: the gazette of record, the constitution, the consolidated statute databases and the courts, linked at the official publisher. The ones that aren't official say so.</p>
-    </div>
-
-    <div class="searchbox">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="q" type="search" autocomplete="off" spellcheck="false"
-             placeholder="Search countries, gazettes, courts, databases…" data-i18n-placeholder>
-    </div>
-
-    <div id="chips"></div>
-  </div>
+  <div class="filters"><div id="chips"></div></div>
 
   <div class="panels">
     <section class="panel active" id="p-atlas"   role="tabpanel"></section>

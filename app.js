@@ -9,6 +9,11 @@
      find     task-oriented recipes         → "how do I look up X"
      all      every source, flat            → filter by kind / access
 
+   There is no search field: the set is twenty-eight countries and a few
+   hundred sources, small enough that region / tradition / kind chips reach any of it
+   in one click, and a filter that shows what it is filtering by beats a text
+   box that shows nothing.
+
    The data files ARE the document. They stay English and a fork edits
    them directly; only the interface chrome is translated (i18n.js).
    Nothing here is generated or cached — the JSON is the source of truth
@@ -30,7 +35,6 @@
   var COUNTRIES = [];          // loaded records, in index order
   var BY_CODE = {};
   var PANEL = 'atlas';
-  var QUERY = '';
   var FILTER = {};             // per-panel chip selection: {atlas:{region:'Europe'}, …}
 
   /* ---- vocabulary -------------------------------------------------------- */
@@ -88,32 +92,6 @@
         fail(TT('A data file failed to load. Serve this folder over http:// or check that the data/ directory is intact.') +
              ' <code>python3 -m http.server</code>');
       });
-  }
-
-  /* ---- search ------------------------------------------------------------ */
-
-  /* One haystack per item, built once per render rather than per keystroke —
-     the whole corpus is sixteen files, so this stays well under a frame. */
-  function countryHay(c) {
-    var parts = [c.name, c.nativeName, c.iso, c.code, c.region, c.tradition,
-                 TRADITION_LABEL[c.tradition] || '', c.summary, (c.languages || []).join(' ')];
-    allSources(c).forEach(function (s) {
-      parts.push(s.name, s.native, s.en, s.authority, s.kind, KIND_LABEL[s.kind] || '', s.desc, s.url);
-    });
-    (c.findLaw || []).forEach(function (f) { parts.push(f.task, f.steps, f.source); });
-    return parts.join(' ').toLowerCase();
-  }
-
-  function sourceHay(c, s) {
-    return [c.name, c.nativeName, c.iso, s.name, s.native, s.en, s.authority, s.kind,
-            KIND_LABEL[s.kind] || '', s.desc, s.howto, s.coverage, s.url].join(' ').toLowerCase();
-  }
-
-  function hit(hay) {
-    if (!QUERY) return true;
-    var terms = QUERY.toLowerCase().split(/\s+/).filter(Boolean);
-    for (var i = 0; i < terms.length; i++) if (hay.indexOf(terms[i]) < 0) return false;
-    return true;
   }
 
   /* gazette and constitution live outside sources[] because every country has
@@ -199,6 +177,14 @@
     return out;
   }
 
+  function traditions() {
+    var seen = [], out = [];
+    COUNTRIES.forEach(function (c) {
+      if (c.tradition && seen.indexOf(c.tradition) < 0) { seen.push(c.tradition); out.push(c.tradition); }
+    });
+    return out;
+  }
+
   function kinds() {
     var seen = {};
     COUNTRIES.forEach(function (c) {
@@ -218,7 +204,7 @@
         h += '<button class="chip' + (f.kind === k ? ' active' : '') + '" data-chip="kind" data-val="' +
              esc(k) + '">' + TT(KIND_LABEL[k] || k) + '</button>';
       });
-      h += '<span class="chip-lbl">·</span>';
+      h += '<span class="chip-sep"></span>';
       h += '<button class="chip' + (f.official ? ' active' : '') + '" data-chip="official" data-val="1">' +
            TT('official only') + '</button>';
     } else {
@@ -228,10 +214,12 @@
              esc(r) + '">' + TT(r) + '</button>';
       });
       if (PANEL === 'atlas') {
-        h += '<span class="chip-lbl">·</span>';
-        ['civil', 'common', 'mixed'].forEach(function (t) {
+        h += '<span class="chip-lbl">' + TT('tradition') + '</span>';
+        /* read off the data: hand-listing three traditions silently made the
+           socialist-civil and religious-mixed countries unfilterable */
+        traditions().forEach(function (t) {
           h += '<button class="chip' + (f.tradition === t ? ' active' : '') + '" data-chip="tradition" data-val="' +
-               esc(t) + '">' + TT(TRADITION_LABEL[t]) + '</button>';
+               esc(t) + '">' + TT(TRADITION_LABEL[t] || t) + '</button>';
         });
       }
     }
@@ -248,7 +236,7 @@
   /* ---- panels ------------------------------------------------------------- */
 
   function renderAtlas() {
-    var list = COUNTRIES.filter(function (c) { return passRegion(c) && hit(countryHay(c)); });
+    var list = COUNTRIES.filter(passRegion);
     var el = document.getElementById('p-atlas');
     if (!list.length) { el.innerHTML = '<div class="empty">' + TT('Nothing matches.') + '</div>'; return; }
 
@@ -287,7 +275,6 @@
       if (!passRegion(c)) return;
       var s = pick(c);
       if (!s) return;
-      if (!hit(sourceHay(c, s))) return;
       rows.push({ c: c, s: s });
     });
     if (!rows.length) { el.innerHTML = '<div class="empty">' + emptyMsg + '</div>'; return; }
@@ -305,10 +292,7 @@
     var items = [];
     COUNTRIES.forEach(function (c) {
       if (!passRegion(c)) return;
-      (c.findLaw || []).forEach(function (f) {
-        var hay = [c.name, c.iso, f.task, f.steps, f.source, f.url].join(' ').toLowerCase();
-        if (hit(hay)) items.push({ c: c, f: f });
-      });
+      (c.findLaw || []).forEach(function (f) { items.push({ c: c, f: f }); });
     });
     if (!items.length) { el.innerHTML = '<div class="empty">' + TT('Nothing matches.') + '</div>'; return; }
 
@@ -343,7 +327,6 @@
       allSources(c).forEach(function (s) {
         if (f.kind && s.kind !== f.kind) return;
         if (f.official && !s.official) return;
-        if (!hit(sourceHay(c, s))) return;
         items.push({ c: c, s: s });
       });
     });
@@ -460,18 +443,15 @@
       p.classList.toggle('active', p.id === 'p-' + name);
     });
     render();
+    /* the panels share one scroll position now that the page itself scrolls;
+       land at the top of the new one rather than halfway down the old list */
+    if (window.scrollY > 0) window.scrollTo(0, 0);
   }
 
   function readHash() {
     var h = (location.hash || '').replace(/^#/, '');
     if (!h) return;
     if (h.indexOf('c=') === 0) { openCountry(h.slice(2)); return; }
-    if (h.indexOf('q=') === 0) {
-      QUERY = decodeURIComponent(h.slice(2));
-      document.getElementById('q').value = QUERY;
-      render();
-      return;
-    }
     if (PANELS.indexOf(h) >= 0) setPanel(h);
     else if (BY_CODE[h]) openCountry(h);
   }
@@ -511,9 +491,6 @@
       render();
     });
 
-    var qEl = document.getElementById('q');
-    qEl.addEventListener('input', function () { QUERY = qEl.value.trim(); render(); });
-
     /* one delegated listener on the whole page: cards and the country code in a
        source row both open the record, and both are re-created on every render */
     document.body.addEventListener('click', function (e) {
@@ -526,10 +503,6 @@
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('close', function () {
       if (location.hash.indexOf('#c=') === 0) history.replaceState(null, '', '#' + PANEL);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === '/' && document.activeElement !== qEl && !dlg.open) { e.preventDefault(); qEl.focus(); }
     });
 
     window.addEventListener('hashchange', readHash);
