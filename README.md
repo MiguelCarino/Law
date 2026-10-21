@@ -4,6 +4,8 @@ A map of where law is *officially published*, for twenty-eight countries.
 
 **[law.carino.systems](https://law.carino.systems)**
 
+![Carino Law](screenshot.webp)
+
 Every country has one channel where a law stops being a proposal and becomes binding — the
 **Diario Oficial de la Federación** in Mexico, the **Journal Officiel** in France, the **官報** in
 Japan, the **Bundesgesetzblatt** in Germany, **The Gazette** in the UK. Everything else — the consolidated text you actually read, the
