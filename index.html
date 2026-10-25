@@ -29,92 +29,44 @@
   <!-- /carino:head -->
 
   <link rel="stylesheet" href="fonts/carino-fonts.css">
+  <link rel="stylesheet" href="carino-ui.css">
 
   <style>
+    /* Tokens, base, .fchips, .card.entry, .src-line, .modal, .site-foot and
+       .landing-hero come from carino-ui.css (linked above). Only Law's own
+       extras are declared here, under new names. */
     :root{
-      --accent:#eab308; --accent-faint:rgba(234,179,8,0.05); --accent-glow:rgba(234,179,8,0.15);
       --primary-hover:#fbbf24;
-      --bg-body:#050505; --bg-elev:#0d0d0d; --bg-card:#0b0b0b;
-      --text-main:#fff; --text-muted:#a3a3a3; --text-dim:#8a8a8a;
-      --border:#262626; --border-glow:rgba(234,179,8,0.3);
-      --ok:#22c55e; --danger:#ef4444; --warn:#eab308; --info:#38bdf8;
-      --stage-grad:radial-gradient(1200px 520px at 50% -12%,rgba(234,179,8,0.08) 0%,transparent 60%),
-        linear-gradient(180deg,#0b0b0b 0%,#050505 100%);
-      --gold-text:linear-gradient(130deg,#fef08a 0%,#eab308 50%,#b45309 100%);
-      --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
-      --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-      --display:'Red Hat Display',var(--sans);
+      --border-glow:rgba(234,179,8,0.3);
     }
-    *{box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    /* Slim scrollbars in every engine — the cross-browser recipe from
-       carino-branding.css. Neither engine reads the other's properties. */
-    :root{scrollbar-width:thin;scrollbar-color:#3a3a3a transparent;}
-    ::-webkit-scrollbar{width:8px;height:8px;}
-    ::-webkit-scrollbar-track{background:transparent;}
-    ::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:6px;}
-    body{font-family:var(--sans);margin:0;background:var(--bg-body);color:var(--text-main);}
-    a{color:var(--accent);text-decoration:none;}
+    a{text-decoration:none;}
     a:hover{color:var(--primary-hover);}
     button{font-family:inherit;}
     h2,h3,h4,h5{font-family:var(--display);}
 
-    .wrap{max-width:1220px;width:100%;margin:0 auto;padding:0 20px 80px;}
-    @media(max-width:420px){.wrap{padding:0 12px 60px;}}
+    .wrap{max-width:1220px;width:100%;margin:0 auto;padding:0 20px 24px;}
+    @media(max-width:640px){.wrap{padding:0 12px 20px;}}
 
-    /* ── HERO — the fleet landing block (carino-branding.css .guide-hero) ── */
-    .hero{background:var(--stage-grad);border-bottom:1px solid var(--border);
-      padding:62px 24px 54px;text-align:center;margin-bottom:6px;}
-    .hero-kicker{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.35em;
-      text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
-    .hero-title{margin:0;font-family:var(--display);font-weight:900;
-      font-size:clamp(2.6rem,7vw,4.6rem);line-height:0.95;text-transform:uppercase;letter-spacing:1px;
-      background:var(--gold-text);
-      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .hero-lede{max-width:660px;margin:20px auto 0;color:var(--text-muted);
-      font-family:var(--mono);font-size:0.85rem;line-height:1.7;}
-    @media(max-width:640px){
-      .hero{padding:40px 16px 34px;}
-      .hero-kicker{letter-spacing:0.24em;margin-bottom:14px;}
-      .hero-lede{font-size:0.78rem;margin-top:16px;}
-    }
+    /* ── HERO — the fleet gold-C landing hero (carino-ui.css .landing-hero) ── */
+    .landing-hero{border-bottom:1px solid var(--border);margin-bottom:0;}
 
-    /* ── FILTER BAR ──
-       With no search box the chips are the only way to narrow the set, so they
-       stay put at the top of the viewport while the grid scrolls under them —
-       the same sticky treatment carino-branding.css gives its section nav.
-       -webkit- first: Safari only honours the prefixed filter property. */
-    .filters{position:sticky;top:0;z-index:50;margin:0 -20px 14px;padding:11px 20px;
-      background:rgba(5,5,5,0.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);}
-    @media(max-width:420px){.filters{margin:0 -12px 12px;padding:10px 12px;}}
-
-    #chips{font-family:var(--mono);font-size:0.66rem;color:var(--text-dim);
-      display:flex;gap:7px;align-items:center;flex-wrap:wrap;min-height:24px;}
-    #chips:empty{display:none;}
-    .chip{border:1px solid var(--border);border-radius:20px;padding:4px 10px;cursor:pointer;transition:0.15s;
-      color:var(--text-muted);background:transparent;font-family:var(--mono);font-size:0.66rem;white-space:nowrap;}
-    .chip:hover{border-color:var(--accent);color:var(--accent);}
-    .chip.active{border-color:var(--accent);color:var(--accent);background:var(--accent-faint);}
-    .chip-lbl{color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;font-size:0.6rem;}
-    /* a rule, not a "·": on a wrapping bar the glyph ends up orphaned at the
-       end of a line, reading as a chip that failed to render */
-    .chip-sep{width:1px;height:15px;background:var(--border);margin:0 2px;}
+    /* ── FILTER BAR — carino-ui.css .fchips. The page scrolls under it. ── */
+    .fchips{margin:0 -20px 14px;padding:10px 20px;min-height:46px;}
+    @media(max-width:640px){.fchips{margin:0 -12px 12px;padding:9px 12px;}}
 
     /* ── TABS (relocated into the shared navbar) ── */
     .tabs{display:flex;gap:6px;align-items:center;}
     .tab{display:flex;align-items:center;gap:7px;border:1px solid transparent;border-radius:8px;background:transparent;
-      color:var(--text-muted);font-family:var(--sans);font-weight:600;font-size:0.82rem;padding:7px 12px;cursor:pointer;
+      color:var(--text-sec);font-family:var(--sans);font-weight:600;font-size:var(--fs-sm);padding:7px 12px;cursor:pointer;
       transition:0.13s;white-space:nowrap;line-height:1;}
-    .tab:hover{color:var(--text-main);background:rgba(255,255,255,0.05);}
+    .tab:hover{color:var(--text);background:rgba(255,255,255,0.05);}
     .tab.active{color:var(--accent);background:var(--accent-glow);border-color:rgba(234,179,8,0.4);}
-    .tab:focus-visible,.chip:focus-visible,.r-cc:focus-visible{outline:2px solid var(--accent);
+    .tab:focus-visible,.fchip:focus-visible,.r-cc:focus-visible,.e-open:focus-visible{outline:2px solid var(--accent);
       outline-offset:2px;}
-    .tab .tlead{font-family:var(--sans);font-weight:400;font-size:0.72rem;color:var(--text-dim);}
-    #carinoNav .tab .tlead{display:none;}
     #carinoNav .cn-actions{overflow-x:auto;scrollbar-width:none;}
     #carinoNav .cn-actions::-webkit-scrollbar{display:none;}
-    @media(max-width:520px){#carinoNav .tab{padding:7px 9px;font-size:0.78rem;}}
+    @media(max-width:520px){#carinoNav .tab{padding:7px 9px;font-size:var(--fs-btn);}}
 
     /* ── PANELS — the page scrolls, not a pane inside it ── */
     .panel{display:none;}
@@ -123,47 +75,41 @@
     .summary{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:10px;
       border:1px solid var(--border-glow);border-radius:10px;background:var(--accent-faint);
       padding:8px 13px;font-family:var(--mono);font-variant-numeric:tabular-nums;}
-    .sm-c{font-size:0.72rem;color:var(--text-dim);white-space:nowrap;}
-    .sm-c b{color:var(--accent);font-size:0.92rem;font-weight:700;}
-    .sm-k{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.09em;}
+    .sm-c{font-size:var(--fs-btn);color:var(--text-muted);white-space:nowrap;}
+    .sm-c b{color:var(--accent);font-size:var(--fs-sec);font-weight:700;}
+    .sm-k{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:0.09em;}
 
-    .empty{color:var(--text-dim);font-family:var(--mono);font-size:0.8rem;padding:30px 4px;text-align:center;}
+    .empty{color:var(--text-muted);font-family:var(--mono);font-size:var(--fs-sm);padding:30px 4px;text-align:center;}
+    .empty .fchip{margin-left:8px;}
+    #loadErr{margin:16px 0;}
 
     /* ══ BADGES — official standing is the single most load-bearing fact here ══ */
-    .badge{font-family:var(--mono);font-size:0.56rem;font-weight:700;letter-spacing:0.1em;
+    .badge{font-family:var(--mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:0.1em;
       text-transform:uppercase;border-radius:4px;padding:2px 6px;white-space:nowrap;border:1px solid;}
     .b-official{color:var(--accent);border-color:rgba(234,179,8,0.45);background:rgba(234,179,8,0.09);}
-    .b-unofficial{color:var(--text-dim);border-color:var(--border);background:transparent;}
-    .b-kind{color:var(--info);border-color:rgba(56,189,248,0.35);background:rgba(56,189,248,0.07);}
+    .b-unofficial{color:var(--text-muted);border-color:var(--border);background:transparent;}
+    .b-kind{color:var(--info);border-color:color-mix(in srgb,var(--info) 35%,transparent);background:color-mix(in srgb,var(--info) 7%,transparent);}
     .b-free{color:var(--ok);border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.07);}
-    .b-reg{color:#a3e635;border-color:rgba(163,230,53,0.3);background:rgba(163,230,53,0.07);}
-    .b-part{color:#fb923c;border-color:rgba(251,146,60,0.32);background:rgba(251,146,60,0.07);}
-    .b-pay{color:var(--danger);border-color:rgba(239,68,68,0.32);background:rgba(239,68,68,0.07);}
-    .b-lang{color:var(--text-muted);border-color:var(--border);background:transparent;}
+    .b-reg{color:var(--text-sec);border-color:var(--text-muted);background:transparent;}
+    .b-part{color:var(--warn);border-color:rgba(234,179,8,0.32);background:transparent;border-style:dashed;}
+    .b-pay{color:var(--err);border-color:rgba(239,68,68,0.32);background:rgba(239,68,68,0.07);}
+    .b-lang{color:var(--text-sec);border-color:var(--border);background:transparent;}
 
-    /* ══ COUNTRY GRID ══ */
+    /* ══ COUNTRY GRID — carino-ui.css .card.entry ══ */
     .cgrid{display:grid;gap:11px;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));padding-bottom:16px;}
-    .ccard{border:1px solid var(--border);border-radius:12px;background:var(--bg-card);padding:13px 14px;
-      cursor:pointer;transition:0.15s;display:flex;flex-direction:column;gap:8px;text-align:left;color:inherit;
-      font-family:inherit;}
-    .ccard:hover{border-color:var(--border-glow);background:var(--bg-elev);transform:translateY(-1px);}
-    .ccard:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+    .cgrid .card.entry{cursor:pointer;}
+    .cgrid .card.entry:hover{border-color:var(--border-glow);background:var(--bg-elev);}
     .cc-top{display:flex;align-items:flex-start;gap:10px;}
     .cc-flag{font-size:1.5rem;line-height:1;flex-shrink:0;}
     .cc-names{min-width:0;flex:1;display:block;}
-    /* both are <span>: they must be blockified or the native name runs on
-       into the English one instead of sitting under it */
-    .cc-name{display:block;font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1.15;}
-    .cc-native{display:block;font-size:0.68rem;color:var(--text-dim);margin-top:2px;line-height:1.3;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-    .cc-native:empty{display:none;}
-    .cc-iso{font-family:var(--mono);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;color:var(--accent);
+    /* the title is the card's keyboard target; the whole card is clickable */
+    .e-open{all:unset;display:block;cursor:pointer;font-family:var(--display);font-weight:800;}
+    .e-sub{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px;}
+    .e-sub:empty{display:none;}
+    .cc-iso{font-family:var(--mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:0.12em;color:var(--accent);
       border:1px solid var(--border);border-radius:4px;padding:2px 5px;flex-shrink:0;}
-    .cc-line{font-size:0.74rem;color:var(--text-muted);line-height:1.4;
-      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-    .cc-gaz{font-family:var(--mono);font-size:0.66rem;color:var(--text-dim);display:flex;gap:6px;align-items:baseline;}
-    .cc-gaz b{color:var(--text-main);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-    .cc-foot{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:auto;padding-top:2px;}
+    .cc-gaz{font-family:var(--mono);font-size:var(--fs-label);color:var(--text-muted);display:flex;gap:6px;align-items:baseline;min-width:0;}
+    .cc-gaz b{color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
     /* ══ SOURCE ROWS — used by Gazettes, Constitutions and All sources ══ */
     .rows{display:flex;flex-direction:column;gap:7px;padding-bottom:16px;}
@@ -171,75 +117,84 @@
       display:flex;flex-direction:column;gap:6px;transition:0.15s;}
     .row:hover{border-color:#3a3a3a;background:var(--bg-elev);}
     .r-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
-    .r-cc{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.1em;color:var(--accent);
+    .r-cc{font-family:var(--mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:0.1em;color:var(--accent);
       cursor:pointer;border:0;background:transparent;padding:0;}
     .r-cc:hover{color:var(--primary-hover);text-decoration:underline;}
-    .r-name{font-family:var(--display);font-weight:700;font-size:0.95rem;line-height:1.2;}
-    .r-name a{color:var(--text-main);}
+    .r-name{font-family:var(--display);font-weight:700;font-size:var(--fs-sec);line-height:1.2;}
+    .r-name a{color:var(--text);}
     .r-name a:hover{color:var(--accent);}
-    .r-native{font-size:0.72rem;color:var(--text-dim);}
-    .r-en{font-size:0.7rem;color:var(--text-dim);font-style:italic;}
-    .r-desc{font-size:0.78rem;color:var(--text-muted);line-height:1.5;}
-    .r-howto{font-size:0.75rem;color:var(--text-muted);line-height:1.5;border-left:2px solid var(--border);
+    .r-en{font-size:var(--fs-btn);color:var(--text-muted);font-style:italic;}
+    .r-desc{font-size:var(--fs-sm);color:var(--text-sec);line-height:1.5;}
+    .r-howto{font-size:var(--fs-sm);color:var(--text-sec);line-height:1.5;border-left:2px solid var(--border);
       padding-left:9px;}
-    .r-howto b{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
-      color:var(--text-dim);font-weight:700;display:block;margin-bottom:2px;}
-    .r-meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:0.63rem;
-      color:var(--text-dim);}
-    .r-facts{font-family:var(--mono);font-size:0.63rem;color:var(--text-dim);line-height:1.5;}
-    .r-url{font-family:var(--mono);font-size:0.66rem;word-break:break-all;}
+    .r-howto b{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:0.1em;text-transform:uppercase;
+      color:var(--text-muted);font-weight:700;display:block;margin-bottom:2px;}
+    .r-meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:var(--fs-micro);
+      color:var(--text-muted);}
+    .r-facts{font-family:var(--mono);font-size:var(--fs-micro);color:var(--text-muted);line-height:1.5;}
 
     /* ══ FIND-A-LAW RECIPES ══ */
     .recipe{border:1px solid var(--border);border-radius:10px;background:var(--bg-card);padding:11px 13px;
       display:flex;flex-direction:column;gap:5px;}
-    .rc-task{font-family:var(--display);font-weight:700;font-size:0.92rem;line-height:1.25;}
-    .rc-steps{font-size:0.79rem;color:var(--text-muted);line-height:1.5;}
-    .rc-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:0.64rem;
-      color:var(--text-dim);}
+    .rc-task{font-family:var(--display);font-weight:700;font-size:var(--fs-sec);line-height:1.25;}
+    .rc-steps{font-size:var(--fs-sm);color:var(--text-sec);line-height:1.5;}
 
-    /* ══ DETAIL DIALOG ══ */
-    dialog#detail{border:1px solid var(--border);border-radius:14px;background:var(--bg-body);color:var(--text-main);
-      padding:0;width:min(880px,94vw);max-height:88vh;overflow:hidden;}
-    dialog#detail::backdrop{background:rgba(0,0,0,0.78);backdrop-filter:blur(3px);}
-    .dt{display:flex;flex-direction:column;max-height:88vh;}
-    .dt-head{flex-shrink:0;display:flex;align-items:flex-start;gap:13px;padding:16px 18px 13px;
-      border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0f0f0f 0%,var(--bg-body) 100%);}
+    /* ══ DETAIL DIALOG — a native <dialog> wearing carino-ui.css .modal ══ */
+    dialog#detail{padding:0;color:var(--text);max-width:min(880px,94vw);width:min(880px,94vw);max-height:88vh;}
+    dialog#detail[open]{display:flex;}
+    dialog#detail:not([open]){display:none;}
+    dialog#detail::backdrop{background:rgba(0,0,0,0.65);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+    .modal-head{align-items:flex-start;background:linear-gradient(180deg,#0f0f0f 0%,var(--bg-card) 100%);}
     .dt-flag{font-size:2.1rem;line-height:1;}
     .dt-h{flex:1;min-width:0;}
-    .dt-name{font-family:var(--display);font-weight:900;font-size:1.4rem;line-height:1.1;margin:0;}
-    .dt-native{font-size:0.8rem;color:var(--text-muted);margin-top:3px;}
-    .dt-x{border:1px solid var(--border);background:transparent;color:var(--text-muted);border-radius:8px;
-      width:32px;height:32px;cursor:pointer;font-size:1.1rem;line-height:1;flex-shrink:0;transition:0.15s;}
-    .dt-x:hover{border-color:var(--danger);color:var(--danger);}
-    .dt-body{overflow-y:auto;padding:16px 18px 22px;display:flex;flex-direction:column;gap:18px;
-      scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
-    .dt-body::-webkit-scrollbar{width:8px;}
-    .dt-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+    #detail .modal-title{text-transform:none;font-size:var(--fs-h2);line-height:1.1;margin:0;}
+    .dt-native{font-size:var(--fs-sm);color:var(--text-sec);margin-top:3px;}
+    #detail .modal-sub{margin-top:4px;}
+    .dt-print{flex-shrink:0;}
+    .modal-body{display:flex;flex-direction:column;gap:18px;padding:16px 18px 22px;}
     .sec{display:flex;flex-direction:column;gap:8px;}
-    .sec-h{font-family:var(--mono);font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    .sec-h{font-family:var(--mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
       color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;}
-    .sec-p{font-size:0.83rem;color:var(--text-muted);line-height:1.6;margin:0;}
-    .sec-p b{color:var(--text-main);}
+    .sec-p{font-size:var(--fs-sm);color:var(--text-sec);line-height:1.6;margin:0;}
+    .sec-p b{color:var(--text);}
     /* the hierarchy of norms is a ladder, so it is drawn as one */
-    .ladder{display:flex;flex-direction:column;gap:0;font-family:var(--mono);font-size:0.72rem;}
-    .rung{display:flex;align-items:center;gap:9px;padding:4px 0;color:var(--text-muted);}
-    .rung .n{color:var(--text-dim);font-size:0.6rem;width:16px;flex-shrink:0;text-align:right;}
+    .ladder{display:flex;flex-direction:column;gap:0;font-family:var(--mono);font-size:var(--fs-btn);}
+    .rung{display:flex;align-items:center;gap:9px;padding:4px 0;color:var(--text-sec);}
+    .rung .n{color:var(--text-muted);font-size:var(--fs-micro);width:16px;flex-shrink:0;text-align:right;}
     .rung .bar{height:3px;border-radius:2px;background:var(--accent);flex-shrink:0;}
-    .rung:first-child{color:var(--text-main);}
-    .caveat{border:1px solid rgba(251,146,60,0.28);border-radius:9px;background:rgba(251,146,60,0.05);
-      padding:10px 12px;font-size:0.8rem;color:#fdba74;line-height:1.55;}
-    .caveat b{color:#fed7aa;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
-      display:block;margin-bottom:4px;}
-    .kindgrp{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.11em;text-transform:uppercase;
-      color:var(--text-dim);margin-top:4px;}
+    .rung:first-child{color:var(--text);}
+    .caveat b{font-size:var(--fs-micro);letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:4px;}
+    .kindgrp{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:0.11em;text-transform:uppercase;
+      color:var(--text-muted);margin-top:4px;}
+
+    .site-foot{max-width:1220px;margin:0 auto;padding-left:20px;padding-right:20px;}
+    @media(max-width:640px){.site-foot{padding-left:12px;padding-right:12px;}}
 
     @media(max-width:640px){
-      .dt-head{padding:13px 14px 11px;}.dt-body{padding:13px 14px 18px;}
-      .dt-name{font-size:1.18rem;}.dt-flag{font-size:1.7rem;}
+      dialog#detail{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;margin:0;}
+      .modal-head{padding:13px 14px 11px;}.modal-body{padding:13px 14px 18px;}
+      #detail .modal-title{font-size:var(--fs-h3);}.dt-flag{font-size:1.7rem;}
     }
     @media(prefers-reduced-motion:reduce){
       *{transition:none !important;animation:none !important;}
-      .ccard:hover{transform:none;}
+    }
+
+    /* ══ PRINT — a country record (or the list behind it) as a light sheet,
+       every link followed by its address. Chrome and filters do not print. ══ */
+    @media print{
+      :root{--bg:#fff;--bg-card:#fff;--bg-elev:#fff;--text:#111;--text-sec:#333;--text-muted:#555;--border:#bbb;--accent:#7a5a00;}
+      body{background:#fff;color:#111;}
+      *{transition:none !important;}
+      #carinoNav,.fchips,.landing-hero,.dt-print,.modal-x,.site-foot .sf-links{display:none !important;}
+      body.detail-open > *:not(dialog){display:none !important;}
+      dialog#detail{position:static;display:block;width:auto;max-width:none;max-height:none;border:0;box-shadow:none;
+        background:#fff;overflow:visible;margin:0;}
+      dialog#detail::backdrop{display:none;}
+      .modal-head{background:none;}
+      .modal-body{overflow:visible;}
+      .row,.recipe,.card.entry{break-inside:avoid;background:#fff;}
+      .src-line a::after{content:" (" attr(href) ")";color:#555;font-size:var(--fs-micro);}
+      .src-line a{border:0;}
     }
   </style>
 </head>
@@ -249,7 +204,7 @@
      deletes [data-carino-strip]; the tabs end up inside the shared top bar. -->
 <header data-carino-strip style="display:none;">
   <div data-carino-actions class="tabs" id="tabs" role="tablist">
-    <button class="tab active" data-panel="atlas"  role="tab" aria-selected="true"  data-i18n>Countries</button>
+    <button class="tab active" data-panel="atlas"  role="tab" aria-selected="true"  data-priority="1" data-i18n>Countries</button>
     <button class="tab"        data-panel="gazette" role="tab" aria-selected="false" data-i18n>Gazettes</button>
     <button class="tab"        data-panel="charter" role="tab" aria-selected="false" data-i18n>Constitutions</button>
     <button class="tab"        data-panel="find"   role="tab" aria-selected="false" data-i18n>Find a law</button>
@@ -257,14 +212,18 @@
   </div>
 </header>
 
-<header class="hero">
-  <div class="hero-kicker" data-i18n>Official sources · 28 countries</div>
-  <h1 class="hero-title" data-i18n>Where the law is published</h1>
-  <p class="hero-lede" data-i18n>Every country publishes its law in one official place. This is a directory of those places — the gazette of record, the constitution, the consolidated statutes, the courts and the treaties — each linked at the body that publishes it. The sources that are not official say so.</p>
+<header class="landing-hero">
+  <div class="lh-wrap">
+    <div class="lh-mark" aria-hidden="true"><img class="mark" src="logo.svg" alt="" width="100" height="100"></div>
+    <h1><span data-i18n>Where the law is published,</span><br><span class="gold" data-i18n>country by country.</span></h1>
+    <p class="lh-lede" data-i18n-html><strong>Carino Law</strong> links each country’s gazette, constitution, statutes, courts and treaties at the body that publishes them, and says which sources are not official.</p>
+    <p class="lh-stats" id="heroStats">&nbsp;</p>
+  </div>
 </header>
 
 <div class="wrap" role="main">
-  <div class="filters"><div id="chips"></div></div>
+  <div class="fchips" id="chips" role="toolbar" aria-label="Filters"></div>
+  <div class="alert err" id="loadErr" role="alert" hidden></div>
 
   <div class="panels">
     <section class="panel active" id="p-atlas"   role="tabpanel"></section>
@@ -275,17 +234,28 @@
   </div>
 </div>
 
-<dialog id="detail"><div class="dt">
-  <div class="dt-head">
+<dialog id="detail" class="modal" aria-labelledby="dtName">
+  <div class="modal-head">
     <div class="dt-flag" id="dtFlag"></div>
     <div class="dt-h">
-      <h2 class="dt-name" id="dtName"></h2>
+      <h2 class="modal-title" id="dtName"></h2>
       <div class="dt-native" id="dtNative"></div>
+      <div class="modal-sub" id="dtChecked"></div>
     </div>
-    <button class="dt-x" id="dtClose" aria-label="Close">✕</button>
+    <button class="btn btn-ghost dt-print" id="dtPrint" type="button" data-i18n>Print</button>
+    <button class="modal-x" id="dtClose" aria-label="Close">✕</button>
   </div>
-  <div class="dt-body" id="dtBody"></div>
-</div></dialog>
+  <div class="modal-body" id="dtBody"></div>
+</dialog>
+
+<footer class="site-foot">
+  <div class="sf-links">
+    <a href="https://github.com/MiguelCarino/Law" target="_blank" rel="noopener" data-i18n>Source</a>
+    <a href="https://github.com/MiguelCarino/Law/issues" target="_blank" rel="noopener" data-i18n>Report a dead link</a>
+    <a href="https://carino.systems/legal.html" data-i18n>Legal &amp; privacy</a>
+  </div>
+  <div class="sf-line" id="footLine">Runs entirely in your browser. Every entry links to its source.</div>
+</footer>
 
 <script src="carino-navbar.js" data-app="Law" data-repo="Law" defer></script>
 <script src="carino-lang.js" defer></script>

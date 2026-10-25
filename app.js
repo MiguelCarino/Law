@@ -36,6 +36,8 @@
   var BY_CODE = {};
   var PANEL = 'atlas';
   var FILTER = {};             // per-panel chip selection: {atlas:{region:'Europe'}, …}
+  var UPDATED = '';            // data/index.json "updated": the fallback checked date
+  var SHOWN = 0;               // entries the current panel rendered, for "N shown"
 
   /* ---- vocabulary -------------------------------------------------------- */
 
@@ -58,10 +60,15 @@
 
   /* ---- loading ----------------------------------------------------------- */
 
-  function fail(msg) {
-    document.querySelectorAll('.panel').forEach(function (p) {
-      p.innerHTML = '<div class="empty">' + msg + '</div>';
-    });
+  /* A load error names the file in an alert above the panels; the panels
+     themselves stay empty rather than pretending there is nothing to show. */
+  function fail(file) {
+    var el = document.getElementById('loadErr');
+    el.innerHTML = esc(TT('Could not load')) + ' <code>' + esc(file) + '</code>. ' +
+      esc(TT('Serve this folder over http:// or check that the data/ directory is intact.')) +
+      ' <code>python3 -m http.server</code>';
+    el.hidden = false;
+    document.getElementById('chips').hidden = true;
   }
 
   /* One country per file, fetched in parallel. A file that 404s or fails to
@@ -70,8 +77,9 @@
      country failing at once, is treated as a broken deployment. */
   function load() {
     return fetch('data/index.json', { cache: 'no-cache' })
-      .then(function (r) { if (!r.ok) throw new Error('index'); return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error('data/index.json'); return r.json(); })
       .then(function (idx) {
+        UPDATED = idx.updated || '';
         return Promise.all((idx.countries || []).map(function (code) {
           return fetch('data/countries/' + code + '.json', { cache: 'no-cache' })
             .then(function (r) { if (!r.ok) throw new Error(code); return r.json(); })
@@ -83,14 +91,13 @@
       })
       .then(function (list) {
         COUNTRIES = list.filter(Boolean);
-        if (!COUNTRIES.length) throw new Error('empty');
+        if (!COUNTRIES.length) throw new Error('data/countries/*.json');
         COUNTRIES.forEach(function (c) { BY_CODE[c.code] = c; });
         render();
         readHash();
       })
-      .catch(function () {
-        fail(TT('A data file failed to load. Serve this folder over http:// or check that the data/ directory is intact.') +
-             ' <code>python3 -m http.server</code>');
+      .catch(function (e) {
+        fail(e && /^data\//.test(e.message) ? e.message : 'data/index.json');
       });
   }
 
@@ -118,6 +125,19 @@
 
   function badgeKind(s) {
     return '<span class="badge b-kind">' + TT(KIND_LABEL[s.kind] || s.kind || '') + '</span>';
+  }
+
+  function domain(url) {
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; }
+  }
+
+  /* "Source: domain ↗ · checked YYYY-MM" (carino-ui.css .src-line). The date is
+     the record's own `updated`, falling back to the index's. */
+  function srcLine(url, c) {
+    var when = (c && c.updated) || UPDATED;
+    return '<div class="src-line"><span>' + TT('Source:') + '</span><a href="' + esc(url) +
+      '" target="_blank" rel="noopener noreferrer">' + esc(domain(url)) + ' ↗</a>' +
+      (when ? '<span class="src-date">' + TT('checked') + ' ' + esc(when) + '</span>' : '') + '</div>';
   }
 
   function sourceRow(c, s, opts) {
@@ -155,10 +175,15 @@
       h += '<div class="r-howto"><b>' + TT('How to look something up') + '</b>' + esc(s.howto) + '</div>';
     }
     if (s.note) h += '<div class="r-meta"><span>⚠ ' + esc(s.note) + '</span></div>';
-    h += '<div class="r-url"><a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' +
-         esc(s.url) + '</a></div>';
+    h += srcLine(s.url, c);
     h += '</div>';
     return h;
+  }
+
+  /* a lookup recipe names its source in prose; the link is its source line */
+  function recipeFoot(c, f) {
+    var h = f.source ? '<div class="r-facts">' + esc(f.source) + '</div>' : '';
+    return h + (f.url ? srcLine(f.url, c) : '');
   }
 
   function summaryStrip(cells) {
@@ -193,37 +218,49 @@
     return Object.keys(seen).sort();
   }
 
+  function chip(facet, val, on, label) {
+    return '<button type="button" class="fchip' + (on ? ' active' : '') + '" aria-pressed="' + (on ? 'true' : 'false') +
+      '" data-chip="' + facet + '" data-val="' + esc(val) + '">' + label + '</button>';
+  }
+
+  /* carino-ui.css .fchips: facets, then Clear once any chip is on, then the
+     count of what the panel shows. */
   function renderChips() {
     var host = document.getElementById('chips');
     var f = FILTER[PANEL] || (FILTER[PANEL] = {});
     var h = '';
 
     if (PANEL === 'all') {
-      h += '<span class="chip-lbl">' + TT('kind') + '</span>';
-      kinds().forEach(function (k) {
-        h += '<button class="chip' + (f.kind === k ? ' active' : '') + '" data-chip="kind" data-val="' +
-             esc(k) + '">' + TT(KIND_LABEL[k] || k) + '</button>';
-      });
-      h += '<span class="chip-sep"></span>';
-      h += '<button class="chip' + (f.official ? ' active' : '') + '" data-chip="official" data-val="1">' +
-           TT('official only') + '</button>';
+      h += '<span class="fchip-lbl">' + TT('kind') + '</span>';
+      kinds().forEach(function (k) { h += chip('kind', k, f.kind === k, TT(KIND_LABEL[k] || k)); });
+      h += '<span class="fchip-sep"></span>';
+      h += chip('official', '1', !!f.official, TT('official only'));
     } else {
-      h += '<span class="chip-lbl">' + TT('region') + '</span>';
-      regions().forEach(function (r) {
-        h += '<button class="chip' + (f.region === r ? ' active' : '') + '" data-chip="region" data-val="' +
-             esc(r) + '">' + TT(r) + '</button>';
-      });
+      h += '<span class="fchip-lbl">' + TT('region') + '</span>';
+      regions().forEach(function (r) { h += chip('region', r, f.region === r, TT(r)); });
       if (PANEL === 'atlas') {
-        h += '<span class="chip-lbl">' + TT('tradition') + '</span>';
+        h += '<span class="fchip-sep"></span><span class="fchip-lbl">' + TT('tradition') + '</span>';
         /* read off the data: hand-listing three traditions silently made the
            socialist-civil and religious-mixed countries unfilterable */
-        traditions().forEach(function (t) {
-          h += '<button class="chip' + (f.tradition === t ? ' active' : '') + '" data-chip="tradition" data-val="' +
-               esc(t) + '">' + TT(TRADITION_LABEL[t] || t) + '</button>';
-        });
+        traditions().forEach(function (t) { h += chip('tradition', t, f.tradition === t, TT(TRADITION_LABEL[t] || t)); });
       }
     }
+    if (anyOn()) {
+      h += '<span class="fchip-sep"></span><button type="button" class="fchip clear" data-clear="1">' + TT('Clear') + '</button>';
+    }
+    h += '<span class="fchips-count">' + SHOWN + ' ' + TT('shown') + '</span>';
     host.innerHTML = h;
+  }
+
+  function anyOn() {
+    var f = FILTER[PANEL] || {};
+    return Object.keys(f).some(function (k) { return f[k]; });
+  }
+
+  function emptyMsg() {
+    SHOWN = 0;
+    return '<div class="empty">' + TT('Nothing matches these filters.') +
+      '<button type="button" class="fchip clear" data-clear="1">' + TT('Clear filters') + '</button></div>';
   }
 
   function passRegion(c) {
@@ -238,37 +275,41 @@
   function renderAtlas() {
     var list = COUNTRIES.filter(passRegion);
     var el = document.getElementById('p-atlas');
-    if (!list.length) { el.innerHTML = '<div class="empty">' + TT('Nothing matches.') + '</div>'; return; }
+    if (!list.length) { el.innerHTML = emptyMsg(); return; }
+    SHOWN = list.length;
 
     var nSrc = 0;
     COUNTRIES.forEach(function (c) { nSrc += allSources(c).length; });
 
-    var h = summaryStrip([[COUNTRIES.length, 'countries'], [nSrc, 'sources'],
-                          [list.length, 'shown']]);
+    var h = summaryStrip([[COUNTRIES.length, 'countries'], [nSrc, 'sources']]);
     h += '<div class="cgrid">';
     list.forEach(function (c) {
       var g = c.gazette || {};
-      h += '<button class="ccard" data-open="' + esc(c.code) + '">';
+      /* carino-ui.css .card.entry. The whole card opens the record (the body
+         listener below skips its source link); the name is the keyboard target. */
+      h += '<article class="card entry" data-open="' + esc(c.code) + '">';
       h += '<div class="cc-top"><span class="cc-flag">' + esc(c.flag || '') + '</span>';
-      h += '<span class="cc-names"><span class="cc-name">' + esc(c.name) + '</span>';
+      h += '<span class="cc-names"><button type="button" class="e-open e-title" data-open="' + esc(c.code) + '">' +
+           esc(c.name) + '</button>';
       /* Canada's native name IS "Canada" — printing it twice reads as a bug */
       var nn = (c.nativeName && c.nativeName !== c.name) ? c.nativeName : '';
-      h += '<span class="cc-native">' + esc(nn) + '</span></span>';
+      h += '<span class="e-sub">' + esc(nn) + '</span></span>';
       h += '<span class="cc-iso">' + esc(c.iso) + '</span></div>';
-      h += '<div class="cc-line">' + esc(c.traditionNote || c.summary || '') + '</div>';
+      h += '<p class="e-desc">' + esc(c.traditionNote || c.summary || '') + '</p>';
       if (g.name) {
         h += '<div class="cc-gaz">' + TT('gazette') + ' <b>' + esc(g.native || g.name) + '</b></div>';
       }
-      h += '<div class="cc-foot"><span class="badge b-kind">' +
+      h += '<div class="e-badges"><span class="badge b-kind">' +
            TT(TRADITION_LABEL[c.tradition] || c.tradition || '') + '</span>';
-      h += '<span class="badge b-unofficial">' + allSources(c).length + ' ' + TT('sources') + '</span>';
-      h += '</div></button>';
+      h += '<span class="badge b-unofficial">' + allSources(c).length + ' ' + TT('sources') + '</span></div>';
+      if (g.url) h += srcLine(g.url, c);
+      h += '</article>';
     });
     h += '</div>';
     el.innerHTML = h;
   }
 
-  function renderOneEach(panelId, pick, emptyMsg) {
+  function renderOneEach(panelId, pick) {
     var el = document.getElementById(panelId);
     var rows = [];
     COUNTRIES.forEach(function (c) {
@@ -277,7 +318,8 @@
       if (!s) return;
       rows.push({ c: c, s: s });
     });
-    if (!rows.length) { el.innerHTML = '<div class="empty">' + emptyMsg + '</div>'; return; }
+    if (!rows.length) { el.innerHTML = emptyMsg(); return; }
+    SHOWN = rows.length;
 
     var free = rows.filter(function (r) { return r.s.access === 'free'; }).length;
     var h = summaryStrip([[rows.length, 'countries'], [free, 'free to read']]);
@@ -294,7 +336,8 @@
       if (!passRegion(c)) return;
       (c.findLaw || []).forEach(function (f) { items.push({ c: c, f: f }); });
     });
-    if (!items.length) { el.innerHTML = '<div class="empty">' + TT('Nothing matches.') + '</div>'; return; }
+    if (!items.length) { el.innerHTML = emptyMsg(); return; }
+    SHOWN = items.length;
 
     var h = summaryStrip([[items.length, 'lookups']]);
     h += '<div class="rows">';
@@ -307,13 +350,7 @@
       h += '<div class="recipe">';
       h += '<div class="rc-task">' + esc(it.f.task) + '</div>';
       h += '<div class="rc-steps">' + esc(it.f.steps) + '</div>';
-      h += '<div class="rc-foot">';
-      if (it.f.source) h += '<span>' + esc(it.f.source) + '</span>';
-      if (it.f.url) {
-        h += '<a href="' + esc(it.f.url) + '" target="_blank" rel="noopener noreferrer">' +
-             esc(it.f.url) + '</a>';
-      }
-      h += '</div></div>';
+      h += recipeFoot(it.c, it.f) + '</div>';
     });
     h += '</div>';
     el.innerHTML = h;
@@ -330,7 +367,8 @@
         items.push({ c: c, s: s });
       });
     });
-    if (!items.length) { el.innerHTML = '<div class="empty">' + TT('Nothing matches.') + '</div>'; return; }
+    if (!items.length) { el.innerHTML = emptyMsg(); return; }
+    SHOWN = items.length;
 
     var off = items.filter(function (i) { return i.s.official; }).length;
     var h = summaryStrip([[items.length, 'sources'], [off, 'official'], [items.length - off, 'unofficial']]);
@@ -350,6 +388,8 @@
     document.getElementById('dtNative').textContent =
       [c.nativeName, TRADITION_LABEL[c.tradition] || c.tradition, (c.languages || []).join(', ')]
         .filter(Boolean).join(' · ');
+    var when = c.updated || UPDATED;
+    document.getElementById('dtChecked').textContent = when ? TT('checked') + ' ' + when : '';
 
     var h = '';
 
@@ -381,12 +421,7 @@
       h += '<div class="sec"><div class="sec-h">' + TT('Looking something up') + '</div><div class="rows">';
       c.findLaw.forEach(function (f) {
         h += '<div class="recipe"><div class="rc-task">' + esc(f.task) + '</div>' +
-             '<div class="rc-steps">' + esc(f.steps) + '</div><div class="rc-foot">';
-        if (f.source) h += '<span>' + esc(f.source) + '</span>';
-        if (f.url) {
-          h += '<a href="' + esc(f.url) + '" target="_blank" rel="noopener noreferrer">' + esc(f.url) + '</a>';
-        }
-        h += '</div></div>';
+             '<div class="rc-steps">' + esc(f.steps) + '</div>' + recipeFoot(c, f) + '</div>';
       });
       h += '</div></div>';
     }
@@ -417,13 +452,14 @@
            '<p class="sec-p">' + esc(c.subnational) + '</p></div>';
     }
     if (c.caveats) {
-      h += '<div class="caveat"><b>' + TT('What is not authoritative') + '</b>' + esc(c.caveats) + '</div>';
+      h += '<div class="alert warn caveat"><b>' + TT('What is not authoritative') + '</b>' + esc(c.caveats) + '</div>';
     }
 
     document.getElementById('dtBody').innerHTML = h;
     document.getElementById('dtBody').scrollTop = 0;
     var dlg = document.getElementById('detail');
     if (!dlg.open) dlg.showModal();
+    document.body.classList.add('detail-open');
     if (location.hash.indexOf('c=' + code) < 0) history.replaceState(null, '', '#c=' + code);
   }
 
@@ -458,18 +494,27 @@
 
   /* ---- render ------------------------------------------------------------- */
 
+  /* hero stats and the footer line read the data, so they follow the language */
+  function renderMeta() {
+    var nSrc = 0;
+    COUNTRIES.forEach(function (c) { nSrc += allSources(c).length; });
+    document.getElementById('heroStats').textContent = COUNTRIES.length + ' ' + TT('countries') + ' · ' +
+      nSrc + ' ' + TT('sources') + (UPDATED ? ' · ' + TT('reviewed') + ' ' + UPDATED : '');
+    document.getElementById('footLine').textContent =
+      TT('Runs entirely in your browser. Every entry links to its source; checked {date}.').replace('{date}', UPDATED);
+  }
+
   function render() {
     if (!COUNTRIES.length) return;
-    renderChips();
+    renderMeta();
     if (PANEL === 'atlas') renderAtlas();
     else if (PANEL === 'gazette') {
-      renderOneEach('p-gazette', function (c) { return c.gazette; },
-                    TT('No gazette matches.'));
+      renderOneEach('p-gazette', function (c) { return c.gazette; });
     } else if (PANEL === 'charter') {
-      renderOneEach('p-charter', function (c) { return c.constitution; },
-                    TT('No constitution matches.'));
+      renderOneEach('p-charter', function (c) { return c.constitution; });
     } else if (PANEL === 'find') renderFind();
     else renderAll();
+    renderChips();   // after the panel, so the count is the one just drawn
   }
 
   /* ---- wiring ------------------------------------------------------------- */
@@ -483,8 +528,8 @@
     });
 
     document.getElementById('chips').addEventListener('click', function (e) {
-      var b = e.target.closest('.chip');
-      if (!b) return;
+      var b = e.target.closest('.fchip');
+      if (!b || b.dataset.clear) return;
       var f = FILTER[PANEL] || (FILTER[PANEL] = {});
       var k = b.dataset.chip, v = b.dataset.val;
       f[k] = (f[k] === v) ? null : v;   // chips are radio-per-facet, click again to clear
@@ -494,14 +539,19 @@
     /* one delegated listener on the whole page: cards and the country code in a
        source row both open the record, and both are re-created on every render */
     document.body.addEventListener('click', function (e) {
+      var c = e.target.closest('[data-clear]');
+      if (c) { FILTER[PANEL] = {}; render(); return; }
+      if (e.target.closest('a')) return;   // a card's source link opens the source, not the record
       var b = e.target.closest('[data-open]');
       if (b) openCountry(b.dataset.open);
     });
+    document.getElementById('dtPrint').addEventListener('click', function () { window.print(); });
 
     var dlg = document.getElementById('detail');
     document.getElementById('dtClose').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('close', function () {
+      document.body.classList.remove('detail-open');
       if (location.hash.indexOf('#c=') === 0) history.replaceState(null, '', '#' + PANEL);
     });
 
