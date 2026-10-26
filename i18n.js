@@ -111,6 +111,12 @@ const I18N = {
         'Nothing matches these filters.': 'Nada coincide con estos filtros.',
         'Runs entirely in your browser. Every entry links to its source; checked {date}.': 'Funciona por completo en tu navegador. Cada entrada enlaza a su fuente; revisado {date}.',
         'Filters': 'Filtros',
+        'Late shift.': 'Turno nocturno.',
+        'Good morning.': 'Buenos días.',
+        'Good afternoon.': 'Buenas tardes.',
+        'Good evening.': 'Buenas noches.',
+        'More': 'Más',
+        'Close': 'Cerrar',
     },
 
     'pt-BR': {
@@ -210,6 +216,12 @@ const I18N = {
         'Nothing matches these filters.': 'Nada corresponde a esses filtros.',
         'Runs entirely in your browser. Every entry links to its source; checked {date}.': 'Funciona inteiramente no seu navegador. Cada item tem link para a fonte; verificado em {date}.',
         'Filters': 'Filtros',
+        'Late shift.': 'Turno da noite.',
+        'Good morning.': 'Bom dia.',
+        'Good afternoon.': 'Boa tarde.',
+        'Good evening.': 'Boa noite.',
+        'More': 'Mais',
+        'Close': 'Fechar',
     },
 
     ja: {
@@ -309,6 +321,12 @@ const I18N = {
         'Nothing matches these filters.': 'この条件に一致するものはありません。',
         'Runs entirely in your browser. Every entry links to its source; checked {date}.': 'すべてブラウザー内で動作します。各項目は出典にリンクしています（{date} 確認）。',
         'Filters': '絞り込み',
+        'Late shift.': '夜勤お疲れさま。',
+        'Good morning.': 'おはようございます。',
+        'Good afternoon.': 'こんにちは。',
+        'Good evening.': 'こんばんは。',
+        'More': 'その他',
+        'Close': '閉じる',
     },
 
     ru: {
@@ -408,6 +426,12 @@ const I18N = {
         'Nothing matches these filters.': 'Ничего не подходит под эти фильтры.',
         'Runs entirely in your browser. Every entry links to its source; checked {date}.': 'Работает целиком в браузере. У каждой записи есть ссылка на источник; проверено {date}.',
         'Filters': 'Фильтры',
+        'Late shift.': 'Ночная смена.',
+        'Good morning.': 'Доброе утро.',
+        'Good afternoon.': 'Добрый день.',
+        'Good evening.': 'Добрый вечер.',
+        'More': 'Ещё',
+        'Close': 'Закрыть',
     },
 
 };
@@ -435,6 +459,11 @@ function applyStaticI18n() {
     document.querySelectorAll('[data-i18n-html]').forEach((el) => {
         if (!el.dataset.i18nKey) el.dataset.i18nKey = el.innerHTML.trim().replace(/\s+/g, ' ');
         el.innerHTML = t(el.dataset.i18nKey);
+    });
+    // data-i18n-aria: the original aria-label is the key.
+    document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+        if (!el.dataset.i18nAria) el.dataset.i18nAria = el.getAttribute('aria-label') || '';
+        el.setAttribute('aria-label', t(el.dataset.i18nAria));
     });
 }
 

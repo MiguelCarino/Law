@@ -380,13 +380,16 @@
 
   /* ---- country record ----------------------------------------------------- */
 
-  function openCountry(code) {
+  var OPEN_CODE = null;   // country whose record is in the dialog, for language re-renders
+
+  function openCountry(code, keepScroll) {
     var c = BY_CODE[code];
     if (!c) return;
+    OPEN_CODE = code;
     document.getElementById('dtFlag').textContent = c.flag || '';
     document.getElementById('dtName').textContent = c.name;
     document.getElementById('dtNative').textContent =
-      [c.nativeName, TRADITION_LABEL[c.tradition] || c.tradition, (c.languages || []).join(', ')]
+      [c.nativeName, TT(TRADITION_LABEL[c.tradition] || c.tradition || ''), (c.languages || []).join(', ')]
         .filter(Boolean).join(' · ');
     var when = c.updated || UPDATED;
     document.getElementById('dtChecked').textContent = when ? TT('checked') + ' ' + when : '';
@@ -455,8 +458,10 @@
       h += '<div class="alert warn caveat"><b>' + TT('What is not authoritative') + '</b>' + esc(c.caveats) + '</div>';
     }
 
-    document.getElementById('dtBody').innerHTML = h;
-    document.getElementById('dtBody').scrollTop = 0;
+    var body = document.getElementById('dtBody');
+    var top = body.scrollTop;
+    body.innerHTML = h;
+    body.scrollTop = keepScroll ? top : 0;
     var dlg = document.getElementById('detail');
     if (!dlg.open) dlg.showModal();
     document.body.classList.add('detail-open');
@@ -515,6 +520,8 @@
     } else if (PANEL === 'find') renderFind();
     else renderAll();
     renderChips();   // after the panel, so the count is the one just drawn
+    // an open country record is redrawn too, so a language switch reaches all of it
+    if (OPEN_CODE && document.getElementById('detail').open) openCountry(OPEN_CODE, true);
   }
 
   /* ---- wiring ------------------------------------------------------------- */
@@ -551,6 +558,7 @@
     document.getElementById('dtClose').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('close', function () {
+      OPEN_CODE = null;
       document.body.classList.remove('detail-open');
       if (location.hash.indexOf('#c=') === 0) history.replaceState(null, '', '#' + PANEL);
     });
