@@ -299,7 +299,7 @@
       if (g.name) {
         h += '<div class="cc-gaz">' + TT('gazette') + ' <b>' + esc(g.native || g.name) + '</b></div>';
       }
-      h += '<div class="e-badges"><span class="badge b-kind">' +
+      h += '<div class="e-badges"><span class="badge b-kind ct-cat-' + ({ civil: 'purple', common: 'teal', mixed: 'amber', 'religious-mixed': 'pink', 'socialist-civil': 'grey' }[c.tradition] || 'grey') + '">' +
            TT(TRADITION_LABEL[c.tradition] || c.tradition || '') + '</span>';
       h += '<span class="badge b-unofficial">' + allSources(c).length + ' ' + TT('sources') + '</span></div>';
       if (g.url) h += srcLine(g.url, c);
