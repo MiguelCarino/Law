@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="fonts/carino-fonts.css">
   <link rel="stylesheet" href="carino-ui.css">
 
-  <style>
+  <style id="lawStyle">
     /* Tokens, base, .fchips, .card.entry, .src-line, .modal and
        .landing-hero come from carino-ui.css (linked above). Only Law's own
        extras are declared here, under new names. */
@@ -123,7 +123,7 @@
     .cc-names{min-width:0;flex:1;display:block;}
     /* the title is the card's keyboard target; the whole card is clickable */
     .e-open{all:unset;display:block;cursor:pointer;font-family:var(--display);font-weight:800;}
-    .e-sub{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px;}
+    .e-sub{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px;}
     .e-sub:empty{display:none;}
     .cc-iso{font-family:var(--mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:0.12em;color:var(--accent);
       border:1px solid var(--border);border-radius:4px;padding:2px 5px;flex-shrink:0;}
@@ -170,6 +170,17 @@
     .dt-native{font-size:var(--fs-sm);color:var(--text-sec);margin-top:3px;}
     #detail .modal-sub{margin-top:4px;}
     .dt-print{flex-shrink:0;}
+    /* ══ PRINT PREVIEW — carino-ui.css 18b (.rpv-*). Law's scrim is a modal
+       <dialog> (only the top layer stacks over the record dialog), so the UA
+       dialog box is undone here. The record dialog is in the top layer too and
+       covers the navbar strip, so the dimming lives on ::backdrop (whole
+       viewport) and the scrim box itself stays clear: the record's own header
+       above the preview reads as background, not as a second ✕ and Print. ══ */
+    dialog#rpDialog{border:0;margin:0;width:auto;height:auto;max-width:none;max-height:none;color:var(--text);background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;}
+    dialog#rpDialog:not([open]){display:none;}
+    dialog#rpDialog::backdrop{background:rgba(0,0,0,0.65);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+    /* the frame scrolls the sheet; rpFit scales the frame to the stage */
+    #rpStage{overflow:hidden;}
     .modal-body{display:flex;flex-direction:column;gap:18px;padding:16px 18px 22px;}
     .sec{display:flex;flex-direction:column;gap:8px;}
     .sec-h{font-family:var(--mono);font-size:var(--fs-micro);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
@@ -198,21 +209,6 @@
 
     /* ══ PRINT — a country record (or the list behind it) as a light sheet,
        every link followed by its address. Chrome and filters do not print. ══ */
-    @media print{
-      :root{--bg:#fff;--bg-card:#fff;--bg-elev:#fff;--text:#111;--text-sec:#333;--text-muted:#555;--border:#bbb;--accent:#7a5a00;}
-      body{background:#fff;color:#111;}
-      *{transition:none !important;}
-      #carinoNav,.fchips,.landing-hero,.dt-print,.modal-x{display:none !important;}
-      body.detail-open > *:not(dialog){display:none !important;}
-      dialog#detail{position:static;display:block;width:auto;max-width:none;max-height:none;border:0;box-shadow:none;
-        background:#fff;overflow:visible;margin:0;}
-      dialog#detail::backdrop{display:none;}
-      .modal-head{background:none;}
-      .modal-body{overflow:visible;}
-      .row,.recipe,.card.entry{break-inside:avoid;background:#fff;}
-      .src-line a::after{content:" (" attr(href) ")";color:#555;font-size:var(--fs-micro);}
-      .src-line a{border:0;}
-    }
   </style>
   <!-- Colourful theme + the switch; nothing applies until data-carino-theme="color". -->
   <link rel="stylesheet" href="carino-theme.css">
@@ -231,11 +227,37 @@
       :root[data-carino-theme="color"] .b-part{border-color:var(--ct-warn-line);}
       :root[data-carino-theme="color"] .b-pay{border-color:var(--ct-err-line);background:var(--ct-err-bg);color:var(--ct-err-fg);}
       :root[data-carino-theme="color"] .row:hover{border-color:var(--accent-dim);box-shadow:var(--ct-shadow-1);}
-      :root[data-carino-theme="color"] dialog#detail::backdrop{background:var(--ct-scrim);}
+      :root[data-carino-theme="color"] dialog#detail::backdrop,:root[data-carino-theme="color"] dialog#rpDialog::backdrop{background:var(--ct-scrim);}
       :root[data-carino-theme="color"] .modal-head{background:var(--bg-card);}
       :root[data-carino-theme="color"] .badge.b-kind[class*="ct-cat-"]{color:var(--tt);background:var(--t);border-color:color-mix(in srgb,var(--c) 40%,transparent);}
       :root[data-carino-theme="color"] .rung .bar{background:var(--ct-purple);}
     }
+  </style>
+  <!-- The print look, in one place: the page uses it for Ctrl+P (media="print"),
+       and the print preview's sheet (app.js recordSheetHtml) copies its text
+       and applies it on every medium, so whichever document a browser prints,
+       it has the same colours, margins and breaks. Last in the head so it
+       wins over the Colourful token remap at equal specificity. -->
+  <style id="lawPrint" media="print">
+    @page{margin:15mm;}
+    :root,:root[data-carino-theme]{--bg:#fff;--bg-card:#fff;--bg-elev:#fff;--text:#111;--text-sec:#333;--text-muted:#555;--border:#bbb;
+      --accent:#7a5a00;--ok:#15803d;--warn:#a16207;--err:#b91c1c;}
+    html,body{background:#fff;color:#111;}
+    *{transition:none !important;}
+    #carinoNav,.fchips,.landing-hero,.dt-print,.modal-x,#rpDialog{display:none !important;}
+    body.detail-open > *:not(dialog){display:none !important;}
+    dialog#detail,.law-sheet{position:static;display:block;width:auto;max-width:none;max-height:none;border:0;border-radius:0;
+      box-shadow:none;background:#fff;overflow:visible;margin:0;}
+    dialog#detail::backdrop{display:none;}
+    #detail .modal-head{background:none;padding:0 0 12px;}
+    #detail .dt-flag{flex:none;}   /* carino-ui gives the first child of a head flex:1; on paper the name sits by the flag */
+    #detail .modal-body{overflow:visible;padding:16px 0 0;}
+    .row,.recipe,.alert,.card.entry{break-inside:avoid;background:#fff;}
+    .row:hover{border-color:var(--border);background:#fff;box-shadow:none;}
+    .src-line a::after{content:" (" attr(href) ")";color:#555;font-size:var(--fs-micro);}
+    .src-line a{border:0;}
+    .alert.warn{color:#5c4400;background:#fff;border-color:#c9a227;}
+    .alert.warn b{color:#5c4400;}
   </style>
 </head>
 <body>
@@ -295,6 +317,36 @@
     <button class="modal-x" id="dtClose" aria-label="Close" data-i18n-aria>✕</button>
   </div>
   <div class="modal-body" id="dtBody"></div>
+</dialog>
+
+<!-- Print preview: Print on a record opens this first. The frame holds the very
+     document that prints (app.js recordSheetHtml), on a sheet at the paper's
+     width; Print prints the frame, the ✕ drops it. The shared .rpv layout
+     (carino-ui.css 18b): every control in the left column, Print at its foot.
+     A <dialog> because the record is one: only the top layer stacks over a
+     modal dialog. -->
+<dialog id="rpDialog" class="rpv-scrim" aria-labelledby="rpTitle">
+  <div class="rpv">
+    <aside class="rpv-side">
+      <div class="rpv-head">
+        <h2 class="rpv-title" id="rpTitle" data-i18n>Print preview</h2>
+        <button class="modal-x rpv-x" id="rpClose" type="button" aria-label="Close" data-i18n-aria>✕</button>
+      </div>
+      <p class="rpv-status" id="rpStatus" role="status" aria-live="polite"></p>
+      <div class="rpv-opts">
+        <fieldset>
+          <legend data-i18n>Paper</legend>
+          <label><input type="radio" name="rpPaper" value="a4" data-paper="a4"> <span>A4</span></label>
+          <label><input type="radio" name="rpPaper" value="letter" data-paper="letter"> <span data-i18n>Letter</span></label>
+        </fieldset>
+      </div>
+      <p class="rpv-name" id="rpName"></p>
+      <div class="rpv-actions">
+        <button class="btn btn-primary" id="rpPrint" type="button" disabled data-i18n>Print</button>
+      </div>
+    </aside>
+    <div class="rpv-stage" id="rpStage"><iframe id="rpFrame" class="rpv-frame" title="Print preview"></iframe></div>
+  </div>
 </dialog>
 
 <div data-carino-about hidden>

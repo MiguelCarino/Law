@@ -466,6 +466,248 @@
     if (!dlg.open) dlg.showModal();
     document.body.classList.add('detail-open');
     if (location.hash.indexOf('c=' + code) < 0) history.replaceState(null, '', '#c=' + code);
+    // a preview over the record shows that record: another country (hash, Back) rebuilds it
+    if (RP.code && RP.code !== code && document.getElementById('rpDialog').open) rpRefresh();
+  }
+
+  /* ---- print preview -------------------------------------------------------
+     Print on a record does not print the page: it opens the preview, whose
+     frame holds the very document that prints (recordSheetHtml) laid out at
+     the paper's printable width on a white sheet, with a dashed line where
+     each page should end. The frame's own Print prints that document; the ✕
+     drops it. The page's @media print sheet still serves Ctrl+P. */
+
+  var MM = 96 / 25.4;                       // CSS px per millimetre
+  var SHEET_MARGIN_MM = 15;
+  var PAPER = {                             // printable box = paper minus the @page margins
+    a4:     { css: 'A4',     w: 210,   h: 297 },
+    letter: { css: 'letter', w: 215.9, h: 279.4 }
+  };
+  var RP = { code: null, paper: null, back: null, seq: 0, title: '' };
+
+  /* Carta/Letter where it is the office paper, A4 everywhere else; a choice
+     made in the dialog is remembered on this device only. */
+  function defaultPaper() {
+    try { var p = localStorage.getItem('law-paper'); if (PAPER[p]) return p; } catch (e) {}
+    var lang = (navigator.language || '').toUpperCase();
+    var region = lang.split('-')[1] || '';
+    return /^(US|CA|MX|PH|CO|VE|CL|CR|GT|PA|DO|PR|SV|NI|HN)$/.test(region) ? 'letter' : 'a4';
+  }
+  function paperBox(p) {
+    var d = PAPER[p] || PAPER.a4;
+    return { w: (d.w - 2 * SHEET_MARGIN_MM) * MM, h: (d.h - 2 * SHEET_MARGIN_MM) * MM,
+             m: SHEET_MARGIN_MM * MM, css: d.css };
+  }
+
+  /* The record sheet: the record as the dialog shows it (head + body, without
+     its buttons), Law's own stylesheet, and the light print look applied on
+     every medium, so the preview and the paper are one document. */
+  function recordSheetHtml(code, paper) {
+    var c = BY_CODE[code];
+    var head = document.querySelector('#detail .modal-head').cloneNode(true);
+    head.querySelectorAll('button').forEach(function (b) { b.remove(); });
+    head.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    var body = document.getElementById('dtBody').innerHTML;
+    var lawCss = (document.getElementById('lawStyle') || {}).textContent || '';
+    var abs = function (u) { return esc(new URL(u, document.baseURI).href); };
+    var box = paperBox(paper);
+    var lang = (window.CarinoLang && window.CarinoLang.current) || document.documentElement.lang || 'en';
+    RP.title = 'Carino Law — ' + c.name;
+    /* the print look is the page's own #lawPrint (index.html), applied here on
+       every medium; only the paper size and the on-screen sheet are added */
+    var printCss = (document.getElementById('lawPrint') || {}).textContent || '';
+    var sheet = printCss +
+      '@page{size:' + box.css + ';margin:' + SHEET_MARGIN_MM + 'mm;}' +
+      'body{margin:0;min-height:0;}' +
+      '@media screen{html{background:#d6d8dc;}' +
+        'body{box-sizing:content-box;width:' + box.w.toFixed(1) + 'px;padding:' + box.m.toFixed(1) + 'px;' +
+        'margin:16px auto 24px;position:relative;box-shadow:0 1px 6px rgba(0,0,0,.28);}' +
+        '.rp-break{position:absolute;left:0;right:0;height:0;border-top:1.5px dashed #9aa0a8;pointer-events:none;}' +
+        '.rp-break span{position:absolute;left:8px;top:3px;font:10px \'IBM Plex Mono\',monospace;color:#6b7280;}}' +
+      '@media print{.rp-break{display:none !important;}}';
+    return '<!DOCTYPE html><html lang="' + esc(lang) + '"><head><meta charset="UTF-8">' +
+      '<title>' + esc(RP.title) + '</title>' +
+      '<link rel="stylesheet" href="' + abs('fonts/carino-fonts.css') + '">' +
+      '<link rel="stylesheet" href="' + abs('carino-ui.css') + '">' +
+      '<style>' + lawCss + '</style><style>' + sheet + '</style></head>' +
+      '<body><div id="detail" class="modal law-sheet"><div class="modal-head">' + head.innerHTML + '</div>' +
+      '<div class="modal-body">' + body + '</div></div></body></html>';
+  }
+
+  /* Where the pages should end: every printable-height step, pulled up to the
+     top of a source row, recipe or caveat it would cut (they are break-inside:
+     avoid). The print dialog paginates for itself, so this is an estimate. */
+  function sheetBreaks(d, box) {
+    var r = d.body.getBoundingClientRect();
+    var top0 = r.top + box.m, total = r.height - 2 * box.m;
+    var blocks = Array.prototype.map.call(d.querySelectorAll('.row,.recipe,.alert'), function (el) {
+      var b = el.getBoundingClientRect();
+      return [b.top - top0, b.bottom - top0];
+    });
+    var cuts = [], at = 0;
+    while (at + box.h < total - 1 && cuts.length < 200) {
+      var cut = at + box.h;
+      blocks.forEach(function (b) {
+        if (b[0] > at && b[0] < cut && b[1] > cut && b[1] - b[0] <= box.h) cut = Math.min(cut, b[0]);
+      });
+      cuts.push(cut);
+      at = cut;
+    }
+    return cuts;
+  }
+
+  function rpPageSize(css) {
+    var st = document.getElementById('rpPageSize');
+    if (!css) { if (st) st.remove(); return; }
+    if (!st) {
+      st = document.createElement('style');
+      st.id = 'rpPageSize';
+      st.media = 'print';
+      document.head.appendChild(st);
+    }
+    st.textContent = '@page{size:' + css + ';}';
+  }
+
+  function rpStatus(s) { document.getElementById('rpStatus').textContent = s || ''; }
+
+  function rpPaperChips() {
+    document.querySelectorAll('#rpDialog [data-paper]').forEach(function (b) {
+      b.checked = b.dataset.paper === RP.paper;
+    });
+  }
+
+  /* A stage narrower than a sheet shows the sheet scaled down, as it will
+     print, rather than the record reflowed to a phone's width. Only the frame
+     element is scaled; the document it prints is untouched. */
+  function rpFit() {
+    var frame = document.getElementById('rpFrame'), stage = document.getElementById('rpStage');
+    frame.style.width = ''; frame.style.height = ''; frame.style.transform = ''; frame.style.transformOrigin = '';
+    var page = paperBox(RP.paper).w + 2 * paperBox(RP.paper).m + 32;   // the sheet and the grey around it
+    var w = stage.clientWidth;
+    if (!w || w >= page) return;
+    var k = w / page;
+    frame.style.width = Math.ceil(page) + 'px';
+    frame.style.height = Math.round(stage.clientHeight / k) + 'px';
+    frame.style.transform = 'scale(' + k + ')';
+    frame.style.transformOrigin = '0 0';
+  }
+
+  function rpRefresh() {
+    if (!RP.code) return;
+    RP.code = OPEN_CODE;                    // the sheet is the record the dialog holds now
+    if (!RP.code || !BY_CODE[RP.code]) { document.getElementById('rpDialog').close(); return; }
+    var seq = ++RP.seq;
+    var frame = document.getElementById('rpFrame');
+    var btn = document.getElementById('rpPrint');
+    btn.disabled = true;
+    rpStatus('');
+    rpPaperChips();
+    frame.title = TT('Print preview');
+    var html = recordSheetHtml(RP.code, RP.paper);
+    document.getElementById('rpName').textContent = RP.title;
+    rpPageSize(paperBox(RP.paper).css);
+    /* the frame takes its final width before the sheet lays out: measured at
+       the stage's phone width, Law's max-width rules would apply inside it and
+       the page lines would not match the sheet shown and printed */
+    rpFit();
+    var shown = false;
+    var after = function (late) {
+      if (shown || seq !== RP.seq) return;
+      var d = frame.contentDocument;
+      /* the fallback timer measures only a sheet that has loaded; otherwise
+         the load event still to come does it */
+      if (late && !(d && d.readyState === 'complete' && d.querySelector('.law-sheet'))) return;
+      shown = true;
+      frame.onload = null;
+      /* Esc in the sheet (focus moves there on a click or after printing)
+         never reaches the dialog; close it from here */
+      d.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        e.preventDefault();
+        document.getElementById('rpDialog').close();
+      });
+      var measure = function () {
+        if (seq !== RP.seq) return;
+        var pages = 0;
+        try {
+          var box = paperBox(RP.paper);
+          var cuts = sheetBreaks(d, box);
+          pages = cuts.length + 1;
+          cuts.forEach(function (y, i) {
+            var line = d.createElement('div');
+            line.className = 'rp-break';
+            line.style.top = (box.m + y).toFixed(1) + 'px';
+            var tag = d.createElement('span');
+            tag.textContent = TT('Page {n}').replace('{n}', i + 2);
+            line.appendChild(tag);
+            d.body.appendChild(line);
+          });
+        } catch (e) { console.warn('Print preview: could not measure the pages.', e); }
+        rpFit();
+        rpStatus(pages ? '≈ ' + (pages === 1 ? TT('1 page') : TT('{n} pages').replace('{n}', pages)) : '');
+        btn.disabled = false;
+      };
+      if (d && d.fonts && d.fonts.ready) d.fonts.ready.then(measure, measure);
+      else measure();
+    };
+    frame.onload = function () { after(false); };
+    setTimeout(function () { after(true); }, 5000);   // a frame that never says it loaded
+    frame.srcdoc = html;
+  }
+
+  function openPrintPreview() {
+    if (!OPEN_CODE) return;
+    var dlg = document.getElementById('rpDialog');
+    RP.code = OPEN_CODE;
+    RP.paper = RP.paper || defaultPaper();
+    RP.back = document.activeElement;
+    if (!dlg.open) dlg.showModal();
+    document.getElementById('rpClose').focus();
+    rpRefresh();
+  }
+
+  /* Close (the ✕, Esc, the scrim) drops the preview; nothing is kept. */
+  function dropPrintPreview() {
+    RP.seq++;
+    RP.code = null;
+    var frame = document.getElementById('rpFrame');
+    frame.onload = null;
+    frame.removeAttribute('srcdoc');
+    rpFit();
+    document.getElementById('rpName').textContent = '';
+    rpStatus('');
+    document.getElementById('rpPrint').disabled = true;
+    rpPageSize(null);
+    var back = RP.back;
+    RP.back = null;
+    try { if (back && back.isConnected) back.focus(); } catch (e) {}
+  }
+
+  function printFromPreview() {
+    var frame = document.getElementById('rpFrame');
+    if (!RP.code || !frame.contentWindow) return;
+    frame.contentWindow.focus();
+    frame.contentWindow.print();
+    document.getElementById('rpPrint').focus();   // so Esc and Tab work on the dialog again
+  }
+
+  function wirePrintPreview() {
+    var dlg = document.getElementById('rpDialog');
+    document.getElementById('dtPrint').addEventListener('click', openPrintPreview);
+    document.getElementById('rpClose').addEventListener('click', function () { dlg.close(); });
+    document.getElementById('rpPrint').addEventListener('click', printFromPreview);
+    dlg.addEventListener('click', function (e) {
+      if (e.target === dlg) dlg.close();     // the scrim around the box
+    });
+    dlg.addEventListener('change', function (e) {
+      var p = e.target.closest('[data-paper]');
+      if (!p || !p.checked || p.dataset.paper === RP.paper) return;
+      RP.paper = p.dataset.paper;
+      try { localStorage.setItem('law-paper', RP.paper); } catch (err) {}
+      rpRefresh();
+    });
+    dlg.addEventListener('close', dropPrintPreview);
+    window.addEventListener('resize', function () { if (dlg.open) rpFit(); });
   }
 
   /* ---- routing ------------------------------------------------------------ */
@@ -522,6 +764,8 @@
     renderChips();   // after the panel, so the count is the one just drawn
     // an open country record is redrawn too, so a language switch reaches all of it
     if (OPEN_CODE && document.getElementById('detail').open) openCountry(OPEN_CODE, true);
+    // and so is a print preview over it, which shows that record
+    if (RP.code && document.getElementById('rpDialog').open) rpRefresh();
   }
 
   /* ---- wiring ------------------------------------------------------------- */
@@ -552,7 +796,7 @@
       var b = e.target.closest('[data-open]');
       if (b) openCountry(b.dataset.open);
     });
-    document.getElementById('dtPrint').addEventListener('click', function () { window.print(); });
+    wirePrintPreview();
 
     var dlg = document.getElementById('detail');
     document.getElementById('dtClose').addEventListener('click', function () { dlg.close(); });
