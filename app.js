@@ -479,11 +479,17 @@
 
   var MM = 96 / 25.4;                       // CSS px per millimetre
   var SHEET_MARGIN_MM = 15;
+  /* The source-kind badge as plain rgba: index.html draws it with
+     color-mix(), which the PDF's html2canvas cannot read ("unsupported color
+     function"), so Download PDF failed on every record. The sheet loads
+     carino-ui.css without a theme, so --info there is always #38bdf8 and
+     these are the same colours. */
+  var SHEET_FLAT_COLOURS = '.b-kind{border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.07);}';
   var PAPER = {                             // printable box = paper minus the @page margins
     a4:     { css: 'A4',     w: 210,   h: 297 },
     letter: { css: 'letter', w: 215.9, h: 279.4 }
   };
-  var RP = { code: null, paper: null, back: null, seq: 0, title: '' };
+  var RP = { code: null, paper: null, back: null, seq: 0, title: '', format: null, busy: false };
 
   /* Carta/Letter where it is the office paper, A4 everywhere else; a choice
      made in the dialog is remembered on this device only. */
@@ -499,10 +505,34 @@
              m: SHEET_MARGIN_MM * MM, css: d.css };
   }
 
+  /* What the record sheet adds to the print look: the paper and its margins,
+     and on screen a white sheet over grey. In the preview the sheet is the
+     paper's printable width with a dashed line where each page should end;
+     in a saved HTML file (forFile) it is at most that wide, so the file reads
+     on a phone too. Pure: tests/sheet.test.mjs loads it on its own. */
+  function rpSheetCss(box, marginMm, forFile) {
+    var w = box.w.toFixed(1) + 'px', m = box.m.toFixed(1) + 'px';
+    return '@page{size:' + box.css + ';margin:' + marginMm + 'mm;}' +
+      'body{margin:0;min-height:0;}' +
+      '@media screen{html{background:#d6d8dc;}' +
+        (forFile
+          ? 'body{box-sizing:content-box;max-width:' + w + ';padding:' + m + ';' +
+            'margin:16px auto 24px;box-shadow:0 1px 6px rgba(0,0,0,.28);}' +
+            '@media (max-width:' + Math.ceil(box.w + 2 * box.m + 32) + 'px){body{padding:16px;margin:0;box-shadow:none;}' +
+              /* long addresses in the how-to text would push a phone sideways */
+              '.law-sheet{overflow-wrap:anywhere;}}}'
+          : 'body{box-sizing:content-box;width:' + w + ';padding:' + m + ';' +
+            'margin:16px auto 24px;position:relative;box-shadow:0 1px 6px rgba(0,0,0,.28);}' +
+            '.rp-break{position:absolute;left:0;right:0;height:0;border-top:1.5px dashed #9aa0a8;pointer-events:none;}' +
+            '.rp-break span{position:absolute;left:8px;top:3px;font:10px \'IBM Plex Mono\',monospace;color:#6b7280;}}' +
+            '@media print{.rp-break{display:none !important;}}');
+  }
+
   /* The record sheet: the record as the dialog shows it (head + body, without
      its buttons), Law's own stylesheet, and the light print look applied on
-     every medium, so the preview and the paper are one document. */
-  function recordSheetHtml(code, paper) {
+     every medium, so the preview and the paper are one document. forFile:
+     the same document for Download, without the preview's page-end lines. */
+  function recordSheetHtml(code, paper, forFile) {
     var c = BY_CODE[code];
     var head = document.querySelector('#detail .modal-head').cloneNode(true);
     head.querySelectorAll('button').forEach(function (b) { b.remove(); });
@@ -516,15 +546,7 @@
     /* the print look is the page's own #lawPrint (index.html), applied here on
        every medium; only the paper size and the on-screen sheet are added */
     var printCss = (document.getElementById('lawPrint') || {}).textContent || '';
-    var sheet = printCss +
-      '@page{size:' + box.css + ';margin:' + SHEET_MARGIN_MM + 'mm;}' +
-      'body{margin:0;min-height:0;}' +
-      '@media screen{html{background:#d6d8dc;}' +
-        'body{box-sizing:content-box;width:' + box.w.toFixed(1) + 'px;padding:' + box.m.toFixed(1) + 'px;' +
-        'margin:16px auto 24px;position:relative;box-shadow:0 1px 6px rgba(0,0,0,.28);}' +
-        '.rp-break{position:absolute;left:0;right:0;height:0;border-top:1.5px dashed #9aa0a8;pointer-events:none;}' +
-        '.rp-break span{position:absolute;left:8px;top:3px;font:10px \'IBM Plex Mono\',monospace;color:#6b7280;}}' +
-      '@media print{.rp-break{display:none !important;}}';
+    var sheet = printCss + SHEET_FLAT_COLOURS + rpSheetCss(box, SHEET_MARGIN_MM, forFile);
     return '<!DOCTYPE html><html lang="' + esc(lang) + '"><head><meta charset="UTF-8">' +
       '<title>' + esc(RP.title) + '</title>' +
       '<link rel="stylesheet" href="' + abs('fonts/carino-fonts.css') + '">' +
@@ -570,6 +592,58 @@
 
   function rpStatus(s) { document.getElementById('rpStatus').textContent = s || ''; }
 
+  /* ---- the file: PDF or HTML (carino-pdf.js) ------------------------------
+     Download saves the record sheet the preview shows, as the File switch
+     says: a PDF drawn from it on the paper chosen here, or the sheet as one
+     standalone HTML page. Its stylesheets are written into it first, so the
+     PDF is drawn with them loaded and the HTML opens offline. */
+  function rpPdf() { return window.CarinoPdf || null; }
+  function rpFormat() { return RP.format ? RP.format.get() : 'pdf'; }
+  function rpEnsureSwitch() {
+    if (RP.format || !rpPdf()) return;
+    RP.format = rpPdf().formatSwitch({ onChange: rpShowName });
+    var name = document.getElementById('rpName');
+    name.parentNode.insertBefore(RP.format.el, name);
+  }
+  function rpShowName() {
+    var lib = rpPdf();
+    var el = document.getElementById('rpName');
+    el.textContent = RP.title && RP.code ? (lib ? lib.fileName(RP.title, rpFormat()) : RP.title) : '';
+    el.title = el.textContent;
+    var dl = document.getElementById('rpDownload');
+    dl.textContent = lib ? lib.label(rpFormat()) : TT('Download PDF');
+    dl.hidden = !lib;
+  }
+  function rpReady(ready) {
+    document.getElementById('rpPrint').disabled = !ready;
+    document.getElementById('rpDownload').disabled = !ready || RP.busy;
+  }
+  function downloadFromPreview() {
+    var lib = rpPdf();
+    if (!lib || RP.busy || !RP.code || !BY_CODE[RP.code]) return;
+    var seq = RP.seq, format = rpFormat(), title = RP.title;
+    var d = PAPER[RP.paper] || PAPER.a4;
+    var html = recordSheetHtml(RP.code, RP.paper, true);
+    var status = document.getElementById('rpStatus').textContent;
+    RP.busy = true;
+    rpReady(true);
+    if (format === 'pdf') rpStatus(TT('Creating the PDF…'));
+    var made = lib.htmlFile(html).then(function (file) {
+      return lib.download({
+        html: file, name: title, format: format, title: title,
+        page: { w: d.w, h: d.h, margin: [SHEET_MARGIN_MM, SHEET_MARGIN_MM, SHEET_MARGIN_MM, SHEET_MARGIN_MM] },
+        producer: 'Carino Law · law.carino.systems'
+      });
+    });
+    return made.catch(function (e) { return { ok: false, error: String(e) }; }).then(function (r) {
+      RP.busy = false;
+      if (seq !== RP.seq) return;           // closed or rebuilt meanwhile
+      rpReady(true);
+      if (r.ok) rpStatus(status);
+      else rpStatus(TT(format === 'pdf' ? 'Could not create the PDF.' : 'Could not create the HTML file.'));
+    });
+  }
+
   function rpPaperChips() {
     document.querySelectorAll('#rpDialog [data-paper]').forEach(function (b) {
       b.checked = b.dataset.paper === RP.paper;
@@ -598,13 +672,14 @@
     if (!RP.code || !BY_CODE[RP.code]) { document.getElementById('rpDialog').close(); return; }
     var seq = ++RP.seq;
     var frame = document.getElementById('rpFrame');
-    var btn = document.getElementById('rpPrint');
-    btn.disabled = true;
+    rpReady(false);
     rpStatus('');
     rpPaperChips();
     frame.title = TT('Print preview');
     var html = recordSheetHtml(RP.code, RP.paper);
-    document.getElementById('rpName').textContent = RP.title;
+    rpEnsureSwitch();
+    if (RP.format) RP.format.relabel();
+    rpShowName();
     rpPageSize(paperBox(RP.paper).css);
     /* the frame takes its final width before the sheet lays out: measured at
        the stage's phone width, Law's max-width rules would apply inside it and
@@ -645,7 +720,7 @@
         } catch (e) { console.warn('Print preview: could not measure the pages.', e); }
         rpFit();
         rpStatus(pages ? '≈ ' + (pages === 1 ? TT('1 page') : TT('{n} pages').replace('{n}', pages)) : '');
-        btn.disabled = false;
+        rpReady(true);
       };
       if (d && d.fonts && d.fonts.ready) d.fonts.ready.then(measure, measure);
       else measure();
@@ -676,7 +751,7 @@
     rpFit();
     document.getElementById('rpName').textContent = '';
     rpStatus('');
-    document.getElementById('rpPrint').disabled = true;
+    rpReady(false);
     rpPageSize(null);
     var back = RP.back;
     RP.back = null;
@@ -696,6 +771,7 @@
     document.getElementById('dtPrint').addEventListener('click', openPrintPreview);
     document.getElementById('rpClose').addEventListener('click', function () { dlg.close(); });
     document.getElementById('rpPrint').addEventListener('click', printFromPreview);
+    document.getElementById('rpDownload').addEventListener('click', downloadFromPreview);
     dlg.addEventListener('click', function (e) {
       if (e.target === dlg) dlg.close();     // the scrim around the box
     });

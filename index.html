@@ -322,7 +322,8 @@
 <!-- Print preview: Print on a record opens this first. The frame holds the very
      document that prints (app.js recordSheetHtml), on a sheet at the paper's
      width; Print prints the frame, the ✕ drops it. The shared .rpv layout
-     (carino-ui.css 18b): every control in the left column, Print at its foot.
+     (carino-ui.css 18b): every control in the left column, Print and Download
+     at its foot, the File PDF | HTML switch (carino-pdf.js) just above the name.
      A <dialog> because the record is one: only the top layer stacks over a
      modal dialog. -->
 <dialog id="rpDialog" class="rpv-scrim" aria-labelledby="rpTitle">
@@ -342,7 +343,8 @@
       </div>
       <p class="rpv-name" id="rpName"></p>
       <div class="rpv-actions">
-        <button class="btn btn-primary" id="rpPrint" type="button" disabled data-i18n>Print</button>
+        <button class="btn" id="rpPrint" type="button" disabled data-i18n>Print</button>
+        <button class="btn btn-primary" id="rpDownload" type="button" disabled>Download PDF</button>
       </div>
     </aside>
     <div class="rpv-stage" id="rpStage"><iframe id="rpFrame" class="rpv-frame" title="Print preview"></iframe></div>
@@ -358,6 +360,7 @@
 <script src="carino-theme.js" data-mark="logo.svg" data-mark-color="logo-color.svg" defer></script>
 <script src="carino-lang.js" defer></script>
 <script src="i18n.js" defer></script>
+<script src="carino-pdf.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
